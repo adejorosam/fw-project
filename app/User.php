@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password'
     ];
 
     /**
@@ -27,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'privilege'
     ];
 
     /**
@@ -40,7 +40,7 @@ class User extends Authenticatable
     ];
 
     public function programs(){
-        return $this->belongsToMany(users::class)
+        return $this->belongsToMany(users::class);
     }
 
 }
