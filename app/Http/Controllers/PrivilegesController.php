@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\privilege;
 use Illuminate\Http\Request;
 
-use App\payment_status;
-
-class PaymentStatusController extends Controller
+class PrivilegesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class PaymentStatusController extends Controller
     public function index()
     {
         //
-        $payment_statuses = payment_status::all();
-        return view('payment_statuses.index')->with('payment_statuses', $payment_statuses);
-
+        $privileges = privilege::all();
+        return view('privileges.index')->with('privileges', $privileges);
     }
 
     /**
@@ -29,8 +27,7 @@ class PaymentStatusController extends Controller
     public function create()
     {
         //
-        return view('payment_statuses.create');
-        
+        return view('privileges.create');
     }
 
     /**
@@ -48,11 +45,11 @@ class PaymentStatusController extends Controller
         ]);
 
         //Create new post
-            $payment_statuses= new payment_status;
-            $payment_statuses->name = $request->input('name');
-            $payment_statuses->save();
+            $privileges= new privilege;
+            $privileges->name = $request->input('name');
+            $privileges->save();
 
-            return redirect('/payment_statuses')->with('success','payment_statuses created');
+            return redirect('/privilege')->with('success','privileges created');
     }
 
     /**
@@ -64,9 +61,8 @@ class PaymentStatusController extends Controller
     public function show($id)
     {
         //
-        $payment_statuses = payment_status::find($id);
-        return view('payment_statuses.show')->with('payment_statuses', $payment_statuses);
-
+        $privileges = privilege::find($id);
+        return view('privileges.show')->with('privileges', $privileges);
     }
 
     /**
@@ -78,9 +74,8 @@ class PaymentStatusController extends Controller
     public function edit($id)
     {
         //
-        $payment_statuses = payment_status::find($id);
-        return view('payment_statuses.edit')->with('payment_statuses', $payment_statuses);
-
+        $privileges = privilege::find($id);
+        return view('privileges.edit')->with('privileges', $privileges);
     }
 
     /**
@@ -98,13 +93,11 @@ class PaymentStatusController extends Controller
         ]);
 
         //Create new post
-            $payment_statuses = payment_status::find($id);
-            $payment_statuses->name = $request->input('name');
+            $privileges = privilege::find($id);
+            $privileges->name = $request->input('name');
            
 
-            return redirect('/payment_statuses')->with('success', ' Payment status successfully updated');
-
-
+            return redirect('/privilege')->with('success', 'Privileges successfully updated');
     }
 
     /**
@@ -116,8 +109,8 @@ class PaymentStatusController extends Controller
     public function destroy($id)
     {
         //
-        $payment_statuses = payment_status::find($id);
-        $payment_statuses->delete();
-        return redirect('/payment_statuses')->with('success', 'Payment status successfully deleted');
+        $privileges = privilege::find($id);
+        $privileges->delete();
+        return redirect('/privilege')->with('success', 'Privileges successfully deleted');
     }
 }

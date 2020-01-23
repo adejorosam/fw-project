@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
+Route::get('/terms', 'PagesController@terms');
+Route::get('/policy', 'PagesController@policy');
+Route::resource('program','ProgramsController');
+Route::resource('payment_status', 'PaymentStatusController');
+Route::resource('privilege', 'PrivilegesController');
+Route::resource('admin', 'AdminController');
+Route::get('/dashboard', 'AdminDashBoard@dashboard');
+
