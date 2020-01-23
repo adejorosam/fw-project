@@ -26,5 +26,8 @@ Route::resource('program','ProgramsController');
 Route::resource('payment_status', 'PaymentStatusController');
 Route::resource('privilege', 'PrivilegesController');
 Route::resource('admin', 'AdminController');
+Route::resource('/user', 'UserController');
 Route::get('/dashboard', 'AdminDashBoard@dashboard');
+
+
 

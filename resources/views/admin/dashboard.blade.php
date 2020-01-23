@@ -23,6 +23,14 @@
                                 <th></th>
                                 <th>Links</th>
                             </tr>
+                            <tr>
+                                <th> /user</th>
+                                <th></th>
+                                <th>Access all users</th>
+                                <th></th>
+                                <th><a href="/user" class="btn btn-primary">Users</a></th>
+                                <th></th>
+                            </tr>
                                 <tr>
                                     <th> /program</th>
                                     <th></th>
