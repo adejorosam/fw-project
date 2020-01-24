@@ -36,7 +36,7 @@
                                     <th></th>
                                     <th>Access all available programs</th>
                                     <th></th>
-                                    <th><a href="/program" class="btn btn-primary">Program Url</a></th>
+                                    <th><a href="/program" class="btn btn-primary">Programs</a></th>
                                     <th></th>
                                 </tr>
                                 <tr>
@@ -44,7 +44,7 @@
                                     <th></th>
                                     <th>Access all available courses</th>
                                     <th></th>
-                                <th><a href="/admin" class="btn btn-primary">Course Url</a></th>
+                                <th><a href="/admin" class="btn btn-primary">Courses</a></th>
                                     <th></th>
                                 </tr>
                                 <tr>
@@ -52,7 +52,7 @@
                                     <th></th>
                                     <th>Access all available privileges</th>
                                     <th></th>
-                                    <th><a href="/privilege" class="btn btn-primary">Privilege Url</a></th>
+                                    <th><a href="/privilege" class="btn btn-primary">Privileges</a></th>
                                     <th></th>
                                 </tr>
                                 <tr>
@@ -60,7 +60,7 @@
                                     <th></th>
                                     <th>Access all available programs</th>
                                     <th></th>
-                                    <th><a href="/payment_status" class="btn btn-primary">Users Payment Status Url</a></th>
+                                    <th><a href="/payment_status" class="btn btn-primary">Users Payment Statuses</a></th>
                                     <th></th>
                                 </tr>
                         </table>
