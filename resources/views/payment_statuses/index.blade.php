@@ -14,4 +14,7 @@
     <p>No payment status found</p>
     @endif
 </div>
+<div class="container">
+    <p ><a class="btn btn-primary mb-3" style="color:white;" href="payment_status/create"> Create a payment status </a></p>
+</div>
 @endsection

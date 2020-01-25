@@ -56,7 +56,7 @@ class programsController extends Controller
             $programs->price = $request->input('price');
             $programs->save();
 
-            return redirect('/programs')->with('success','Programs created');
+            return redirect('/program')->with('success','Programs created');
     }
 
     /**
@@ -96,7 +96,7 @@ class programsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-           ' name' => 'required',
+           'name' => 'required',
             'description' => 'required',
             'duration' => 'required',
             'price' => 'required',
@@ -111,7 +111,7 @@ class programsController extends Controller
 
             $programs->save();
 
-            return redirect('/programs')->with('success', 'programs successfully updated');
+            return redirect('/program')->with('success', 'Programs successfully updated');
     }
 
     /**

@@ -14,4 +14,7 @@
     <p>No privileges found</p>
     @endif
 </div>
+<div class="container">
+    <p ><a class="btn btn-primary mb-3" style="color:white;" href="privilege/create"> Create a privilege </a></p>
+</div>
 @endsection
