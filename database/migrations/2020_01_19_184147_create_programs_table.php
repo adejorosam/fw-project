@@ -17,7 +17,6 @@ class CreateProgramsTable extends Migration
             $table->increments('id');
             $table->string('Name');
             $table->string('duration');
-            $table->string('price');
             $table->text('description');
             // $table->integer('payment_status_id')->unsigned();
             // $table->foreign('payment_status_id')->references('id')->on('payment_statuses');

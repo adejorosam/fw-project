@@ -28,6 +28,7 @@ Route::resource('privilege', 'PrivilegesController');
 Route::resource('admin', 'AdminController');
 Route::resource('/user', 'UserController');
 Route::get('/dashboard', 'AdminDashBoard@dashboard');
+Route::get('', 'AdminController@welcome');
 
 
 

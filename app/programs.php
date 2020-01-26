@@ -9,6 +9,6 @@ class programs extends Model
     //
     public function users()
     {
-        return $this->belongsToMany(programs::class);
+        
     }
 }

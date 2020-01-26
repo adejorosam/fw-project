@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\course;
 use App\programs;
 use Illuminate\Http\Request;
@@ -24,12 +25,22 @@ class AdminController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
+
+     public function welcome(){
+         $courses = course::all();
+         $programs = programs::all();
+         return view('admin.welcome')->with('courses', $courses)->with('programs', $programs);
+
+     }
     public function create()
     {
         //
         $programs = programs::all();
         return view('admin.create')->with('programs', $programs);
+        // $course = course::all();
+        // return view('admin.create')->with('course', $course);
     }
 
     /**
@@ -38,26 +49,44 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+    
         //
         $this->validate($request,[
             'description' => 'required',
             'name' => 'required',
             'content' => 'required',
-            'program'=>'required'
+            'program_id'=>'required',
+            'image'=> 'required',
         ]);
 
         //Create new post
+            $c = 1;
             $course = new course;
             $course->description = $request->input('description');
-            $course->name =   $request->input('name');
+            $course->name =  $request->input('name');
             $course->content = $request->input('content');
-            $course->program_id = $request->input('program');
+            $course->program_id = $request->input('program_id');
+            #$course->image = $request->file('image');
+
+            if($c){
+                $image = $request->file('image');
+                $extension = $image->getClientOriginalName();
+                $filename = time() .'.'. $extension;
+                $file->move('public/uploads/courses/', $filename);
+                $course->image = $filename;
+
+            }
+            else{
+                return redirect('/admin')->with('error','Issue!');
+                $course->image = '';
+            }
+            
             $course->save();
 
             return redirect('/admin')->with('success','course created');
     }
+
 
     /**
      * Display the specified resource.
@@ -80,9 +109,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        $programs = programs::all();
+        $course = course::all();
         $course = course::find($id);
-        return view('admin.edit')->with('programs', $programs)->with('course', $course);
+        return view('admin.edit')->with('course', $course)->with('course', $course);
 
     }
 
@@ -98,7 +127,7 @@ class AdminController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'description' => 'required',
-            'program' =>'required',
+            'program_id' =>'required',
             'content'=>'required'
         ]);
 
@@ -107,7 +136,7 @@ class AdminController extends Controller
             $course->name = $request->input('name');
             $course->description = $request->input('description');
             $course->content = $request->input('content');
-            $course->program_id = $request->input('program');
+            $course->program_id = $request->input('program_id');
             $course->save();
 
             return redirect('/admin')->with('success', 'Course successfully updated');

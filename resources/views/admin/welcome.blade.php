@@ -131,23 +131,27 @@ footer.footer {
         <h2>Have access to our courses</h2>
         <p>Jump Right Back Into Learning</p>
     </div>
-    <div class="row">
+    @foreach($programs as $program)
+    <div class="container">
+      <div class="row">
       <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
+        {{-- <div class="card mb-3 box-shadow"> --}}
           <img class="card-img-top" src="https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png" alt="Card image cap">
           <div class="card-body">
-            <p class="card-text">Backend web development</p>
+            <p class="card-text"> {{$program->name}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View Course</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">View Program</button>
               </div>
-              <small class="text-muted">3 months</small>
+              <small class="text-muted">{{$program->duration}}</small>
             </div>
           </div>
         </div>
       </div>
+      </div>
+      @endforeach
       
-      <div class="col-md-4">
+      {{-- <div class="col-md-4">
         <div class="card mb-4 box-shadow">
           <img class="card-img-top" src="https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png" alt="Card image cap">
           <div class="card-body">
@@ -219,7 +223,7 @@ footer.footer {
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 {{-- test end --}}
 
 
