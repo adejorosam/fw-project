@@ -22,6 +22,10 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/policy', 'PagesController@policy');
+Route::get('/mobile', 'PagesController@mobile');
+Route::get('/datascience', 'PagesController@datascience');
+Route::get('/webdev', 'PagesController@webdev');
+Route::get('/uiux', 'PagesController@uiux');
 Route::resource('program','ProgramsController');
 Route::resource('payment_status', 'PaymentStatusController');
 Route::resource('privilege', 'PrivilegesController');
@@ -29,7 +33,7 @@ Route::resource('admin', 'AdminController');
 Route::resource('/user', 'UserController');
 Route::get('/dashboard', 'AdminDashBoard@dashboard');
 Route::get('', 'AdminController@welcome');
-Route::get('/programs/{{Name}}', 'AdminController@welcome');
+Route::get('/programs/{{id}}', 'AdminController@welcome');
 
 
 

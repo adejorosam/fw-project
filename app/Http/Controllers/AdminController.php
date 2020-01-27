@@ -127,7 +127,8 @@ class AdminController extends Controller
             'name' => 'required',
             'description' => 'required',
             'program_id' =>'required',
-            'content'=>'required'
+            'content'=>'required',
+            'image'=>'required'
         ]);
 
         //Create new post
@@ -136,6 +137,7 @@ class AdminController extends Controller
             $course->description = $request->input('description');
             $course->content = $request->input('content');
             $course->program_id = $request->input('program_id');
+            $course->image = $request->hasFile('image');
             $course->save();
 
             return redirect('/admin')->with('success', 'Course successfully updated');

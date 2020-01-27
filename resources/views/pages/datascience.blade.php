@@ -1,9 +1,7 @@
 @extends('layouts.app')
-
 @section('title')
-    Findworka | About Us
+   Findworka | Data Science 
 @endsection
-
 @section('content')
-    <h1> Welcome to our about page </h1>
+    <h1>  </h1>
 @endsection

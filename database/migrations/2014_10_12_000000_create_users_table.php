@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App/Roles;
-use App/Permissions;
+use App\Roles;
+use App\Permissions;
 
 
 class CreateUsersTable extends Migration
@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('image')->nullable();
             $table->boolean('suspend')->default(false);
             $table->integer('privilege_id')->unsigned()->default(1);
             $table->foreign('privilege_id')->references('id')->on('privileges')->onDelete('cascade')->nullable();
