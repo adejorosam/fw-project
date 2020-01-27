@@ -128,7 +128,7 @@ footer.footer {
   {{-- test --}}
   <div class="container">
     <div class="section-header">
-        <h2>Have access to our courses</h2>
+        <h2>Have access to our programs</h2>
         <p>Jump Right Back Into Learning</p>
     </div>
     @foreach($programs as $program)
@@ -138,10 +138,10 @@ footer.footer {
         {{-- <div class="card mb-3 box-shadow"> --}}
           <img class="card-img-top" src="https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png" alt="Card image cap">
           <div class="card-body">
-            <p class="card-text"> {{$program->name}}</p>
+            <p class="card-text"> {{$program->Name}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View Program</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href={{ url('programs/'.$program->Name) }}>View Program</a></button>
               </div>
               <small class="text-muted">{{$program->duration}}</small>
             </div>

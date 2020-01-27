@@ -6,8 +6,7 @@
 @if(count($programs) > 0)
     @foreach($programs as $program)
         <div class="well mb-3">
-            <h3><a href="/program/{{$program->id}}">{{$program->name}}</a></h3>
-            <p>{{$program->body}}</p>
+            <h3><a href="/program/{{$program->id}}">{{$program->Name}}</a></h3>
         </div>
     @endforeach
 @else

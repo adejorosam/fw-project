@@ -12,6 +12,10 @@
     {{Form::textarea('description', $course->description, ['class' =>'form-control', 'placeholder' => "Course Description"])}}
 </div>
 <div class="form-group">
+    {{Form::label('price',  'Course Price')}}
+    {{Form::text('price','', ['class' =>'form-control', 'placeholder' => "Course Price"])}}
+</div>
+<div class="form-group">
     {{Form::label('content',  'Course Content')}}
     {{Form::textarea('content', $course->content, ['class' =>'form-control', 'placeholder' => "Course Content"])}}
 </div>

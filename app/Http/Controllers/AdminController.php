@@ -61,31 +61,30 @@ class AdminController extends Controller
         ]);
 
         //Create new post
-            $c = 1;
             $course = new course;
             $course->description = $request->input('description');
             $course->name =  $request->input('name');
             $course->content = $request->input('content');
             $course->program_id = $request->input('program_id');
-            #$course->image = $request->file('image');
-
-            if($c){
-                $image = $request->file('image');
-                $extension = $image->getClientOriginalName();
-                $filename = time() .'.'. $extension;
-                $file->move('public/uploads/courses/', $filename);
+            $course->price= $request->input('price');
+            if($request->hasFile('image')){
+                $image = $request->image;
+                $ext = $image->getClientOriginalExtension();
+                $filename = uniqid().'.'.$ext;
+                $image->storeAs('public/pics',$filename);
+                // Storage::delete("public/pics/{$course->image}");
                 $course->image = $filename;
+                    
+            }else{
+                return redirect('/admin')->with('error', 'Issues!');
 
             }
-            else{
-                return redirect('/admin')->with('error','Issue!');
-                $course->image = '';
-            }
-            
             $course->save();
-
-            return redirect('/admin')->with('success','course created');
-    }
+            return redirect('/admin')->with('success','Course created');
+            
+        }
+            
+    
 
 
     /**
@@ -154,4 +153,9 @@ class AdminController extends Controller
         $course->delete();
         return redirect('/admin')->with('success', 'Course successfully deleted');
     }
+
+    // public function courses($Name){
+
+        
+    // }
 }
