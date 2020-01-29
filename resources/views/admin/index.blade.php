@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Available Courses | Findworka
+@endsection
 @section('content')
 <div class="container">
     <h1>List of all available Courses</h1>

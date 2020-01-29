@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Payment Status | Findworka
+@endsection
 @section('content')
 <div class="container">
     <a href="/payment_status" class="btn btn-default">Go back</a>

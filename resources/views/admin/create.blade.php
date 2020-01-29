@@ -31,7 +31,7 @@
     <label for="program">Pick a Program</label>
     <select type="number" name="program_id" class="form-control" >
         @foreach ($programs as $program)
-            <option value="{{$program->id}}">{{$program->Name}}</option>
+            <option value="{{$program->id}}">{{$program->name}}</option>
         @endforeach
     </select>
 </div>

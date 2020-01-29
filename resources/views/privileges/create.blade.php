@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Create a privilege | Findworka
+@endsection
 @section('content')
 <div class="container">
     {!! Form::open(['action'=>'PrivilegesController@store', 'method' => 'POST']) !!}

@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\programs;
+use App\program;
 use Illuminate\Http\Request;
 
-class programsController extends Controller
+class ProgramsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        $programs = programs::all();
-        return view('programs.index')->with('programs', $programs);
+        $programs = program::all();
+        return view('program.index')->with('programs', $programs);
     }
 
     /**
@@ -27,7 +28,7 @@ class programsController extends Controller
     public function create()
     {
         //
-        return view('programs.create');
+        return view('program.create');
     }
 
     /**
@@ -44,19 +45,17 @@ class programsController extends Controller
             'name' => 'required',
             'description' => 'required',
             'duration' => 'required',
-            'price' => 'required',
 
         ]);
 
         //Create new post
-            $programs = new programs;
+            $programs = new program;
             $programs->name = $request->input('name');
             $programs->description = $request->input('description');
             $programs->duration = $request->input('duration');
-            $programs->price = $request->input('price');
             $programs->save();
 
-            return redirect('/program')->with('success','Programs created');
+            return redirect('/program')->with('success','Program created');
     }
 
     /**
@@ -68,8 +67,8 @@ class programsController extends Controller
     public function show($id)
     {
         //
-        $programs = programs::find($id);
-        return view('programs.show')->with('programs', $programs);
+        $programs = program::find($id);
+        return view('program.show')->with('programs', $programs);
 
     }
 
@@ -82,8 +81,8 @@ class programsController extends Controller
     public function edit($id)
     {
         //
-        $programs = programs::find($id);
-        return view('programs.edit')->with('programs', $programs);
+        $programs = program::find($id);
+        return view('program.edit')->with('programs', $programs);
     }
 
     /**
@@ -96,22 +95,22 @@ class programsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-           'name' => 'required',
+            'name' => 'required',
             'description' => 'required',
             'duration' => 'required',
-            'price' => 'required',
+            
         ]);
 
         //Create new post
-            $programs = programs::find($id);
+            $programs = program::find($id);
             $programs->name = $request->input('name');
             $programs->description = $request->input('description');
             $programs->duration = $request->input('duration');
-            $programs->price = $request->input('price');
+           
 
             $programs->save();
 
-            return redirect('/program')->with('success', 'Programs successfully updated');
+            return redirect('/program')->with('success', 'Program successfully updated');
     }
 
     /**
@@ -123,8 +122,8 @@ class programsController extends Controller
     public function destroy($id)
     {
         //
-        $programs = programs::find($id);
+        $programs = program::find($id);
         $programs->delete();
-        return redirect('/programs')->with('success', 'programs successfully deleted');
+        return redirect('/program')->with('success', 'Program successfully deleted');
     }
 }

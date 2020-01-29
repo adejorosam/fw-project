@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Edit Payment Status | Findworka
+@endsection
 
 @section('content')
 <div class="container">
@@ -11,7 +14,7 @@
         
         
         {{Form::hidden('_method', 'PUT')}}
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
     </div>
 @endsection

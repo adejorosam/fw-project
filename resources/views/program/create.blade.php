@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Create a program | Findworka
+@endsection
 @section('content')
 <div class="container">
     {!! Form::open(['action'=>'ProgramsController@store', 'method' => 'POST']) !!}
@@ -11,10 +13,7 @@
     {{Form::label('description',  'Program Description')}}
     {{Form::textarea('description','', ['class' =>'form-control', 'placeholder' => "Program Description"])}}
 </div>
-<div class="form-group">
-    {{Form::label('price',  'Program Cost')}}
-    {{Form::text('price','', ['class' =>'form-control', 'placeholder' => "Program Cost"])}}
-</div>
+
 <div class="form-group">
     {{Form::label('duration',  'Program Duration')}}
     {{Form::text('duration','', ['class' =>'form-control', 'placeholder' => "Program Duration"])}}

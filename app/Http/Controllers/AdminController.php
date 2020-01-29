@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\course;
-use App\programs;
+use App\program;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -30,17 +30,18 @@ class AdminController extends Controller
 
      public function welcome(){
          $courses = course::all();
-         $programs = programs::all();
+         $programs = program::all();
          return view('admin.welcome')->with('courses', $courses)->with('programs', $programs);
 
      }
     public function create()
     {
         //
-        $programs = programs::all();
-        return view('admin.create')->with('programs', $programs);
-        // $course = course::all();
-        // return view('admin.create')->with('course', $course);
+        $courses = course::all();
+        $programs = program::all();
+        return view('admin.create')->with('courses', $courses)->with('programs', $programs);
+        // $courses = courses::all();
+        // return view('admin.create')->with('courses', $courses);
     }
 
     /**
@@ -61,26 +62,26 @@ class AdminController extends Controller
         ]);
 
         //Create new post
-            $course = new course;
-            $course->description = $request->input('description');
-            $course->name =  $request->input('name');
-            $course->content = $request->input('content');
-            $course->program_id = $request->input('program_id');
-            $course->price= $request->input('price');
+            $courses = new course;
+            $courses->description = $request->input('description');
+            $courses->name =  $request->input('name');
+            $courses->content = $request->input('content');
+            $courses->program_id = $request->input('program_id');
+            $courses->price= $request->input('price');
             if($request->hasFile('image')){
                 $image = $request->image;
                 $ext = $image->getClientOriginalExtension();
                 $filename = uniqid().'.'.$ext;
                 $image->storeAs('public/pics',$filename);
-                // Storage::delete("public/pics/{$course->image}");
-                $course->image = $filename;
+                // Storage::delete("public/pics/{$courses->image}");
+                $courses->image = $filename;
                     
             }else{
                 return redirect('/admin')->with('error', 'Issues!');
 
             }
-            $course->save();
-            return redirect('/admin')->with('success','Course created');
+            $courses->save();
+            return redirect('/admin')->with('success','Courses created');
             
         }
             
@@ -95,8 +96,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $course = course::find($id);
-        return view('admin.show')->with('course', $course);
+        $courses = course::find($id);
+        return view('admin.show')->with('courses', $courses);
     }
 
     /**
@@ -108,9 +109,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        $course = course::all();
-        $course = course::find($id);
-        return view('admin.edit')->with('course', $course)->with('course', $course);
+        $courses = course::all();
+        $courses = course::find($id);
+        return view('admin.edit')->with('courses', $courses)->with('courses', $courses);
 
     }
 
@@ -132,15 +133,15 @@ class AdminController extends Controller
         ]);
 
         //Create new post
-            $course = course::find($id);
-            $course->name = $request->input('name');
-            $course->description = $request->input('description');
-            $course->content = $request->input('content');
-            $course->program_id = $request->input('program_id');
-            $course->image = $request->hasFile('image');
-            $course->save();
+            $courses = courses::find($id);
+            $courses->name = $request->input('name');
+            $courses->description = $request->input('description');
+            $courses->content = $request->input('content');
+            $courses->program_id = $request->input('program_id');
+            $courses->image = $request->hasFile('image');
+            $courses->save();
 
-            return redirect('/admin')->with('success', 'Course successfully updated');
+            return redirect('/admin')->with('success', 'Courses successfully updated');
     }
 
     /**
@@ -151,9 +152,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $course = course::find($id);
-        $course->delete();
-        return redirect('/admin')->with('success', 'Course successfully deleted');
+        $courses = course::find($id);
+        $courses->delete();
+        return redirect('/admin')->with('success', 'Courses successfully deleted');
     }
 
     // public function courses($Name){

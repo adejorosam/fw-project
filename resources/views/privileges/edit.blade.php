@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Edit a privilege | Findworka
+@endsection
 @section('content')
 <div class="container">
     <h1>Edit</h1>
@@ -11,7 +13,7 @@
         
         
         {{Form::hidden('_method', 'PUT')}}
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+        {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
     </div>
 @endsection

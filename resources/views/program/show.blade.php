@@ -1,12 +1,13 @@
 @extends('layouts.app')
-
+@section('title')
+    Program | Findworka
+@endsection
 @section('content')
 <div class="container">
     <a href="/program" class="btn btn-default">Go back</a>
 <h1 class="mt-3">{{$programs->name}}</h1>
 <div>
     <h4>{{$programs->description}}</h4>
-    <h4>${{$programs->price}}</h4>
     <h4>{{$programs->duration}}</h4>
 </div>
 <hr>

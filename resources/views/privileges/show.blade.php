@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Privilege  | Findworka
+@endsection
 @section('content')
 <div class="container">
     <a href="/privilege" class="btn btn-default">Go back</a>

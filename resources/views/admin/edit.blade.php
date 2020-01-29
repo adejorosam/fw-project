@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Edit Course | Findworka
+@endsection
 @section('content')
 <div class="container">
 {!! Form::open(['action'=>['AdminController@update', $course->id], 'method' => 'POST']) !!}
@@ -28,7 +30,7 @@
 </select>
 </div>
 {{Form::hidden('_method', 'PUT')}}
-{{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+{{Form::submit('Update', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 </div>
 @endsection
