@@ -42,7 +42,11 @@ class User extends Authenticatable
     ];
 
     public function programs(){
-        
+        return $this->belongsToMany(program::class);
+    }
+
+    public function payment_statuses(){
+        return $this->belongsToMany(payment_status::class);
     }
 
    
