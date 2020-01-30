@@ -26,25 +26,22 @@ class PagesController extends Controller
     }
 
     public function webdev(){
-        // $comment = App\Post::find(1)->comments()->where('title', 'foo')->first();
-        // $programs = program::all();
-        $courses = program::find(1)->courses()->where('program_id','1')->first();
-        // dd($courses);
+        $courses = course::where('program_id', '1')->get();
         return view("pages.webdev")->with('courses', $courses);
     }
 
-    public function uiux(){
-        // $programs = programs
-        return view("pages.uiux");
-    }
-
     public function datascience(){
-        // $programs = programs
+        $courses = course::where('program_id','2')->get();
         return view("pages.datascience");
     }
 
+    public function uiux(){
+        $courses = course::where('program_id','3')->get();
+        return view("pages.uiux");
+    }
+
     public function mobile(){
-        // $programs = programs
+        $courses = course::where('program_id','4')->get();
         return view("pages.mobile");
     }
 }

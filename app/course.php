@@ -9,6 +9,6 @@ class course extends Model
     //
     public function program()
     {
-        return $this->belongsTo(program::class);
+        return $this->belongsTo("App\program");
     }
 }

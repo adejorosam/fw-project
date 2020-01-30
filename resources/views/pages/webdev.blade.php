@@ -6,7 +6,7 @@
 
 
 @section('content')
-    @foreach($programs->courses as $course)
-        <h1> {{$course->courses->id}} </h1>
+    @foreach($courses as $course)
+        <h1> {{$course->name}} </h1>
     @endforeach 
 @endsection
