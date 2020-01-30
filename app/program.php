@@ -8,7 +8,7 @@ class program extends Model
 {
     //
     public function courses(){
-        return $this->hasMany('App\course');
+        return $this->hasMany(course::class);
     }
 
     public function users(){

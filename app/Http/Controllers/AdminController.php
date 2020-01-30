@@ -109,9 +109,10 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        $courses = course::all();
+        $programs = program::all();
         $courses = course::find($id);
-        return view('admin.edit')->with('courses', $courses)->with('courses', $courses);
+        
+        return view('admin.edit')->with('courses', $courses)->with('programs', $programs);
 
     }
 
@@ -129,17 +130,20 @@ class AdminController extends Controller
             'description' => 'required',
             'program_id' =>'required',
             'content'=>'required',
-            'image'=>'required'
+            'price'=>'required'
+
         ]);
 
+        
+
         //Create new post
-            $courses = courses::find($id);
+            $courses = course::find($id);
             $courses->name = $request->input('name');
             $courses->description = $request->input('description');
             $courses->content = $request->input('content');
             $courses->program_id = $request->input('program_id');
-            $courses->image = $request->hasFile('image');
             $courses->save();
+            // dd($courses);
 
             return redirect('/admin')->with('success', 'Courses successfully updated');
     }
@@ -157,8 +161,5 @@ class AdminController extends Controller
         return redirect('/admin')->with('success', 'Courses successfully deleted');
     }
 
-    // public function courses($Name){
-
-        
-    // }
+   
 }
