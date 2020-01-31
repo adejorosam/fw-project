@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/welcome', 'HomeController@index')->name('welcome');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
@@ -32,8 +32,7 @@ Route::resource('privilege', 'PrivilegesController');
 Route::resource('admin', 'AdminController');
 Route::resource('/user', 'UserController');
 Route::get('/dashboard', 'AdminDashBoard@dashboard');
-Route::get('', 'AdminController@welcome');
-Route::get('/programs/{{id}}', 'AdminController@welcome');
+Route::resource('userdashboard', 'DashboardController');
 
 
 

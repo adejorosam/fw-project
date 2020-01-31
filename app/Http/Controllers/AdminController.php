@@ -28,12 +28,7 @@ class AdminController extends Controller
      * 
      */
 
-     public function welcome(){
-         $courses = course::all();
-         $programs = program::all();
-         return view('admin.welcome')->with('courses', $courses)->with('programs', $programs);
-
-     }
+    
     public function create()
     {
         //

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserProgramTable extends Migration
+class CreateUserCourseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUserProgramTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_program', function (Blueprint $table) {
+        Schema::create('user_course', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('course_id');
             $table->timestamps();
-            $table->integer("user_id");
-            $table->integer("program_id");
         });
     }
 
@@ -28,6 +28,6 @@ class CreateUserProgramTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_program');
+        Schema::dropIfExists('user_course');
     }
 }
