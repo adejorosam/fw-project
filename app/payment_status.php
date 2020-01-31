@@ -11,4 +11,8 @@ class payment_status extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function payments(){
+        return $this->belongsToMany(payment::class);
+    }
+
 }
