@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('title')
-    Edit profile | Findworka
-@endsection
+@section('title', 'Edit profile | Findworka')
 @section('content')
 <div class="container">
     <h1>Edit Profile</h1>

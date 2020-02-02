@@ -10,7 +10,7 @@
     <h4>{{$privileges->name}}</h4>
 </div>
 <hr>
-<a class="btn btn-primary mb-3" href="/privilege/{{$privileges->id}}/edit" class="btn btn-default">Edit</a>
+<a class="btn btn-primary mb-3" href="{{url('/privilege')}}/{{$privilege->id}}/edit" class="btn btn-default">Edit</a>
 {!!Form::open(['action'=> ['PrivilegesController@destroy', $privileges->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
 {{Form::hidden('_method','DELETE')}}
 {{Form::submit('Delete',['class'=>'btn btn-danger pull-right'])}}

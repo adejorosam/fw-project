@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('title')
-    Edit Course | Findworka
-@endsection
+@section('title', 'Edit Course | Findworka')
 @section('content')
 <div class="container">
 {!! Form::open(['action'=>['AdminController@update', $courses->id], 'method' => 'POST']) !!}

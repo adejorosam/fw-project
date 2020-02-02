@@ -1,30 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\User;
-use App\course;
 
-class DashboardController extends Controller
+use Illuminate\Http\Request;
+
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         //
-       
-        return view('dashboard.index');
-
-
     }
 
     /**
@@ -57,8 +46,6 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
-     
-        
     }
 
     /**
@@ -66,13 +53,11 @@ class DashboardController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-
      */
-    // public function edit()
-    // {
-        
-    //     return view('dashboard');
-    // }
+    public function edit($id)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
@@ -81,13 +66,9 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, $id) {
-        $user = User::findOrFail($id);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = $request->get('password');
-        $user->save();
-        return redirect('/userdashboard')->with('success', 'Profile successfully updated');
+    public function update(Request $request, $id)
+    {
+        //
     }
 
     /**

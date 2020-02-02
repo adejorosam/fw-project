@@ -140,7 +140,7 @@ footer.footer {
             <p class="card-text"> Web Development </p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/webdev">View Courses</a></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{url('/webdev')}}">View Courses</a></button>
               </div>
               <small class="text-muted"> 3 months</small>
             </div>
@@ -155,7 +155,7 @@ footer.footer {
             <p class="card-text">Data Science</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/datascience">View Courses</a></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{url('/datascience')}}">View Courses</a></button>
               </div>
               <small class="text-muted">3 months</small>
             </div>
@@ -169,7 +169,7 @@ footer.footer {
             <p class="card-text">Mobile Development</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/datascience">View Courses</a></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{url('/mobile')}}">View Courses</a></button>
               </div>
               <small class="text-muted">3 months</small>
             </div>
@@ -184,7 +184,7 @@ footer.footer {
             <p class="card-text"> UI/UX Design</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/uiux">View Courses</a></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{url('/uiux')}}">View Courses</a></button>
               </div>
               <small class="text-muted">3 months</small>
             </div>
@@ -244,7 +244,7 @@ footer.footer {
                     <div class="col-lg-3 col-md-12 text-center ">
 						<h2 class="white-text center">Contact Us</h2>
 						<p class="lead white-text">Get In Touch With Us.</p>
-						<a class="main-button icon-button" href="/contact">Contact Us Now</a>
+						<a class="main-button icon-button" href="{{url('/contact')}}">Contact Us Now</a>
 					</div>
 
 				</div>

@@ -11,7 +11,7 @@
     <h4>{{$programs->duration}}</h4>
 </div>
 <hr>
-<a class="btn btn-primary mb-3" href="/program/{{$programs->id}}/edit" class="btn btn-default">Edit Program</a>
+<a class="btn btn-primary mb-3" href="{{url('/program')}}/{{$program->id}}/edit" class="btn btn-default">Edit Program</a>
 {!!Form::open(['action'=> ['ProgramsController@destroy', $programs->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
 {{Form::hidden('_method','DELETE')}}
 {{Form::submit('Delete',['class'=>'btn btn-danger pull-right'])}}

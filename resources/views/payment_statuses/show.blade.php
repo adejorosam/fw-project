@@ -10,7 +10,7 @@
     <h4>{{$payment_statuses->name}}</h4>
 </div>
 <hr>
-<a class="btn btn-primary mb-3" href="/payment_status/{{$payment_statuses->id}}/edit" class="btn btn-default">Edit</a>
+<a class="btn btn-primary mb-3" href="{{url('/payment_status')}}/{{$payment_statuses->id}}/edit" class="btn btn-default">Edit</a>
 {!!Form::open(['action'=> ['PaymentStatusController@destroy', $payment_statuses->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
 {{Form::hidden('_method','DELETE')}}
 {{Form::submit('Delete',['class'=>'btn btn-danger pull-right'])}}

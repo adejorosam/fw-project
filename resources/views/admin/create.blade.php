@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','Create program | Findworka')
 @section('content')
 <div class="container">
     {!! Form::open(['action'=>'AdminController@store', 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}

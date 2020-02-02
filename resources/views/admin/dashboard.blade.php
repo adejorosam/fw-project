@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('title')
-    Dashboard | Findworka
-@endsection
+@section('title', 'Dashboard | Findworka')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

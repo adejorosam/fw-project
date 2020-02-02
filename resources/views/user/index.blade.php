@@ -6,7 +6,7 @@
 @if(count($users) > 0)
     @foreach($users as $user)
         <div class="well mb-3">
-            <h3><a href="/user/{{$user->id}}">{{$user->name}}</a></h3>
+            <h3><a href="{{url('/user')}}/{{$user->id}}">{{$user->name}}</a></h3>
             <p>{{$user->body}}</p>
         </div>
     @endforeach

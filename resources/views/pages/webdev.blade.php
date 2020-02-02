@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title')
-    Findworka | Web Development
-@endsection
+@section('title', 'Findworka | Web Development')
+    
+
 
 
 @section('content')
