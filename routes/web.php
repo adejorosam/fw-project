@@ -33,6 +33,9 @@ Route::resource('admin', 'AdminController');
 Route::resource('/user', 'UserController');
 Route::get('/dashboard', 'AdminDashBoard@dashboard');
 Route::resource('userdashboard', 'DashboardController');
+Route::resource('role', 'RoleController');
+Route::resource('permission', 'PermissionController');
+
 
 
 

@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Permission;
 use Illuminate\Http\Request;
-use App\payment;
-use App\payment_status;
-use App\User;
 
-class PaymentController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        $payment_statuses = payment_status::all()
-
+        $permissions = Permission::all();
+        return view('permission.index')->with('permissions',$permissions);
     }
 
     /**
@@ -29,6 +26,7 @@ class PaymentController extends Controller
     public function create()
     {
         //
+        return view('permission.create');
     }
 
     /**
@@ -40,6 +38,16 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'name' => 'required',
+            
+        ]);
+
+        $permission = new Permission();
+        $permission->name = $request->get('name' );
+        $permission->display_name = $request->get('name');
+        $permission->save();
+        return redirect('permission')->with('success', 'Permission successfully created');
     }
 
     /**
@@ -51,6 +59,8 @@ class PaymentController extends Controller
     public function show($id)
     {
         //
+        $permission = Permission::find($id);
+        return view('permission.show')->with('permission', $permission);
     }
 
     /**
@@ -62,6 +72,8 @@ class PaymentController extends Controller
     public function edit($id)
     {
         //
+        $permission = Permission::find($id);
+        return view('permission.edit')->with('permission', $permission);
     }
 
     /**
@@ -74,6 +86,13 @@ class PaymentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+        'name'=> 'required',
+    ]);
+        $permission = Permission::find($id);
+        $permission->name = $request->input('name');
+        $permission->save();
+        return redirect('permission')->with('success', 'Edited successfully');
     }
 
     /**

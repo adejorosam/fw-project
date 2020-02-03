@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\payment;
-use App\payment_status;
 use App\User;
+use App\Role;
+use App\Permission;
 
-class PaymentController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        $payment_statuses = payment_status::all()
-
+        $roles = Role::all();
+        return view('role.index')->with('roles', $roles);
     }
 
     /**
@@ -29,6 +29,8 @@ class PaymentController extends Controller
     public function create()
     {
         //
+        $permissions = Permission::all();
+        return view('role.create')->with('permissions',$permissions);
     }
 
     /**
@@ -40,6 +42,21 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+         // 
+         $this->validate($request,[
+            'name' => 'required',
+            
+        ]);
+
+        $role = new Role();
+        $role->name = $request->get('name' );
+        $role->display_name = $request->get('name');
+        $role->save();
+        $permissions = $request->get('permissions');
+        foreach($permissions as $permission) {
+            $role->attachPermission($permission);   
+        }
+        return redirect('role')->with('success', 'Role successfully created');
     }
 
     /**
@@ -51,6 +68,8 @@ class PaymentController extends Controller
     public function show($id)
     {
         //
+        $role = Role::find($id);
+        return view('role.show')->with('role', $role);
     }
 
     /**

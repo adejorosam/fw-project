@@ -14,7 +14,8 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "5.8.*",
-        "santigarcor/laratrust": "5.0.*"
+        "santigarcor/laratrust": "5.2.*",
+        "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

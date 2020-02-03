@@ -7,10 +7,6 @@
     {{Form::label('name',  'Course Name')}}
     {{Form::text('name','', ['class' =>'form-control', 'placeholder' => "Course Name"])}}
 </div>
-{{-- <div class="form-group">
-    {{Form::label('image',  'Image')}}
-    {{Form::file('image', ['class'=> 'form-control', 'placeholder'=> 'Add an image'])}}
-</div> --}}
 <div class="form-group">
     <label for="">File Select</label>
     <input required type="file" class="form-control" name="image">
