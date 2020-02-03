@@ -1,6 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Createn Permission | Findworka')
 @section('content')
-  
     <div class="container">
       {!! Form::open(['action'=>'PermissionController@store', 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
   <div class="form-group">

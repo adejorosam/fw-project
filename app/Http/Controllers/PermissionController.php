@@ -44,8 +44,9 @@ class PermissionController extends Controller
         ]);
 
         $permission = new Permission();
-        $permission->name = $request->get('name' );
+        $permission->name = $request->get('name');
         $permission->display_name = $request->get('name');
+        $permission->description = $request->get('name');
         $permission->save();
         return redirect('permission')->with('success', 'Permission successfully created');
     }
@@ -91,6 +92,8 @@ class PermissionController extends Controller
     ]);
         $permission = Permission::find($id);
         $permission->name = $request->input('name');
+        $permission->display_name = $request->input('name');
+        $permission->description = $request->input('name');
         $permission->save();
         return redirect('permission')->with('success', 'Edited successfully');
     }
@@ -104,5 +107,8 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         //
+        $permission = Permission::find($id);
+        $permission->delete();
+        return redirect('/permission')->with('success', 'Permission successfully deleted');
     }
 }

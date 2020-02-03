@@ -29,8 +29,8 @@ class RoleController extends Controller
     public function create()
     {
         //
-        $permissions = Permission::all();
-        return view('role.create')->with('permissions',$permissions);
+        $roles = Role::all();
+        return view('role.create')->with('roles',$roles);
     }
 
     /**
@@ -52,9 +52,9 @@ class RoleController extends Controller
         $role->name = $request->get('name' );
         $role->display_name = $request->get('name');
         $role->save();
-        $permissions = $request->get('permissions');
-        foreach($permissions as $permission) {
-            $role->attachPermission($permission);   
+        $roles = $request->get('roles');
+        foreach($roles as $role) {
+            $role->attachrole($role);   
         }
         return redirect('role')->with('success', 'Role successfully created');
     }
@@ -81,6 +81,8 @@ class RoleController extends Controller
     public function edit($id)
     {
         //
+        $role = role::find($id);
+        return view('role.edit')->with('role', $role);
     }
 
     /**
@@ -93,6 +95,15 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+        'name'=> 'required',
+    ]);
+        $role = Role::find($id);
+        $role->name = $request->input('name');
+        $role->display_name = $request->input('name');
+        $role->description = $request->input('name');
+        $role->save();
+        return redirect('role')->with('success', 'Edited successfully');
     }
 
     /**
@@ -104,5 +115,8 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+        $role = Role::find($id);
+        $role->delete();
+        return redirect('/role')->with('success', 'Role successfully deleted');
     }
 }

@@ -1,9 +1,8 @@
-
 @extends('layouts.app')
 @section('content')
 <div class="container">
     <h1>Edit</h1>
-    {!! Form::open(['action'=>['RolesController@update', $role->id], 'method' => 'POST']) !!}
+    {!! Form::open(['action'=>['RoleController@update', $role->id], 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('name',  'Name')}}
             {{Form::text('name', $role->name, ['class' =>'form-control', 'placeholder' => "Name"])}}

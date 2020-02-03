@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Edit Permission | Findworka')
 @section('content')
 <div class="container">
     <h1>Edit</h1>
