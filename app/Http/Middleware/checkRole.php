@@ -6,6 +6,7 @@ use Closure;
 use App\Permission;
 use App\Role;
 use App\User;
+use App\Http\Middleware\Auth;
 
 class checkRole
 {
@@ -18,10 +19,19 @@ class checkRole
      */
     public function handle($request, Closure $next)
     {
+        
+        if (Auth()->check() == false) {
+            abort(404);
+        }
+
         if(auth()->user()->privilege_id == 3){
             return $next($request);
         }
-        return response('Not Allowed');
+       
+        else{
+            abort(404);
+        }
+        
  }
     
 }
