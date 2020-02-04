@@ -9,7 +9,7 @@
     <h4>{{$users->email}}</h4>
 </div>
 <hr>
-<a class="btn btn-primary mb-3" href="{{url('/user')}}/{{$user->id}}/edit" class="btn btn-default">Edit User</a>
+<a class="btn btn-primary mb-3" href="{{url('/user')}}/{{$users->id}}/edit" class="btn btn-default">Edit User</a>
 {!!Form::open(['action'=> ['UserController@destroy', $users->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
 {{Form::hidden('_method','DELETE')}}
 {{Form::submit('Delete',['class'=>'btn btn-danger pull-right'])}}

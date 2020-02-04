@@ -35,8 +35,7 @@ class AdminController extends Controller
         $courses = course::all();
         $programs = program::all();
         return view('admin.create')->with('courses', $courses)->with('programs', $programs);
-        // $courses = courses::all();
-        // return view('admin.create')->with('courses', $courses);
+        
     }
 
     /**

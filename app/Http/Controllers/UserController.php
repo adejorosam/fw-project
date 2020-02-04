@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\privilege;
 use Illuminate\Http\Request;
 
 
@@ -30,7 +31,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('user.create');
+        $privileges = privilege::all();
+        return view('user.create')->with('privileges', $privileges);
     }
 
     /**
@@ -81,7 +83,8 @@ class UserController extends Controller
     {
         //
         $users = User::find($id);
-        return view('user.edit')->with('users', $users);
+        $privileges = privilege::all();
+        return view('user.edit')->with('users', $users)->with('privileges',$privileges);
     }
 
     /**

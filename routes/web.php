@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// use App\Http\Middleware\checkRole;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,15 +26,16 @@ Route::get('/mobile', 'PagesController@mobile');
 Route::get('/datascience', 'PagesController@datascience');
 Route::get('/webdev', 'PagesController@webdev');
 Route::get('/uiux', 'PagesController@uiux');
-Route::get('/dashboard', 'AdminDashBoard@dashboard');
-Route::resource('program','ProgramsController');
-Route::resource('payment_status', 'PaymentStatusController');
-Route::resource('privilege', 'PrivilegesController');
-Route::resource('admin', 'AdminController');
-Route::resource('/user', 'UserController');
+Route::get('/dashboard', 'AdminDashBoard@dashboard')->middleware('verifyRole');
+Route::resource('program','ProgramsController')->middleware('verifyRole');
+Route::resource('payment_status', 'PaymentStatusController')->middleware('verifyRole');
+Route::resource('privilege', 'PrivilegesController')->middleware('verifyRole');
+Route::resource('admin', 'AdminController')->middleware('verifyRole');
+Route::resource('/user', 'UserController')->middleware('verifyRole');
 Route::resource('userdashboard', 'DashboardController');
-Route::resource('role', 'RoleController');
-Route::resource('permission', 'PermissionController');
+Route::resource('role', 'RoleController')->middleware('verifyRole');
+Route::resource('permission', 'PermissionController')->middleware('verifyRole');
+
 
 
 

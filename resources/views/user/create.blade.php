@@ -15,6 +15,14 @@
     {{Form::label('password',  'Password')}}
     {{Form::text('password','', ['class' =>'form-control', 'placeholder' => "Password"])}}
 </div>
+<div class="form-group">
+    <label for="privilege">Pick a privilege</label>
+    <select type="number" name="privilege_id" class="form-control" >
+        @foreach ($privileges as $privilege)
+            <option value="{{$privilege->id}}">{{$privilege->name}}</option>
+        @endforeach
+    </select>
+</div>
 
 
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
