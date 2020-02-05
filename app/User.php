@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     public function courses(){
-        return $this->belongsToMany(program::class);
+        return $this->belongsToMany(course::class);
     }
 
     public function payment_statuses(){

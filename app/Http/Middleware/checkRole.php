@@ -3,9 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Permission;
-use App\Role;
-use App\User;
 use App\Http\Middleware\Auth;
 
 class checkRole
