@@ -16,14 +16,18 @@
             {{Form::label('password',  'Password')}}
             {{Form::text('password','', ['class' =>'form-control', 'placeholder' => "Password"])}}
         </div>
-
-         <div class="form-group">
-            <h1> Registered Courses </h1>
-            {{Auth::user()->courses()->get()->first()->name}}
-        </div> 
-        
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
+
+         <div class="form-group">
+            <h3> Registered Courses </h3>
+            <hr>
+                @foreach($courses as $course)
+                        <p> {{$course->name}}</p>
+                @endforeach
+        </div> 
+        
+        
     {!! Form::close() !!}
     </div>
 @endsection

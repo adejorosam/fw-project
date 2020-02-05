@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\course;
 
@@ -21,9 +22,8 @@ class DashboardController extends Controller
     public function index()
     {
         
-       
-        return view('dashboard.index');
-
+        $courses = Auth::user()->courses()->get();
+        return view('dashboard.index')->with('courses', $courses);
 
     }
 
@@ -59,6 +59,7 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
+        
      
         
     }
