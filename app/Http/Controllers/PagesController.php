@@ -9,8 +9,10 @@ use App\course;
 class PagesController extends Controller
 {
     //
-
-   
+    public function __construct()
+    {
+        $this->middleware('suspend')->except(['suspend']);
+    }
 
     public function about(){
         return view("pages.about");
