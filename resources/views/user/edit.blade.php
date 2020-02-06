@@ -13,6 +13,11 @@
             {{Form::text('Email', $users->email, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
         </div>
         <div class="form-group">
+            {{Form::label('suspend',  'Suspend')}}
+            {{Form::text('suspend', $users->suspend, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
+        </div>
+
+        <div class="form-group">
             <label for="privilege">Pick a privilege</label>
             <select type="number" name="privilege_id" class="form-control" >
                 @foreach ($privileges as $privilege)

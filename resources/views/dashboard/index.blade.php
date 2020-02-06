@@ -2,7 +2,7 @@
 @section('title', 'Edit profile | Findworka')
 @section('content')
 <div class="container">
-    <h1>Edit Profile</h1>
+    <h1>Profile section</h1>
         {!! Form::open(['action'=>['DashboardController@update', Auth::user()->id], 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('name',  'Your Name')}}
@@ -19,11 +19,11 @@
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
 
-         <div class="form-group">
-            <h3> Registered Courses </h3>
+        <div class="form-group">
+            <h3> Your Course(s) </h3>
             <hr>
                 @foreach($courses as $course)
-                        <p> {{$course->name}}</p>
+                    <p> {{$course->name}}</p>
                 @endforeach
         </div> 
         

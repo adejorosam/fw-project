@@ -17,5 +17,10 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
             return route('login');
         }
+        
     }
 }
+
+// if(auth()->user()->privilege_id == 3){
+//             return $next($request);
+//         }

@@ -25,6 +25,10 @@ class PagesController extends Controller
         return view("pages.policy");
     }
 
+    public function suspend(){
+        return view("pages.suspend");
+    }
+
     public function webdev(){
         $courses = course::where('program_id', '1')->get();
         return view("pages.webdev")->with('courses', $courses);

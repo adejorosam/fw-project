@@ -21,10 +21,12 @@ class checkRole
             abort(404);
         }
 
+        
         if(auth()->user()->privilege_id == 3){
             return $next($request);
         }
-       
+
+        
         else{
             abort(404);
         }
