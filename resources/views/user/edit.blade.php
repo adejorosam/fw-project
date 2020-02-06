@@ -9,8 +9,8 @@
             {{Form::text('name', $users->name, ['class' =>'form-control', 'placeholder' => "Users Name"])}}
         </div>
         <div class="form-group">
-            {{Form::label('Email',  'Users Email')}}
-            {{Form::text('Email', $users->email, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
+            {{Form::label('email',  'Users Email')}}
+            {{Form::text('email', $users->email, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
         </div>
         <div class="form-group">
             {{Form::label('suspend',  'Suspend')}}

@@ -54,9 +54,10 @@ class UserController extends Controller
             $users->name = $request->input('name');
             $users->email = $request->input('email');
             $users->password = $request->input('password');
+            $users->privilege_id = $request->input('privilege_id');
             $users->save();
 
-            return redirect('/users')->with('success','user created');
+            return redirect('/user')->with('success','user created');
     }
 
     /**
@@ -98,20 +99,20 @@ class UserController extends Controller
     {
         //
         $this->validate($request,[
-            ' name' => 'required',
-             'email' => 'required',
-             'password' => 'required',
+            'name'=>'required',
+            'email'=>'required',
          ]);
  
          //Create new post
              $users = User::find($id);
              $users->name = $request->input('name');
              $users->email = $request->input('email');
-             $users->password = $request->input('password');
+             $users->suspend = $request->input('suspend');
+             $users->privilege_id = $request->input('privilege_id');
  
              $users->save();
  
-             return redirect('/users')->with('success', 'users successfully updated');
+             return redirect('/user')->with('success', 'Successfully updated');
 
     }
 
@@ -126,7 +127,7 @@ class UserController extends Controller
         //
         $users = User::find($id);
         $users->delete();
-        return redirect('/users')->with('success', 'user successfully deleted');
+        return redirect('/user')->with('success', 'User successfully deleted');
 
     }
 }
