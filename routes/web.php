@@ -22,7 +22,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/suspend', 'PagesController@suspend');
-Route::get('/privacy-policy', 'PagesController@policy');
+Route::get('/policy', 'PagesController@policy');
 Route::get('/mobile', 'PagesController@mobile');
 Route::get('/datascience', 'PagesController@datascience');
 Route::get('/webdev', 'PagesController@webdev');

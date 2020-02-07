@@ -16,6 +16,13 @@ class isSuspended
      */
     public function handle($request, Closure $next)
     {
+        // if (Auth()->check() == false) {
+        //     return redirect('')
+        // }
+        // if (Auth()->check() == false) {
+        //     ;
+        // }
+
         if(auth()->user()->suspend == 1){
             return redirect('/suspend');
         }

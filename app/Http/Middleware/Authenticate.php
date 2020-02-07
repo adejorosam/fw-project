@@ -21,6 +21,6 @@ class Authenticate extends Middleware
     }
 }
 
-// if(auth()->user()->privilege_id == 3){
-//             return $next($request);
-//         }
+#fullpayment status
+#payment type
+#status

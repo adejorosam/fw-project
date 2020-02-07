@@ -30,3 +30,6 @@ class CreatePaymentStatusesTable extends Migration
         Schema::dropIfExists('paymet_statuses');
     }
 }
+
+
+#status 

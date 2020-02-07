@@ -18,8 +18,6 @@ class CreateProgramsTable extends Migration
             $table->string('name');
             $table->string('duration');
             $table->text('description');
-            // $table->integer('payment_status_id')->unsigned();
-            // $table->foreign('payment_status_id')->references('id')->on('payment_statuses');
             $table->timestamps();
         });
     }
