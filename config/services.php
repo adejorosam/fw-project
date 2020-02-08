@@ -34,4 +34,23 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'google' => [
+        'client_id' => getenv('GOOGLE_CLIENT_ID'),
+        'client_secret' => getenv('GOOGLE_CLIENT_SECRET'),
+        'redirect' => getenv('GOOGLE_REDIRECT'),
+    ],
+    'facebook' => [
+    'client_id' => getenv('FACEBOOK_APP_ID'),
+    'client_secret' => getenv('FACEBOOK_APP_SECRET'),
+    'redirect' => getenv('FACEBOOK_REDIRECT'),
+  ],
+
 ];
+// return [
+//     ....
+//     'google' => [
+//         'client_id' => 'app id',
+//         'client_secret' => 'add secret',
+//         'redirect' => 'http://learnl52.hd/auth/google/callback',
+//     ],
+// ]

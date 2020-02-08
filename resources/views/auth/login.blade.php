@@ -53,11 +53,13 @@
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
+    
                                 </button>
 
                                 @if (Route::has('password.request'))
@@ -66,6 +68,12 @@
                                     </a>
                                 @endif
                             </div>
+                        </div>
+                        <div style="padding-top:15px;" class="form-group row mb-0">
+                            <div fa-google class="col-md-8 offset-md-4"><a href="{{ url('/redirect') }}" class="btn btn-primary">Login With Google</a></div>
+                        </div>
+                        <div style="padding-top:15px;" class="form-group row mb-0">
+                            <div fa-google class="col-md-8 offset-md-4"><a href="{{ url('/redirects') }}" class="btn btn-primary">Login With Facebook</a></div>
                         </div>
                     </form>
                 </div>
