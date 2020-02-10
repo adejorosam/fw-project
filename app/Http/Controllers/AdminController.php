@@ -56,6 +56,7 @@ class AdminController extends Controller
         ]);
 
         //Create new post
+        // dd($request->image);
             $courses = new course;
             $courses->description = $request->input('description');
             $courses->name =  $request->input('name');

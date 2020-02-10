@@ -109,6 +109,8 @@ class UserController extends Controller
              $users->email = $request->input('email');
              $users->suspend = $request->input('suspend');
              $users->privilege_id = $request->input('privilege_id');
+             
+
  
              $users->save();
  

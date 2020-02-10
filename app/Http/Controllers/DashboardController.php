@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\course;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -23,8 +24,9 @@ class DashboardController extends Controller
     public function index()
     {
         
-        $courses = Auth::user()->courses()->get();
-        return view('dashboard.index')->with('courses', $courses);
+        // $courses = Auth::user()->courses()->get();
+        return view('dashboard.index');
+        // ->with('courses', $courses);
 
     }
 
@@ -86,10 +88,30 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function update(Request $request, $id) {
+        // dd($request->file);
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required',
+            'password' =>'required',
+            'image'=>'required',
+            
+        ]);
+
         $user = User::findOrFail($id);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = $request->get('password');
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $ext = $image->getClientOriginalExtension();
+            $filename = uniqid().'.'.$ext;
+            $image->storeAs('public/pics',$filename);
+            // Storage::delete("public/pics/{$courses->image}");
+            $user->image = $filename;        
+        }
+        else{
+            return redirect('/userdashboard')->with('error', 'Issues!');
+        }
         $user->save();
         return redirect('/userdashboard')->with('success', 'Profile successfully updated');
     }
