@@ -105,9 +105,10 @@ class DashboardController extends Controller
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
-            $image->storeAs('public/pics',$filename);
+            $image->storeAs('public/uploads',$filename);
             // Storage::delete("public/pics/{$courses->image}");
-            $user->image = $filename;        
+            $user->image = $filename;   
+              
         }
         else{
             return redirect('/userdashboard')->with('error', 'Issues!');
