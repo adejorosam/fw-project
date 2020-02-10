@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Middleware\Auth;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,20 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'welcome';
+    // protected $redirectTo = 'welcome';
+
+    public function redirectTo(){
+        $privilege = auth()->user()->privilege_id;
+        if ($privilege == 3){
+            return '/dashboard';
+        }
+        elseif ($privilege == 2) {
+            return '/welcome';
+        }
+        elseif ($privilege == 1) {
+            return '/welcome';
+        }
+    }
 
     /**
      * Create a new controller instance.

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('title')
     Login | Findworka
-@endsection
-  
+@endsection 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
