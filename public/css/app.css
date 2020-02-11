@@ -209,9 +209,12 @@ figure {
 }
 
 img {
-  height: 40px;
   vertical-align: middle;
   border-style: none;
+}
+
+#profile-img{
+  height: 40px;
 }
 
 svg {
@@ -12734,3 +12737,70 @@ footer.footer {
   padding-bottom: 4rem;
 }
 
+.web-dev {
+  height: 50vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5))), url(/images/webb.png?37a901641987f6043fc76beb8f921e6c) no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(/images/webb.png?37a901641987f6043fc76beb8f921e6c) no-repeat center center/cover;
+}
+
+.web-dev-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  letter-spacing: 2px;
+}
+
+.what-do-you-want-to-offer {
+  margin: 80px;
+}
+
+.data-science {
+  height: 50vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5))), url(/images/data-science.png?e69fb0ed35687231ed9af871c80ff52a) no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(/images/data-science.png?e69fb0ed35687231ed9af871c80ff52a) no-repeat center center/cover;
+}
+
+.data-science-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  letter-spacing: 2px;
+}
+
+.ui-ux {
+  height: 50vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5))), url(/images/ui-ux.webp?d316642bf15aafaae71cbbf8b7a4ef1b) no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(/images/ui-ux.webp?d316642bf15aafaae71cbbf8b7a4ef1b) no-repeat center center/cover;
+}
+
+.ui-ux-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  letter-spacing: 2px;
+}
+
+.mobile-dev {
+  height: 50vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5))), url(/images/mobile-dev-2.png?226cb3d4dff12b415420ca839a6dfb3b) no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(/images/mobile-dev-2.png?226cb3d4dff12b415420ca839a6dfb3b) no-repeat center center/cover;
+}
+
+.mobile-dev-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  letter-spacing: 2px;
+}

@@ -52,7 +52,7 @@ class AdminController extends Controller
             'name' => 'required',
             'content' => 'required',
             'program_id'=>'required',
-            'image'=> 'required',
+            'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         //Create new post

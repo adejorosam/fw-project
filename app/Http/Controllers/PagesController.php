@@ -11,7 +11,7 @@ class PagesController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('suspend')->except(['suspend','about','contact','terms','policy']);
+        // $this->middleware('suspend')->except(['suspend','about','contact','terms','policy']);
     }
 
     public function about(){
