@@ -10,6 +10,15 @@ use Paystack;
 
 class PaymentController extends Controller
 {
+
+
+
+    public function __construct(){
+        return $this->middleware('auth');
+    }
+        
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +27,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        $payment_statuses = payment_status::all()
+        $payment_statuses = payment_status::all();
+        return view('payment.payment');
 
     }
     public function redirectToGateway()

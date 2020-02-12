@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</button>
+                <a href="{{url('/payment')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
             </div>
         </div>
     </div>

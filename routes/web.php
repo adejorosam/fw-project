@@ -41,6 +41,7 @@ Route::get('/callback', 'SocialAuthGoogleController@callback');
 Route::get('/redirects', 'SocialAuthFacebookController@redirect');
 Route::get('login/callback', 'SocialAuthFacebookController@callback');
 Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
+Route::get('/payment', 'PaymentController@index');
 
 
 
