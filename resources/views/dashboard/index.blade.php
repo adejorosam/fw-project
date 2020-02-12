@@ -14,15 +14,17 @@
         </div> --}}
         <div class="form-group">
             <label for="image">File Select</label>
-            <input required type="file" class="form-control" name="image" value="{{Auth::user()->image}}">
+            <input type="file" class="form-control" name="image" value="{{Auth::user()->image}}">
         </div>
         <div class="form-group">
             {{Form::label('email',  'E-mail Address')}}
             {{Form::text('email', Auth::user()->email, ['class' =>'form-control', 'placeholder' => "E-mail Address"])}}
         </div>
-        <div class="form-group">
-            {{Form::label('password',  'Password')}}
-            {{Form::text('password','', ['class' =>'form-control', 'placeholder' => "Password"])}}
+        <div class="form-group row">
+            <label for="password" class="col-md-7 col-form-label text-md-left">{{ __('Password') }}</label>
+            <div class="col-md-6">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            </div>
         </div>
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}

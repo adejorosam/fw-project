@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     // protected $redirectTo = 'welcome';
 
-    public function redirectTo(){
+    protected function redirectTo(){
         $privilege = auth()->user()->privilege_id;
         if ($privilege == 3){
             return '/dashboard';

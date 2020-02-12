@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -92,15 +93,20 @@ class DashboardController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
-            'password' =>'required',
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'password' => 'required',
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
         ]);
 
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $request->user()->fill([
+            'password' => Hash::make($request->input('password'))
+        ]);
+        // $request->user()->fill([
+        // 'password' => Hash::make($request->input('password'))];
+        // $user->password = $request->input('password');
         if($request->hasFile('image')){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
@@ -109,9 +115,6 @@ class DashboardController extends Controller
             // Storage::delete("public/pics/{$courses->image}");
             $user->image = $filename;   
               
-        }
-        else{
-            return redirect('/userdashboard')->with('error', 'Issues!');
         }
         $user->save();
         return redirect('/userdashboard')->with('success', 'Profile successfully updated');
