@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Curriculum;
 
-class CoursesController extends Controller
+class CurriculumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,8 @@ class CoursesController extends Controller
     public function index()
     {
         //
+        $files = Curriculum::all();
+        return view('curriculum.create')->with('files', $files);
     }
 
     /**
@@ -23,7 +26,9 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('curriculum.create');
+       
     }
 
     /**
@@ -35,6 +40,21 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            
+            'file' => 'required|file|max:2048',
+            
+        ]);
+
+        $curriculum = new Curriculum;
+        if($request->hasFile('file')){
+            $file = $request->file;
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/files',$filename);
+            $curriculum->file = $filename;      
+        }
+        $curriculum->save();
+        return redirect('/curriculum')->with('success','Curriculum created');
     }
 
     /**

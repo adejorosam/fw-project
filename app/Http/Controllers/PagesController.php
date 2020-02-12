@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\program;
 use App\course;
+use App\Curriculum;
 
 class PagesController extends Controller
 {
@@ -41,6 +42,7 @@ class PagesController extends Controller
 
     public function datascience(){
         $courses = course::where('program_id','2')->get();
+        // dd($file);
         return view("pages.datascience");
     }
 

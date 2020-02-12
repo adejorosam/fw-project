@@ -42,6 +42,13 @@ Route::get('/redirects', 'SocialAuthFacebookController@redirect');
 Route::get('login/callback', 'SocialAuthFacebookController@callback');
 Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
 Route::get('/payment', 'PaymentController@index');
+Route::resource('/curriculum', 'CurriculumController');
+Route::get('/download', 'DownloadsController@download');
+Route::get('/web', 'DownloadsController@websyllabus');
+Route::get('/product', 'DownloadsController@productsyllabus');
+Route::get('/mobiledev', 'DownloadsController@mobilesyllabus');
+
+
 
 
 
