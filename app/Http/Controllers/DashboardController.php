@@ -20,6 +20,7 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('suspend');
+        $this->middleware('verified');
     }
 
     public function index()

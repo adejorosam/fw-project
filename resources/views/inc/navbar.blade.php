@@ -17,7 +17,7 @@
                   <a class="nav-link" href="{{url('/about')}}">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('#')}}">Courses</a>
+                  <a class="nav-link" href="{{url('#courses')}}">Courses</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{url('#')}}"href="#">Categories</a>

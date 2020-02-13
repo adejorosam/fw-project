@@ -1,5 +1,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+  {{-- !chiefdaddy1234 --}}
     <meta charset="utf-8">
     <meta name="View Courseport" content="width=device-width, initial-scale=1">
 
@@ -133,7 +134,7 @@ footer.footer {
 </div>
     
   {{-- test --}}
-  <div class="container">
+  <div class="container" id="courses">
     <div class="section-header">
         <h2>Have access to our programs</h2>
         <p>Jump Right Back Into Learning</p>

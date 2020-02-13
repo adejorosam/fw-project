@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Auth::routes(['verify' => true]);
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
@@ -47,6 +47,7 @@ Route::get('/download', 'DownloadsController@download');
 Route::get('/web', 'DownloadsController@websyllabus');
 Route::get('/product', 'DownloadsController@productsyllabus');
 Route::get('/mobiledev', 'DownloadsController@mobilesyllabus');
+
 
 
 
