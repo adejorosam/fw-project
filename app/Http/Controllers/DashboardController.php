@@ -18,9 +18,8 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('suspend');
-        $this->middleware('verified');
+        $this->middleware(['auth','suspend','verified']);
+    
     }
 
     public function index()
@@ -94,7 +93,6 @@ class DashboardController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
         ]);
