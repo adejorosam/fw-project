@@ -36,6 +36,7 @@ Route::resource('/user', 'UserController')->middleware('verifyRole');
 Route::resource('userdashboard', 'DashboardController');
 Route::resource('role', 'RoleController')->middleware('verifyRole');
 Route::resource('permission', 'PermissionController')->middleware('verifyRole');
+Route::resource('assignment', 'AssignmentBoardController');
 Route::get('/redirect', 'SocialAuthGoogleController@redirect');
 Route::get('/callback', 'SocialAuthGoogleController@callback');
 Route::get('/redirects', 'SocialAuthFacebookController@redirect');
