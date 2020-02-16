@@ -40,13 +40,14 @@ class AssignmentBoardController extends Controller
     {
         $this->validate($request,[
             
-            'file' => 'required|file|max:2048',
+            'file' => 'required|max:2048',
             
         ]);
 
         $assignment = new Assignment;
+        // dd($request['assignment']);
         if($request->hasFile('file')){
-            $file = $request->file;
+            $file = $request['file'];
             $filename = $file->getClientOriginalName();
             $file->storeAs('public/assignments',$filename);
             $assignment->file = $filename;      

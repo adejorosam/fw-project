@@ -17,7 +17,7 @@ class CreateAssignmentsTable extends Migration
             $table->increments('id');
             $table->string('Name of course')->nullable();
             $table->string('assignment name')->nullable();
-            $table->string('assignment');
+            $table->string('file');
             $table->string('remarks')->nullable();
             $table->timestamps();
         });
