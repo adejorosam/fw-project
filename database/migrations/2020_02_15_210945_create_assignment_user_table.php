@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserAssignmentTable extends Migration
+class CreateAssignmentUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserAssignmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_assignment', function (Blueprint $table) {
+        Schema::create('assignment_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('assignment_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateUserAssignmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_assignment');
+        Schema::dropIfExists('assignment_user');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\course;
 use App\Assignment;
-// use App\User;
+// use App\assignment;
 
 class AssignmentBoardController extends Controller
 {
@@ -17,6 +17,8 @@ class AssignmentBoardController extends Controller
     public function index()
     {
         //
+        $assignments = Assignments::all;
+        return view('assignment.create')->with('assignments',$assignments);
     }
 
     /**
@@ -65,6 +67,7 @@ class AssignmentBoardController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -76,6 +79,9 @@ class AssignmentBoardController extends Controller
     public function edit($id)
     {
         //
+        $assignment = Assignment::find($id);
+        return view('assignment.edit')->with('assignment', $assignment);
+        
     }
 
     /**
@@ -88,6 +94,16 @@ class AssignmentBoardController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+        
+            'remarks'=>'required',
+         ]);
+ 
+         //Create new post
+             $assignment = Assignment::find($id);
+             $assignment->remarks = $request->input('remarks');
+             $assignment->save();
+             return redirect('/assignment')->with('success', 'Successfully updated');
     }
 
     /**
