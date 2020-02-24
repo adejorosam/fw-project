@@ -2,7 +2,7 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav" id="sidebar" style="background-color: #3A0765;">
     <div class="py-4 px-3 mb-4">
-        <a href="#">
+        <a href="/">
             <img alt="" class="img-fluid" src="images/logo.jpg">
         </a> 
     </div>
@@ -18,13 +18,15 @@
                 <i class="fa fa-address-card mr-3 fa-fw"></i> View Users
             </a>
         </li>
+       
+    <li class="nav-item">
         <a href="{{url('regusers')}}" class="nav-link font-italic py-3 mb-1 ">
             <i class="fa fa-address-card mr-3 fa-fw"></i> View Students
         </a>
-    </li> 
+    </li>
          <li class="nav-item">
          <a href="{{url('tutor')}}" class="nav-link font-italic py-3 mb-1 ">
-            <i class="fa fa-users mr-3"></i> View Tutors
+            <i class="fa fa-users mr-3 fa-fw"></i> View Tutors
             </a>
         </li>
         <li class="nav-item">
