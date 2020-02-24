@@ -67,7 +67,7 @@ class TutorController extends Controller
         $tutor = User::find($id);
         $privileges = privilege::all();
         $courses = course::all();
-        return view('tutor.edit')->with('tutor', $tutor)->with('privileges',$privileges)->with('courses',$courses);
+        return view('tutor.edit')->with('tutor', $tutor)->with('courses',$courses);
         
     }
 

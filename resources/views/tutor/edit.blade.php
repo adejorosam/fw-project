@@ -12,22 +12,20 @@
             {{Form::label('email',  'Users Email')}}
             {{Form::text('email', $tutor->email, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             {{Form::label('suspend',  'Suspend')}}
             {{Form::text('suspend', $tutor->suspend, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
-        </div>
-
+        </div> --}}
+        <label for="cars">Suspend</label>
         <div class="form-group">
-            <label for="privilege">Pick a privilege</label>
-            <select type="number" name="privilege_id" class="form-control" >
-                @foreach ($privileges as $privilege)
-                    <option value="{{$privilege->id}}">{{$privilege->name}}</option>
-                @endforeach
+            <select type="number" name="suspend" class="form-control">
+                <option value="0">0</option>
+                <option value="1">1</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="course">Pick a course</label>
+            <label for="course">Select a course</label>
             <select type="number" name="course" class="form-control" >
                 @foreach ($courses as $course)
                     <option value="{{$course->id}}">{{$course->name}}</option>
