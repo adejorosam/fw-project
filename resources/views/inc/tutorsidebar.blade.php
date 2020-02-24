@@ -23,30 +23,16 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url('course')}}" class="nav-link font-italic py-3 mb-1 ">
+            <a href="{{url('courses')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-book mr-3"></i> View Courses
             </a>
         </li>
-        {{-- <li class="nav-item">
-            <a href="#" class="nav-link font-italic py-3 mb-1 ">
-                <i class="fa fa-picture-o mr-3 fa-fw"></i> Review My Courses
-            </a>
-        </li> --}}
+       
         <li class="nav-item">
         <a href="{{url('assignment')}}" class="nav-link font-italic py-3 mb-1 ">
             <i class="fa fa-book mr-3"></i>View Submissions
             </a>
         </li>
-        {{-- <li class="nav-item">
-            <a href="{{url('performance')}}" class="nav-link font-italic py-3 mb-1 ">
-                    <i class="fa fa-picture-o mr-3 fa-fw"></i> View Performance
-                </a>
-            </li> --}}
-        {{-- <li class="nav-item">
-            <a href="#" class="nav-link font-italic py-3 mb-1 ">
-                <i class="fa fa-picture-o mr-3 fa-fw"></i> Resources
-            </a>
-        </li> --}}
         <li class="nav-item">
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();

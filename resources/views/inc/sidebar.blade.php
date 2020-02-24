@@ -50,7 +50,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url('admin/create')}}" class="nav-link font-italic py-3 mb-1 ">
+            <a href="{{url('course/create')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-book mr-3"></i> Create Course
             </a>
         </li>

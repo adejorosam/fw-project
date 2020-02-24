@@ -87,7 +87,7 @@ class TutorController extends Controller
             // User::create($tutor);
             $tutor->save;
             $course = $request->get('course');
-            $tutor->courses()->attach($course);
+            $tutor->courses()->sync($course);
             return redirect('/tutor')->with('success','Successfully updated');
     }
 }
