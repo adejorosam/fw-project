@@ -28,9 +28,8 @@ class TutorController extends Controller
     public function create()
     {
         //
-        $privileges = privilege::all();
         $courses = course::all();
-        return view('tutor.create')->with('privileges', $privileges)->with('courses',$courses);
+        return view('tutor.create')->with('courses',$courses);
     }
 
     public function store(Request $request)
@@ -42,14 +41,14 @@ class TutorController extends Controller
             'password' => 'required',
 
         ]);
-            $users = new User;
-            $users->name = $request->input('name');
-            $users->email = $request->input('email');
-            $users->password = \Hash::make($request['password']);
-            $users->privilege_id = $request->input('privilege_id');
-            $users->save();
+            $tutor = new User;
+            $tutor->name = $request->input('name');
+            $tutor->email = $request->input('email');
+            $tutor->password = \Hash::make($request['password']);
+            $tutor->privilege_id = 2;
+            $tutor->save();
             $course = $request->get('course');
-            $users->courses()->attach($course);
+            $tutor->courses()->attach($course);
             return redirect('/tutor')->with('success','User created');
     }
 
@@ -85,7 +84,7 @@ class TutorController extends Controller
             $tutor->name = $request->input('name');
             $tutor->email = $request->input('email');
             $tutor->privilege_id = $request->input('privilege_id');
-            $tutor->save();
+            User::create($tutor);
             $course = $request->get('course');
             $tutor->courses()->attach($course);
             return redirect('/tutor')->with('success','User edited');

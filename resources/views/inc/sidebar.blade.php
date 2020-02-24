@@ -28,6 +28,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{url('tutor/create')}}" class="nav-link font-italic py-3 mb-1 ">
+               <i class="fa fa-users mr-3"></i> Create Tutor
+               </a>
+           </li>
+        <li class="nav-item">
             <a href="{{url('program')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-book mr-3"></i> View Programs
                 </a>

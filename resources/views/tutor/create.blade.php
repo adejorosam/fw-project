@@ -25,14 +25,14 @@
         @endforeach
     </select>
 </div>
-<div class="form-group">
+{{-- <div class="form-group">
     <label for="privilege">Pick a privilege</label>
     <select type="number" name="privilege_id" class="form-control" >
         @foreach ($privileges as $privilege)
             <option value="{{$privilege->id}}">{{$privilege->name}}</option>
         @endforeach
     </select>
-</div>
+</div> --}}
 
 
 

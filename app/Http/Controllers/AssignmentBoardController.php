@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\course;
 use App\Assignment;
+use Illuminate\Support\Facades\DB;
 
 class AssignmentBoardController extends Controller
 {
@@ -22,7 +23,8 @@ class AssignmentBoardController extends Controller
     public function index()
     {
   
-        $assignments = Assignment::all();
+        // $assignments = Assignment::get()->paginate(10);
+        $assignments = DB::table('assignments')->paginate(15);
         $tutorcourse = Auth::user()->courses()->get();
         return view('assignment.index')->with('assignments', $assignments)->with('tutorcourse', $tutorcourse);
     }
@@ -36,7 +38,6 @@ class AssignmentBoardController extends Controller
     {
         
         $courses = Auth::user()->courses()->get();
-       
         return view("assignment.create")->with('courses', $courses);
     }
 
