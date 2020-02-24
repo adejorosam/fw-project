@@ -45,7 +45,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url('admin')}}" class="nav-link font-italic py-3 mb-1 ">
+            <a href="{{url('course')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-book mr-3"></i> View Courses
             </a>
         </li>
@@ -55,22 +55,7 @@
             </a>
         </li>
         
-        {{-- <li class="nav-item">
-            <a href="#" class="nav-link font-italic py-3 mb-1 ">
-                <i class="fa fa-picture-o mr-3 fa-fw"></i> View All Privileges
-            </a>
-        </li> --}}
-        {{-- <li class="nav-item">
-        <a href="{{url('assignment')}}" class="nav-link font-italic py-3 mb-1 ">
-            <i class="fa fa-file mr-3"></i> View Submissions
-            </a>
-        </li>  --}}
-        
-        {{-- <li class="nav-item">
-            <a href="#" class="nav-link font-italic py-3 mb-1 ">
-                <i class="fa fa-picture-o mr-3 fa-fw"></i> View All Privileges
-            </a>
-        </li> --}}
+       
         <li class="nav-item">
             
             <a href="{{ route('logout') }}"

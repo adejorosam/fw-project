@@ -2,7 +2,7 @@
 @section('title','Create program | Findworka')
 @section('content')
 <div class="container">
-    {!! Form::open(['action'=>'AdminController@store', 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
+    {!! Form::open(['action'=>'CourseController@store', 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
 <div class="form-group">
     {{Form::label('name',  'Course Name')}}
     {{Form::text('name','', ['class' =>'form-control', 'placeholder' => "Course Name"])}}

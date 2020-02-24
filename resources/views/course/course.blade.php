@@ -1,19 +1,4 @@
-{{-- @extends('layouts.app')
-@extends('layouts.admin-dashboard')
-@section('title', 'Available Courses | Findworka')
-@section('content')
-<div class="container">
-    <h1>Available Courses</h1>
-    @foreach ($courses as $course)
-    <h5>{{$course->id}}:<a href="{{url('/admin')}}/{{$course->id}}"> {{$course->name}} </a></h5>
-    @endforeach
-    </div> 
-    <div class="container">
-        <p ><a class="btn btn-primary mb-3" style="color:white;" href="admin/create"> Create a course </a></p>
-    </div>   
-@endsection --}}
-
-@extends('layouts.admin-dashboard')
+@extends('layouts.tutor-dashboard')
 @section('title', 'Available Courses | Findworka')
 @section('content')
 <div class="container-fluid mt-5">
@@ -50,10 +35,10 @@
                                                 {{$course->price}} 
                                             </td>
                                            
-                                            <td class="text">
+                                            {{-- <td class="text">
                                                 <a href="{{url('/admin')}}/{{$course->id}}" class="btn btn-warning">VIEW COURSE</a>
-                                                {{-- <a href="{{url('/admin')}}/{{$course->id}}/edit" class="btn btn-warning">EDIT COURSE</a> --}}
-                                            </td>
+                                                <a href="{{url('/admin')}}/{{$course->id}}/edit" class="btn btn-warning">EDIT COURSE</a>
+                                            </td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>

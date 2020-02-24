@@ -2,7 +2,7 @@
 @section('title', 'Edit Course | Findworka')
 @section('content')
 <div class="container">
-{!! Form::open(['action'=>['AdminController@update', $courses->id], 'method' => 'POST']) !!}
+{!! Form::open(['action'=>['CourseController@update', $courses->id], 'method' => 'POST']) !!}
 <div class="form-group">
     {{Form::label('name',  'Name')}}
     {{Form::text('name',$courses->name, ['class' =>'form-control', 'placeholder' => "Course Name"])}}

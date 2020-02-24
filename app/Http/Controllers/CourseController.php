@@ -7,7 +7,7 @@ use App\course;
 use App\program;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,14 +18,14 @@ class AdminController extends Controller
     {
         //return all courses in database
         $courses = course::all();
-        return view('admin.index')->with('courses', $courses);
+        return view('course.index')->with('courses', $courses);
     }
 
     public function courses()
     {
         //return all courses in database
         $courses = course::all();
-        return view('admin.course')->with('courses', $courses);
+        return view('course.course')->with('courses', $courses);
     }
 
     /**
@@ -41,7 +41,7 @@ class AdminController extends Controller
         //
         $courses = course::all();
         $programs = program::all();
-        return view('admin.create')->with('courses', $courses)->with('programs', $programs);
+        return view('course.create')->with('courses', $courses)->with('programs', $programs);
         
     }
 
@@ -79,11 +79,11 @@ class AdminController extends Controller
                 $courses->image = $filename;
                     
             }else{
-                return redirect('/admin')->with('error', 'Issues!');
+                return redirect('/course')->with('error', 'Issues!');
 
             }
             $courses->save();
-            return redirect('/admin')->with('success','Courses created');
+            return redirect('/course')->with('success','Courses created');
             
         }
             
@@ -99,7 +99,7 @@ class AdminController extends Controller
     public function show($id)
     {
         $courses = course::find($id);
-        return view('admin.show')->with('courses', $courses);
+        return view('course.show')->with('courses', $courses);
     }
 
     /**
@@ -114,7 +114,7 @@ class AdminController extends Controller
         $programs = program::all();
         $courses = course::find($id);
         
-        return view('admin.edit')->with('courses', $courses)->with('programs', $programs);
+        return view('course.edit')->with('courses', $courses)->with('programs', $programs);
 
     }
 
@@ -148,7 +148,7 @@ class AdminController extends Controller
             $courses->save();
             // dd($courses);
 
-            return redirect('/admin')->with('success', 'Course successfully updated');
+            return redirect('/course')->with('success', 'Course successfully updated');
     }
 
     /**
@@ -161,7 +161,7 @@ class AdminController extends Controller
     {
         $courses = course::find($id);
         $courses->delete();
-        return redirect('/admin')->with('success', 'Courses successfully deleted');
+        return redirect('/course')->with('success', 'Courses successfully deleted');
     }
 
    

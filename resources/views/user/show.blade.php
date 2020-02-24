@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <a href="/user" class="btn btn-default">Go back</a>
 <h1 class="mt-3">{{$users->name}}</h1>
 <div>
     <h4>{{$users->name}}</h4>
