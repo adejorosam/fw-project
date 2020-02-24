@@ -4,12 +4,12 @@
 <div class="container">
     {!! Form::open(['action'=>'TutorController@store', 'method' => 'POST']) !!}
 <div class="form-group">
-    {{Form::label('name',  'User Name')}}
-    {{Form::text('name','', ['class' =>'form-control', 'placeholder' => "User Name"])}}
+    {{Form::label('name',  'Tutor Name')}}
+    {{Form::text('name','', ['class' =>'form-control', 'placeholder' => "Tutor Name"])}}
 </div>
 <div class="form-group">
-    {{Form::label('email',  'User Email')}}
-    {{Form::text('email','', ['class' =>'form-control', 'placeholder' => "User email"])}}
+    {{Form::label('email',  'Tutor Email')}}
+    {{Form::text('email','', ['class' =>'form-control', 'placeholder' => "Tutor email"])}}
 </div>
 <div class="form-group row">
     <label for="password" class="col-md-7 col-form-label text-md-left">{{ __('Password') }}</label>

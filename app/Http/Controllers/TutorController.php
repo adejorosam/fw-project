@@ -84,9 +84,10 @@ class TutorController extends Controller
             $tutor->name = $request->input('name');
             $tutor->email = $request->input('email');
             $tutor->privilege_id = $request->input('privilege_id');
-            User::create($tutor);
+            // User::create($tutor);
+            $tutor->save;
             $course = $request->get('course');
             $tutor->courses()->attach($course);
-            return redirect('/tutor')->with('success','User edited');
+            return redirect('/tutor')->with('success','Successfully updated');
     }
 }
