@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 Auth::routes(['verify' => true]);
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 Route::get('/about', 'PagesController@about');
@@ -27,13 +26,14 @@ Route::get('/mobile', 'PagesController@mobile');
 Route::get('/datascience', 'PagesController@datascience');
 Route::get('/webdev', 'PagesController@webdev');
 Route::get('/uiux', 'PagesController@uiux');
-Route::get('/dashboard', 'AdminDashBoard@dashboard')->middleware('verifyRole');
+// Route::get('/dashboard', 'AdminDashBoard@dashboard')->middleware('verifyRole');
 Route::resource('program','ProgramsController')->middleware('verifyRole');
 Route::resource('payment_status', 'PaymentStatusController')->middleware('verifyRole');
 Route::resource('privilege', 'PrivilegesController')->middleware('verifyRole');
-Route::resource('admin', 'AdminController')->middleware('verifyRole');
+Route::resource('admin', 'AdminController');
+Route::get('course', 'AdminController@courses');
 Route::resource('/user', 'UserController')->middleware('verifyRole');
-Route::resource('userdashboard', 'DashboardController');
+Route::resource('/dashboards', 'DashboardController');
 Route::resource('role', 'RoleController')->middleware('verifyRole');
 Route::resource('permission', 'PermissionController')->middleware('verifyRole');
 Route::resource('assignment', 'AssignmentBoardController');
@@ -48,10 +48,10 @@ Route::get('/download', 'DownloadsController@download');
 Route::get('/web', 'DownloadsController@websyllabus');
 Route::get('/product', 'DownloadsController@productsyllabus');
 Route::get('/mobiledev', 'DownloadsController@mobilesyllabus');
-
-
-
-
-
-
-
+Route::resource('/tutor', 'TutorController');
+Route::get('/dashboard', 'CentralDashboardController@index');
+Route::get('/mycourses', 'CentralDashboardController@mycourses');
+Route::get('/performance', 'CentralDashboardController@performance');
+Route::get('/students', 'CentralDashboardController@students');
+Route::get('/regusers', 'UserController@regusers');
+Route::get('download/{id}', 'AssignmentBoardController@download');

@@ -75,7 +75,7 @@ class RegisterController extends Controller
         ]);
         event(new NewCustomerHasRegisteredEvent($user));
         // Mail::to($user->email)->send(new WelcomeNewUserMail());
-        $user->attachRole('Student');
+        // $user->attachRole('Student');
         return $user;
     }
 

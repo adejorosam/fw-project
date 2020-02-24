@@ -116,7 +116,7 @@ class DashboardController extends Controller
               
         }
         $user->save();
-        return redirect('/userdashboard')->with('success', 'Profile successfully updated');
+        return redirect('/dashboard')->with('success', 'Profile successfully updated');
     }
 
     /**

@@ -1,19 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.admin-dashboard')
 @section('title', 'Dashboard | Findworka')
 @section('content')
 <div class="container">
+    {{-- @include('inc.sidebar') --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
-
+                
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="panel-body">
+                    {{-- <div class="panel-body">
                         <h3>All Admin Endpoints</h3>
                         <table class="table table-striped">
                             <tr>
@@ -63,8 +64,16 @@
                                     <th><a href="/payment_status" class="btn btn-primary">Users Payment Statuses</a></th>
                                     <th></th>
                                 </tr>
+                                <tr>
+                                    <th> /tutors</th>
+                                    <th></th>
+                                    <th>Access all available tutors</th>
+                                    <th></th>
+                                    <th><a href="/tutor" class="btn btn-primary">Tutors</a></th>
+                                    <th></th>
+                                </tr>
                         </table>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

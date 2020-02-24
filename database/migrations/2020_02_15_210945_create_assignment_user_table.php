@@ -17,6 +17,8 @@ class CreateAssignmentUserTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('assignment_id')->unsigned();
+            $table->integer('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('assignment_id')->references('id')->on('assignments')->onDelete('cascade');
             $table->timestamps();

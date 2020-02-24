@@ -54,10 +54,12 @@ class User extends Authenticatable implements  MustVerifyEmail
     }
 
     public function assignments(){
-        return $this->belongsToMany(Assignment::class);
+        return $this->belongsToMany(Assignment::class)->withPivot('course_id');
     }
 
-    
+    public function privilege(){
+        return $this->belongsTo(privilege::class);
+    }
    
 }
 

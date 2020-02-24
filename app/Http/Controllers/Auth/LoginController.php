@@ -21,6 +21,8 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    // dd($users);
+
     /**
      * Where to redirect users after login.
      *
@@ -29,15 +31,16 @@ class LoginController extends Controller
     // protected $redirectTo = 'welcome';
 
     protected function redirectTo(){
+       
         $privilege = auth()->user()->privilege_id;
         if ($privilege == 3){
             return '/dashboard';
         }
         elseif ($privilege == 2) {
-            return '/welcome';
+            return '/dashboard';
         }
         elseif ($privilege == 1) {
-            return '/welcome';
+            return '/dashboard';
         }
     }
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-dashboard')
 @section('title','Create program | Findworka')
 @section('content')
 <div class="container">

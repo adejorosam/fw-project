@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Curriculum;
+use App\Assignment;
 
 class DownloadsController extends Controller
 {
+
+
+//     public function submission($id){
+//       $file = 
+
+//   }
     //Download Data Science Curriculum
     public function download() {
       $file = Curriculum::find(1);
@@ -35,6 +42,8 @@ class DownloadsController extends Controller
       $pathToFile = public_path('storage/files/'.$file_name);
       return response()->download($pathToFile);
   }
+
+  
 
  
 }

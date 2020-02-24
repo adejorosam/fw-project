@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\course;
 use App\Assignment;
-// use App\assignment;
 
 class AssignmentBoardController extends Controller
 {
@@ -14,11 +14,17 @@ class AssignmentBoardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
-        $assignments = Assignments::all;
-        return view('assignment.create')->with('assignments',$assignments);
+  
+        $assignments = Assignment::all();
+        $tutorcourse = Auth::user()->courses()->get();
+        return view('assignment.index')->with('assignments', $assignments)->with('tutorcourse', $tutorcourse);
     }
 
     /**
@@ -28,8 +34,10 @@ class AssignmentBoardController extends Controller
      */
     public function create()
     {
-        //
-        return view("assignment.create");
+        
+        $courses = Auth::user()->courses()->get();
+       
+        return view("assignment.create")->with('courses', $courses);
     }
 
     /**
@@ -41,8 +49,9 @@ class AssignmentBoardController extends Controller
      public function store(Request $request)
     {
         $this->validate($request,[
-            
+            'name' => 'required',
             'file' => 'required|max:2048',
+            
             
         ]);
 
@@ -54,8 +63,15 @@ class AssignmentBoardController extends Controller
             $file->storeAs('public/assignments',$filename);
             $assignment->file = $filename;      
         }
+        $assignment->name = $request->input('name');
+        $assignment->course_name = $request->input('course_name');
+        $assignment->remarks = "Yet to be graded";
         $assignment->save();
-        return redirect('/assignment')->with('success','Assignment submitted');
+        $user = Auth::user();
+        $course_id =  Auth::user()->courses()->first();
+        $assignment->users()->attach($user, ['course_id'=>$course_id['id']]);
+        return redirect('/performance')->with('success','Assignment submitted');
+       
     }
 
     /**
@@ -67,6 +83,8 @@ class AssignmentBoardController extends Controller
     public function show($id)
     {
         //
+        $assignment = Assignment::find($id);
+        return view('assignment.show')->with('assignment', $assignment);
         
     }
 
@@ -116,4 +134,14 @@ class AssignmentBoardController extends Controller
     {
         //
     }
+
+    public function download($id){
+        $assignment = Assignment::find($id);
+        $file_name = $assignment->file;
+        $pathToFile = public_path('storage/assignments/'.$file_name);
+        return response()->download($pathToFile);
+       
+    }
+
+    
 }

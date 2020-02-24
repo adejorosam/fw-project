@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-dashboard')
 
 @section('content')
 <div class="container">
@@ -25,6 +25,9 @@
                 @endforeach
             </select>
         </div>
+
+       
+
         
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\privilege;
+use App\course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Auth;
 
 
 class UserController extends Controller
@@ -13,13 +16,45 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+        // $this->middleware('suspend')->except(['suspend','about','contact','terms','policy']);
+    }
     public function index()
     {
         //
         {
             //
+            // $users = User::all();
+            // return view('user.index')->with('users', $users);
+
             $users = User::all();
+            $privileges = privilege::all();
+            // foreach($users as $user){
+            //     // foreach ($privileges as $privilege) {
+            //         # code...
+            //         dd($user->privilege->name);
+               
+            // }
+            // $courses = course::all();
+        
             return view('user.index')->with('users', $users);
+        }
+    }
+
+    public function regusers()
+    {
+        //
+        {
+            //
+            // $users = User::all();
+            // return view('user.index')->with('users', $users);
+
+            $users = User::where('privilege_id', '1')->paginate(10);
+            // $courses = course::all();
+        
+            return view('user.regusers')->with('users', $users);
         }
     }
 
@@ -28,12 +63,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-        $privileges = privilege::all();
-        return view('user.create')->with('privileges', $privileges);
-    }
+    // public function create()
+    // {
+    //     //
+    //     $privileges = privilege::all();
+    //     $courses = course::all();
+    //     return view('user.create')->with('privileges', $privileges)->with('courses',$courses);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -41,24 +77,28 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-        $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+    // public function store(Request $request)
+    // {
+    //     //
+    //     $this->validate($request,[
+    //         'name' => 'required',
+    //         'email' => 'required',
+    //         'password' => 'required',
 
-        ]);
-            $users = new User;
-            $users->name = $request->input('name');
-            $users->email = $request->input('email');
-            $users->password = $request->input('password');
-            $users->privilege_id = $request->input('privilege_id');
-            $users->save();
+    //     ]);
+    //         $users = new User();
+    //         $users->name = $request->input('name');
+    //         $users->email = $request->input('email');
+    //         $users->password = Hash::make($request->input['password']);
+    //         $users->privilege_id = $request->input('privilege_id');
+    //         $users->save();
 
-            return redirect('/user')->with('success','user created');
-    }
+           
+    //         // return $users;
+    //         // $course = $request->get('course');
+    //         // $users->courses()->attach($course);
+    //         return redirect('/user')->with('success','User created');
+    // }
 
     /**
      * Display the specified resource.
@@ -109,10 +149,8 @@ class UserController extends Controller
              $users->email = $request->input('email');
              $users->suspend = $request->input('suspend');
              $users->privilege_id = $request->input('privilege_id');
-             
-
- 
              $users->save();
+            
  
              return redirect('/user')->with('success', 'Successfully updated');
 

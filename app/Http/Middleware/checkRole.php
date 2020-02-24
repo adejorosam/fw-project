@@ -30,7 +30,6 @@ class checkRole
         else{
             abort(404);
         }
-        
  }
     
 }

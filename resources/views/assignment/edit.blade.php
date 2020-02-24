@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.tutor-dashboard')
 @section('title')
-    Edit Payment Status | Findworka
+    Grade Student Assignment| Findworka
 @endsection
 
 @section('content')
@@ -12,9 +12,6 @@
             {{Form::text('remarks', $assignment->remarks, ['class' =>'form-control', 'placeholder' => "Remark"])}}
         </div>
 
-        
-        
-        
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

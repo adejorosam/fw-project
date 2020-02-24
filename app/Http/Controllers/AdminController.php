@@ -21,6 +21,13 @@ class AdminController extends Controller
         return view('admin.index')->with('courses', $courses);
     }
 
+    public function courses()
+    {
+        //return all courses in database
+        $courses = course::all();
+        return view('admin.course')->with('courses', $courses);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -136,11 +143,12 @@ class AdminController extends Controller
             $courses->name = $request->input('name');
             $courses->description = $request->input('description');
             $courses->content = $request->input('content');
+            $courses->price = $request->input('price');
             $courses->program_id = $request->input('program_id');
             $courses->save();
             // dd($courses);
 
-            return redirect('/admin')->with('success', 'Courses successfully updated');
+            return redirect('/admin')->with('success', 'Course successfully updated');
     }
 
     /**

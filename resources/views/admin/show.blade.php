@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.admin-dashboard')
 @section('title', 'Course | Findworka')
 @section('content')
 <div class="container">
-    <h1>{{$courses->name}}</h1>
-    <p>{{$courses->description}}</p>
-    <p>{{$courses->price}}</p>
+    <h1>Course Name:{{$courses->name}}</h1>
+    <p><b>Course Description</b>:{{$courses->description}}</p>
+    <p><b>Course Content</b>:{{$courses->content}}</p>
+    <p><b>Price</b>:{{$courses->price}}</p>
+    <p><b>Duration</b>:3 months </p>
     <a class="btn btn-primary mb-3" href="{{url('/admin')}}/{{$courses->id}}/edit" class="btn btn-default">Edit Course</a>
 {!!Form::open(['action'=> ['AdminController@destroy', $courses->id], 'method'=>'POST', 'class'=>'pull-right'])!!}
 {{Form::hidden('_method','DELETE')}}
