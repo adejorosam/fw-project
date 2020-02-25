@@ -6,7 +6,6 @@ use App\User;
 use Illuminate\Http\Request;
 use App\course;
 use Illuminate\Support\Facades\Auth;
-use App\privilege;
 
 class TutorController extends Controller
 {
@@ -65,7 +64,6 @@ class TutorController extends Controller
     {
         //
         $tutor = User::find($id);
-        $privileges = privilege::all();
         $courses = course::all();
         return view('tutor.edit')->with('tutor', $tutor)->with('courses',$courses);
         
@@ -84,7 +82,6 @@ class TutorController extends Controller
             $tutor->name = $request->input('name');
             $tutor->email = $request->input('email');
             $tutor->privilege_id = $request->input('privilege_id');
-            // User::create($tutor);
             $tutor->save;
             $course = $request->get('course');
             $tutor->courses()->sync($course);

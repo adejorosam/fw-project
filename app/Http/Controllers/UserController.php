@@ -63,13 +63,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-        $privileges = privilege::all();
-        $courses = course::all();
-        return view('user.create')->with('privileges', $privileges)->with('courses',$courses);
-    }
+    // public function create()
+    // {
+    //     //
+    //     $privileges = privilege::all();
+    //     $courses = course::all();
+    //     return view('user.create')->with('privileges', $privileges)->with('courses',$courses);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -77,26 +77,26 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-        $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+    // public function store(Request $request)
+    // {
+    //     //
+    //     $this->validate($request,[
+    //         'name' => 'required',
+    //         'email' => 'required',
+    //         'password' => 'required',
 
-        ]);
-            $users = new User();
-            $users->name = $request->input('name');
-            $users->email = $request->input('email');
-            $users->password = Hash::make($request->input['password']);
-            $users->privilege_id = 2;
-            User::create($users);
+    //     ]);
+    //         $users = new User();
+    //         $users->name = $request->input('name');
+    //         $users->email = $request->input('email');
+    //         $users->password = Hash::make($request->input['password']);
+    //         $users->privilege_id = 2;
+    //         User::create($users);
 
-            $course = $request->get('course');
-            $users->courses()->attach($course);
-            return redirect('/user')->with('success','User created');
-    }
+    //         $course = $request->get('course');
+    //         $users->courses()->attach($course);
+    //         return redirect('/user')->with('success','User created');
+    // }
 
     /**
      * Display the specified resource.
