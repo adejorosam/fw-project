@@ -66,9 +66,8 @@ class UserController extends Controller
     // public function create()
     // {
     //     //
-    //     $privileges = privilege::all();
-    //     $courses = course::all();
-    //     return view('user.create')->with('privileges', $privileges)->with('courses',$courses);
+     
+    //     return view('user.create');
     // }
 
     /**
@@ -90,11 +89,9 @@ class UserController extends Controller
     //         $users->name = $request->input('name');
     //         $users->email = $request->input('email');
     //         $users->password = Hash::make($request->input['password']);
-    //         $users->privilege_id = 2;
+    //         $users->privilege_id = 3;
+            
     //         User::create($users);
-
-    //         $course = $request->get('course');
-    //         $users->courses()->attach($course);
     //         return redirect('/user')->with('success','User created');
     // }
 

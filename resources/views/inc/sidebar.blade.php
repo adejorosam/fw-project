@@ -13,11 +13,16 @@
                 <i class="fa fa-th-large mr-3 fa-fw"></i> Dashboard
             </a>
         </li>
-        {{-- <li class="nav-item">
-            <a href="{{url('profile')}}" class="nav-link font-italic py-3 mb-1 ">
-                <i class="fa fa-th-large mr-3 fa-fw"></i> My Profile
+        <li class="nav-item">
+            <a href="{{url('admins')}}" class="nav-link font-italic py-3 mb-1 ">
+                <i class="fa fa-users mr-3 fa-fw"></i> View Admins
             </a>
-        </li> --}}
+        </li>
+        <li class="nav-item">
+            <a href="{{url('profile/create')}}" class="nav-link font-italic py-3 mb-1 ">
+                <i class="fa fa-users mr-3 fa-fw"></i> Create Admin
+            </a>
+        </li>
         <li class="nav-item">
         <a href="{{url('user')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-address-card mr-3 fa-fw"></i> View Users

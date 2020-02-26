@@ -57,3 +57,4 @@ Route::get('/regusers', 'UserController@regusers');
 Route::get('download/{id}', 'AssignmentBoardController@download');
 Route::get('/profile', 'AdminController@index');
 Route::resource('/profile', 'AdminController');
+Route::get('admins', 'AdminController@admins');

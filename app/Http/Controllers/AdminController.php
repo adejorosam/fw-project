@@ -9,19 +9,47 @@ use App\User;
 
 class AdminController extends Controller
 {
-    //
+    public function admins(){
+        $admins = User::where('privilege_id', 3)->paginate(10);
+        return view('admin.admins')->with('admins', $admins);
+    }
+    
+    public function index(){
+        
+        return view('admin.profile');
+    }
+
     public function dashboard(){
 
         return view('admin.dashboard');
     }
 
-    public function index(){
-        // $admin = User::where('privilege_id', '3')->paginate(10);
-        return view('admin.profile');
+    public function create()
+    {
+        //
+        return view('admin.create');
+    }
+
+    public function store(Request $request)
+    {
+        //
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+            $admin = new User;
+            $admin->name = $request->input('name');
+            $admin->email = $request->input('email');
+            $admin->password = \Hash::make($request['password']);
+            $admin->privilege_id = 3;
+            $admin->save();
+            return redirect('/admin')->with('success','Admin created');
     }
 
     public function update(Request $request, $id) {
-        // dd($request->file);
+       
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
@@ -29,25 +57,23 @@ class AdminController extends Controller
             
         ]);
 
-        $user = User::findOrFail($id);
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $request->user()->fill([
+        $admin = admin::findOrFail($id);
+        $admin->name = $request->input('name');
+        $admin->email = $request->input('email');
+        $request->admin()->fill([
             'password' => Hash::make($request->input('password'))
         ]);
-        // $request->user()->fill([
-        // 'password' => Hash::make($request->input('password'))];
-        // $user->password = $request->input('password');
+        
         if($request->hasFile('image')){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
             $image->storeAs('public/uploads',$filename);
             // Storage::delete("public/pics/{$courses->image}");
-            $user->image = $filename;   
+            $admin->image = $filename;   
               
         }
-        $user->save();
+        $admin->save();
         return redirect('/profile')->with('success', 'Profile successfully updated');
     }
 }
