@@ -1,4 +1,4 @@
-A student management web app built as a capstone project during my time at Findworka Academy.
+A student management web app built as a capstone project at Findworka Academy.
 
 Major features include:
 1. Submission of assignments by students and real time grading by tutors.
