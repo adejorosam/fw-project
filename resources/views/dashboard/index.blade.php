@@ -1,7 +1,60 @@
 @extends('layouts.user-dashboard')
-{{-- @extends('layouts.app') --}}
-@include('inc.message')
+@section('title', 'Dashboard | Findworka')
 @section('content')
+@include('inc.message')
+<div class="container">
+    <div class="span3 well">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
+        @if(Auth::user()->image)
+        <img src="/storage/uploads/{{Auth::user()->image}}"  name="aboutme" width="140" height="140" class="img-circle">
+        @else
+        <img src="/storage/uploads/noimage.jpg"  name="aboutme" width="140" height="140" class="img-circle">
+        @endif
+        </a>
+        <h3>{{Auth::user()->name}} </h3>
+        <em>click my face for more</em>
+        </center>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">More About {{Auth::user()->name}}</h4>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    @if(Auth::user()->image)
+                    <img src="/storage/uploads/{{Auth::user()->image}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    @else
+                    <img src="/storage/pics/noimage.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    @endif
+                    <h3 class="media-heading">{{Auth::user()->name}} {{Auth::user()->last_name}}</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">name: {{Auth::user()->name}}</li>
+                        <li class="list-group-item">Email: {{Auth::user()->email}}</li>
+                        {{-- <li class="list-group-item">Phone: {{Auth::user()->phone}}</li>
+                        <li class="list-group-item">Status: {{Auth::user()->status}}</li> --}}
+                    </ul>
+                    </center>
+                    <hr>
+                    <center>
+                    {{-- <p class="text-left"><strong>Bio: </strong><br>{{Auth::user()->about}}</p> --}}
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about {{Auth::user()->name}}</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
 {!! Form::open(['action'=>['DashboardController@update', Auth::user()->id], 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
         <div class="form-group">
             {{Form::label('name',  'Your Name')}}
@@ -38,10 +91,25 @@
         
         
     {!! Form::close() !!}
+</center>
+<br>
+</main>
+@endsection
+
+        {{-- <div class="form-group">
+            <h3> Your Course(s) </h3>
+            <hr>
+                @foreach($courses as $course)
+                    <p> {{$course->name}}</p>
+                @endforeach
+        </div>  --}}
+        
+        
+    {{-- {!! Form::close() !!}
     {{-- @include('inc.footer') --}}
     </div>
    
-    @endsection 
+  
 {{--
     <div class="container-fluid mt-5">
     <div class="row">

@@ -45,7 +45,7 @@ class CentralDashboardController extends Controller
         }
         elseif ($privilege == 3) {
            
-            return view("admin.dashboard");
+            return view("admin.profile");
             
         }
 

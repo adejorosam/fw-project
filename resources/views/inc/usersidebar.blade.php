@@ -8,12 +8,12 @@
 
     <ul class="nav flex-column mb-0">
         <li class="nav-item">
-            <a href="/dashboard" class="nav-link font-italic py-3 mb-1 ">
+            <a href="#" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-th-large mr-3 fa-fw"></i> Dashboard
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link font-italic py-3 mb-1 ">
+            <a href="{{url('dashboard')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-address-card mr-3 fa-fw"></i> My Profile
             </a>
         </li> 

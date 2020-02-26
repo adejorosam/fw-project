@@ -55,3 +55,5 @@ Route::get('/performance', 'CentralDashboardController@performance');
 Route::get('/students', 'CentralDashboardController@students');
 Route::get('/regusers', 'UserController@regusers');
 Route::get('download/{id}', 'AssignmentBoardController@download');
+Route::get('/profile', 'AdminController@index');
+Route::resource('/profile', 'AdminController');

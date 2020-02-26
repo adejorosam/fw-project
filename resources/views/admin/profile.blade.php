@@ -1,7 +1,6 @@
-@extends('layouts.tutor-dashboard')
+@extends('layouts.admin-dashboard')
 @section('title', 'Dashboard | Findworka')
 @section('content')
-@include('inc.message')
 <div class="container">
     <div class="span3 well">
         <center>
@@ -78,7 +77,7 @@
             <label for="image">Upload Image</label>
             <input type="file" class="form-control" name="image" value="{{Auth::user()->image}}"> 
         </div> 
-        {{Form::hidden('_method', 'PUT')}}
+        {{Form::hidden('_method', 'PATCH')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
 
         {{-- <div class="form-group">
