@@ -16,6 +16,7 @@
             {{Form::label('suspend',  'Suspend')}}
             {{Form::text('suspend', $users->suspend, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
         </div>
+        
 
         <div class="form-group">
             <label for="privilege">Pick a privilege</label>

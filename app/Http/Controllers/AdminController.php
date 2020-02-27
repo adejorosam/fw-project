@@ -48,6 +48,16 @@ class AdminController extends Controller
             return redirect('/admin')->with('success','Admin created');
     }
 
+    public function edit($id){
+        $admin = User::find($id);
+        return view('admin.edit')->with('admin', $admin);
+    }
+
+    public function show($id){
+        $admin = User::find($id);
+        return view('admin.show')->with('admin', $admin);
+    }
+
     public function update(Request $request, $id) {
        
         $this->validate($request,[

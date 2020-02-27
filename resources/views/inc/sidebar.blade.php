@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{url('admins')}}" class="nav-link font-italic py-3 mb-1 ">
+            <a href="{{url('admin')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-users mr-3 fa-fw"></i> View Admins
             </a>
         </li>

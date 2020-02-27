@@ -37,7 +37,7 @@
                                             </td>
                                            
                                             <td class="text">
-                                                <a href="{{url('/admin')}}/{{$admin->id}}" class="btn btn-warning">VIEW</a>
+                                                <a href="{{url('admin')}}/{{$admin->id}}" class="btn btn-warning">VIEW</a>
                                                 {{-- <a href="{{url('/admin')}}/{{$admin->id}}/edit" class="btn btn-warning">EDIT admin</a> --}}
                                             </td>
                                         </tr>
