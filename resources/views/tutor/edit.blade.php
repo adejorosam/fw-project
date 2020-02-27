@@ -16,11 +16,13 @@
             {{Form::label('suspend',  'Suspend')}}
             {{Form::text('suspend', $tutor->suspend, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
         </div> --}}
-        <label for="cars">Suspend</label>
+        
         <div class="form-group">
-            <select type="number" name="suspend" class="form-control">
-                <option value="0">0</option>
-                <option value="1">1</option>
+            <label for="suspend">Suspend</label>
+            <select  name="suspend" id="suspend" class="form-control">
+                {{-- <option value="" disabled> Select </option> --}}
+                <option value="0" {{$tutor->suspend == '0' ? 'selected' : ''}}>0</option>
+                <option value="1" {{$tutor->suspend == '1' ? 'selected' : ''}}>1</option>
             </select>
         </div>
 
@@ -28,7 +30,7 @@
             <label for="course">Select a course</label>
             <select type="number" name="course" class="form-control" >
                 @foreach ($courses as $course)
-                    <option value="{{$course->id}}">{{$course->name}}</option>
+                    <option value="{{$course->id}}" {{$course->id == $course->course_id ? 'selected' : ''}}>{{$course->name}}</option>
                 @endforeach
             </select>
         </div>

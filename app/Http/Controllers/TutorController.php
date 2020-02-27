@@ -81,8 +81,9 @@ class TutorController extends Controller
             $tutor = User::find($id);
             $tutor->name = $request->input('name');
             $tutor->email = $request->input('email');
-            $tutor->privilege_id = $request->input('privilege_id');
-            $tutor->save;
+            // $tutor->privilege_id = $request->input('privilege_id');
+            $tutor->suspend = $request->input('suspend');
+            $tutor->save();
             $course = $request->get('course');
             $tutor->courses()->sync($course);
             return redirect('/tutor')->with('success','Successfully updated');

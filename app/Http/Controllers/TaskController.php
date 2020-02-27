@@ -63,7 +63,7 @@ class TaskController extends Controller
             $task->title = $request->input('title');
             $task->course_name = $request->input('course_name');
             $task->content = $request->input('content');
-            $task->save;
+            $task->save();
             return redirect('/task')->with('success','Successfully updated');
     }
 }
