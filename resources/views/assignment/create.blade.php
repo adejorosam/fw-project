@@ -12,7 +12,7 @@
         @endforeach  
     </div> --}}
     <div class="form-group">
-        <label for="privilege">Course Name</label>
+        <label for="course">Course Name</label>
         <select type="number" name="course_name" class="form-control" >
             @foreach ($courses as $course)
                 <option value="{{$course->name}}">{{$course->name}}</option>
@@ -30,18 +30,7 @@
         <input required type="file" class="form-control" name="file">
     </div>
     
-    {{-- <div class="form-group">
-        @foreach($courses as $course)
-        {{Form::label('name',  'Name')}}
-        {{Form::text('name',, ['class' =>'form-control', 'placeholder' => "Name"])}}
-    </div>
-    @endforeach
-    --}}
-    
-                    
-                
-
-
+ 
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 </div>

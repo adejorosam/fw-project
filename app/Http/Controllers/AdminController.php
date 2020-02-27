@@ -57,12 +57,10 @@ class AdminController extends Controller
             
         ]);
 
-        $admin = admin::findOrFail($id);
+        $admin = User::findOrFail($id);
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');
-        $request->admin()->fill([
-            'password' => Hash::make($request->input('password'))
-        ]);
+        $admin->password = \Hash::make($request['password']);
         
         if($request->hasFile('image')){
             $image = $request->file('image');

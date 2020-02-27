@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\course;
+use App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 
 class DashboardController extends Controller
 {
@@ -129,4 +132,16 @@ class DashboardController extends Controller
     {
         //
     }
+
+    public function tasks(){
+        $tasks = DB::table('tasks')->paginate(15);
+        $usercourse = Auth::user()->courses()->get();
+
+        return view('dashboard.task')->with('tasks', $tasks)->with('usercourse',$usercourse);
+    }
+    public function task($id){
+        $task = Task::find($id);
+        return view('dashboard.show')->with('task',$task);
+    }
+    
 }

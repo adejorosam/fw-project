@@ -1,7 +1,7 @@
 @extends('layouts.tutor-dashboard')
 @section('title', 'Dashboard | Findworka')
 @section('content')
-@include('inc.message')
+{{-- @include('inc.message') --}}
 <div class="container">
     <div class="span3 well">
         <center>
@@ -55,7 +55,7 @@
     </div>
 </div>
 <hr>
-{!! Form::open(['action'=>['AdminController@update', Auth::user()->id], 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
+{!! Form::open(['action'=>['DashboardController@update', Auth::user()->id], 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
         <div class="form-group">
             {{Form::label('name',  'Your Name')}}
             {{Form::text('name', Auth::user()->name, ['class' =>'form-control', 'placeholder' => "Your Name"])}}
