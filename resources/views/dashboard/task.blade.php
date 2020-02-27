@@ -33,7 +33,7 @@
                                                 {{$task->course_name}} 
                                             </td>
                                             <td>
-                                                <a href="{{url('task')}}/{{$task->id}}">View</a>
+                                                <a href="{{url('tasks')}}/{{$task->id}}">View</a>
                                             </td>
                                             @endif
                                             @endforeach
