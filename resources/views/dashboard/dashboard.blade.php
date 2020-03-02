@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid mt-5">
     <div class="row">
-        @foreach($registered_courses as $registered_course)
+        @foreach($currently_enrolled as $latest)
         {{-- @foreach($courses as $course) --}}
         {{-- @if($registered_course->course_id == $course->id) --}}
         <div class="col-lg-5 col-md-5 col-sm-5 mt-n5">
@@ -17,7 +17,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
 
-                                <p class="card-category">Currently enrolled in: <br>{{$registered_course->name}}</p>
+                                <p class="card-category">Currently enrolled in: <br>{{$latest->name}}</p>
                                 <p class="card-title">Progress: 15%</p>
                             </div>
                         </div>
