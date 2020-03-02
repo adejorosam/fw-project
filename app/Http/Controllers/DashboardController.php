@@ -137,6 +137,7 @@ class DashboardController extends Controller
 
     public function tasks(){
         $tasks = Task::all();
+        $usercourse = Auth::user()->courses()->get();
         
         
         return view('dashboard.task')->with('tasks', $tasks)->with('usercourse',$usercourse);

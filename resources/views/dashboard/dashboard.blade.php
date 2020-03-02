@@ -46,7 +46,6 @@
                 
                 <div class="card-body ">
                 <p><a href="{{url('tasks')}}/{{$task->id}}"> {{$task->title}} </a></p>
-                        {{-- <a href="{{url('tasks')}}/{{$task->id}}">View</a> --}}
                 </div>
                 <div class="card-footer ">
                     <hr>
