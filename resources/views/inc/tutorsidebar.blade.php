@@ -1,14 +1,14 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav" id="sidebar" style="background-color: blue;">
     <div class="py-4 px-3 mb-4">
-        <a href="#">
+        <a href="/">
             <img alt="" class="img-fluid" src="images/logo.jpg">
         </a> 
     </div>
 
     <ul class="nav flex-column mb-0">
         <li class="nav-item">
-            <a href="dashboard" class="nav-link font-italic py-3 mb-1 ">
+            <a href="/dashboard" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-th-large mr-3 fa-fw"></i> Dashboard
             </a>
         </li>

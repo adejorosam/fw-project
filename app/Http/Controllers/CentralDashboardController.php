@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\course;
+use App\Task;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -34,8 +35,12 @@ class CentralDashboardController extends Controller
         if($privilege == 1){
          
             $registered_courses = Auth::user()->courses()->get();
+            $currently_enrolled = end($registered_courses);
             $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
-            return view('dashboard.dashboard')->with('registered_courses', $registered_courses)->with('tasks', $tasks);
+            $tasks2 = Task::all();
+            $recent_task = end($tasks2);
+            $usercourse = Auth::user()->courses()->get();
+            return view('dashboard.dashboard')->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
        
         }
         elseif($privilege == 2){
@@ -43,6 +48,7 @@ class CentralDashboardController extends Controller
             $tutorcourse = Auth::user()->courses()->first();
             $num_students = count($tutorcourse->users()->get()) - 1;
             $tasks = DB::table('tasks')->paginate(15);
+            
             return view('tutor.dashboard')->with('registered_courses', $registered_courses)->with('tasks', $tasks)->with('num_students', $num_students);     
         }
         elseif ($privilege == 3) {

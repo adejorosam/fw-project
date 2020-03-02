@@ -16,7 +16,8 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-                                <p class="card-category">{{$registered_course->name}}</p>
+
+                                <p class="card-category">Currently enrolled in: <br>{{$registered_course->name}}</p>
                                 <p class="card-title">Progress: 15%</p>
                             </div>
                         </div>
@@ -33,18 +34,19 @@
 
     </div>
     <div class="row">
-        {{-- @foreach($tasks as $task) --}}
+        @foreach($recent_task as $task)
+        @foreach($currently_enrolled as $enrolled)
+        @if($task->course_name == $enrolled->name)
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header ">
-                    <h5 class="card-title">Assignments</h5>
-                    <p class="card-category">Keep track of assignments given by your tutors</p>
+                    <h5 class="card-title">Assignment for the week</h5>
+                    <p class="card-category">Keep track of assignments given by your tutors and make sure to turn them in as early as possible</p>
                 </div>
                 
                 <div class="card-body ">
-                    <ul>
-                        
-                    </ul>
+                <p><a href="{{url('tasks')}}/{{$task->id}}"> {{$task->title}} </a></p>
+                        {{-- <a href="{{url('tasks')}}/{{$task->id}}">View</a> --}}
                 </div>
                 <div class="card-footer ">
                     <hr>
@@ -55,6 +57,10 @@
             </div>
         </div>
     </div>
+    @endif
+    @endforeach
+    @endforeach
+    
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -73,12 +79,13 @@
                     @endforeach
                     </ul>
                 </div>
-                <div class="card-body">
+                {{-- <div class="card-body">
                     <canvas id="chartEmail"></canvas>
-                </div>
+                </div> --}}
 
             </div>
         </div>
+
 
     </div>
     @endsection

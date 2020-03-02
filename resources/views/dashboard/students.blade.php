@@ -38,7 +38,7 @@
                                             <td>
                                                 {{$student->name}} 
                                             </td>
-                                            <p> {{count($students)}}</p>
+                                            
                                             <td>
                                                 {{$student->email}} 
                                             </td>
