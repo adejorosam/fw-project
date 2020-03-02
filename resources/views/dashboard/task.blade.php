@@ -41,7 +41,7 @@
                                     </tbody>
                                 </table>
                                 @else
-                                    <p>No submissions yet</p>
+                                    <p>No assignments yet</p>
                                 @endif
                             </div>
                         </div>

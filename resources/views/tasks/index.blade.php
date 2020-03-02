@@ -18,6 +18,9 @@
                                         <th>
                                             Action 
                                         </th>
+                                        <th>
+                                            Date Posted 
+                                        </th>
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
@@ -34,6 +37,9 @@
                                             </td>
                                             <td>
                                                 <a href="{{url('task')}}/{{$task->id}}">View</a>
+                                            </td>
+                                            <td>
+                                                {{$task->created_at}} 
                                             </td>
                                             @endif
                                             @endforeach

@@ -12,7 +12,7 @@ class TaskController extends Controller
 {
     //
     public function index(){
-        $tasks = DB::table('tasks')->paginate(15);
+        $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
         $usercourse = Auth::user()->courses()->get();
 
         return view('tasks.index')->with('tasks', $tasks)->with('usercourse',$usercourse);

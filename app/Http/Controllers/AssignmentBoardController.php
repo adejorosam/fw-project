@@ -122,7 +122,7 @@ class AssignmentBoardController extends Controller
              $assignment = Assignment::find($id);
              $assignment->remarks = $request->input('remarks');
              $assignment->save();
-             return redirect('/assignment')->with('success', 'Successfully updated');
+             return redirect('/assignment')->with('success', 'Successfully graded');
     }
 
     /**

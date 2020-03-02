@@ -18,6 +18,10 @@
                                         <th>
                                            Action 
                                         </th>
+                                        <th>
+                                            Date Submitted
+                                        </th>
+                                        
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
@@ -35,6 +39,9 @@
                                             <td>
                                                 <a href="{{url('assignment')}}/{{$assignment->id}}/edit">Grade</a>
                                             </td>
+                                            <td>
+                                                {{$assignment->created_at}}
+                                             </td>
                                             @endif
                                             @endforeach
                                             @endforeach

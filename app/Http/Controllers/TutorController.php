@@ -14,7 +14,13 @@ class TutorController extends Controller
      *
      
      * @return \Illuminate\Http\Response
+
+
      */
+
+    public function profile(){
+        return view('tutor.profile');
+    }
     public function index()
     {
         //

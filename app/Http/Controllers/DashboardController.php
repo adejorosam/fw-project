@@ -28,11 +28,13 @@ class DashboardController extends Controller
     public function index()
     {
         
-        // $courses = Auth::user()->courses()->get();
+        
         return view('dashboard.index');
-        // ->with('courses', $courses);
+        
 
     }
+
+    
 
     /**
      * Show the form for creating a new resource.

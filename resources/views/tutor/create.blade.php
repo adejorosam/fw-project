@@ -1,5 +1,4 @@
 @extends('layouts.admin-dashboard')
-
 @section('content')
 <div class="container">
     {!! Form::open(['action'=>'TutorController@store', 'method' => 'POST']) !!}
@@ -33,9 +32,6 @@
         @endforeach
     </select>
 </div> --}}
-
-
-
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 </div>

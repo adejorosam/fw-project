@@ -1,9 +1,10 @@
-@extends('layouts.tutor-dashboard')
+@extends('layouts.user-dashboard')
 @section('content')
 <div class="container-fluid mt-5">
     <div class="row">
         @foreach($registered_courses as $registered_course)
-        
+        {{-- @foreach($courses as $course) --}}
+        {{-- @if($registered_course->course_id == $course->id) --}}
         <div class="col-lg-5 col-md-5 col-sm-5 mt-n5">
             <div class="card card-stats">
                 <div class="card-body ">
@@ -16,7 +17,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">{{$registered_course->name}}</p>
-                            <h3 class="card-title"> Total students : {{$num_students}}</h3>
+                                <p class="card-title">Progress: 15%</p>
                             </div>
                         </div>
                     </div>
@@ -26,25 +27,23 @@
                 </div>
             </div>
         </div>
-       
+        {{-- @endif
+        @endforeach --}}
         @endforeach
 
     </div>
     <div class="row">
-        {{-- @if(count($tasks) > 0) --}}
-        @foreach($tasks as $task)
-        @foreach($registered_courses as $course)
-        @if($task->course_name == $course->name)
+        {{-- @foreach($tasks as $task) --}}
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header ">
                     <h5 class="card-title">Assignments</h5>
-                    <p class="card-category">Keep track of assignments you give to your students</p>
+                    <p class="card-category">Keep track of assignments given by your tutors</p>
                 </div>
                 
                 <div class="card-body ">
                     <ul>
-                        <li>{{$task->title}}</li>
+                        
                     </ul>
                 </div>
                 <div class="card-footer ">
@@ -56,10 +55,31 @@
             </div>
         </div>
     </div>
-    @endif
-    @endforeach
-    @endforeach
-   
-    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header ">
+                    <h5 class="card-title">Courses Registered</h5>
+                    <p class="card-category">List of registered courses</p>
+                    <ul>
+                    @foreach($registered_courses as $registered_course)
+                    {{-- @foreach($courses as $course) --}}
+                    {{-- @if($registered_course->course_id == $course->id) --}}
+                        <li>
+                            {{$registered_course->name}}
+                        </li>
+                    {{-- @endif
+                    @endforeach --}}
+                    @endforeach
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <canvas id="chartEmail"></canvas>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
     @endsection
     

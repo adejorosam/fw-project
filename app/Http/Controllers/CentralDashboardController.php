@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\course;
 use Illuminate\Support\Facades\Auth;
-// use App
-// use App\RegisteredCourses;
-// use App\Schedule;
-// use App\Assignment;
+use Illuminate\Support\Facades\DB;
+
+
 
 class CentralDashboardController extends Controller
 {
@@ -33,15 +32,18 @@ class CentralDashboardController extends Controller
         $privilege = auth()->user()->privilege_id;
 
         if($privilege == 1){
-            
-            // $mycourses = Auth::user()->courses()->get();
-            return view("dashboard.index");
-
+         
+            $registered_courses = Auth::user()->courses()->get();
+            $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
+            return view('dashboard.dashboard')->with('registered_courses', $registered_courses)->with('tasks', $tasks);
+       
         }
         elseif($privilege == 2){
-            // $user_privilege = 'tutor';
-            return view("tutor.dashboard");
-            
+            $registered_courses = Auth::user()->courses()->get();
+            $tutorcourse = Auth::user()->courses()->first();
+            $num_students = count($tutorcourse->users()->get()) - 1;
+            $tasks = DB::table('tasks')->paginate(15);
+            return view('tutor.dashboard')->with('registered_courses', $registered_courses)->with('tasks', $tasks)->with('num_students', $num_students);     
         }
         elseif ($privilege == 3) {
            
@@ -62,16 +64,13 @@ class CentralDashboardController extends Controller
         public function performance(){
             $data  = array('assignments' => Auth::user()->assignments()->get(),
         );
-            // dd($data);
+            
             return view('assignment.performance')->with($data);
         }
 
         public function students(){
             $students = User::where('privilege_id', '1')->paginate(10);
             $tutor = Auth::user()->courses()->get();
-            // dd($tutor);
-            // $courses = course::all();
-        
             return view('dashboard.students')->with('students', $students)->with('tutor',$tutor);
         }
 }
