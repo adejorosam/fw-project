@@ -23,8 +23,8 @@
                                     </thead>
                                     <tbody>
                                         @foreach($tasks as $task)
-                                        @foreach($usercourse as $course)
-                                        @if($task->course_name == $course->name)
+                                        {{-- @foreach($usercourse as $course)
+                                        @if($task->course_name == $course->name) --}}
                                         <tr>
                                             <td>
                                                 {{$task->title}}
@@ -35,8 +35,8 @@
                                             <td>
                                                 <a href="{{url('tasks')}}/{{$task->id}}">View</a>
                                             </td>
-                                            @endif
-                                            @endforeach
+                                            {{-- @endif
+                                            @endforeach --}}
                                             @endforeach
                                             @else
                                                 <p>No assignments yet</p>
