@@ -68,5 +68,3 @@ Route::patch('admin/{id}/edit', 'AdminController@update');
 Route::get('/dashboard', 'CentralDashboardController@index');
 Route::get('/userprofile', 'DashboardController@index');
 Route::get('/tutorprofile', 'TutorController@profile');
-// Route::get('userdashboard', 'DashboardController@userdashboard');
-// Route::get('dashboard', 'DashboardController@index');

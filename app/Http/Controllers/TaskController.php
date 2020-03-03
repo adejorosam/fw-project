@@ -15,6 +15,11 @@ class TaskController extends Controller
         $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
         $usercourse = Auth::user()->courses()->get();
         
+        return view('tasks.index')->with('tasks', $tasks)->with('usercourse', $usercourse);
+    }
+
+    public function create(){
+        $courses = (Auth::user()->courses()->get());
         return view('tasks.create')->with('courses', $courses);
     }
 
