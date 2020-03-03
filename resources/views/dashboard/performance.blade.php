@@ -41,7 +41,7 @@
                                         </tr>
                                         @endforeach
                                         @else
-                                        <p> You haven't registered for a course and so you don't have any assignments tailored towards you </p>
+                                        <p> No results </p>
                                         @endif
                                     </tbody>
                                 </table>
