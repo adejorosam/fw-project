@@ -12,8 +12,9 @@ class TaskController extends Controller
 {
     //
     public function index(){
-        $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
-        $usercourse = Auth::user()->courses()->get();
+        // $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
+        $usercourse = Auth::user()->courses()->first();
+        $tasks = Task::where('course_name', $usercourse['name'])->get();
         
         return view('tasks.index')->with('tasks', $tasks)->with('usercourse', $usercourse);
     }

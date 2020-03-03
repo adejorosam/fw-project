@@ -7,6 +7,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($assignments) > 0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -25,10 +26,9 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
-                                        @if(count($assignments) > 0)
                                         @foreach($assignments as $assignment)
-                                        @foreach($tutorcourse as $course)
-                                        @if($assignment->course_name == $course->name)
+                                        {{-- @foreach($tutorcourse as $course)
+                                        @if($assignment->course_name == $course->name) --}}
                                         <tr>
                                             <td>
                                             <a href="{{url('download')}}/{{$assignment->id}}">{{$assignment->name}}</a>
@@ -42,14 +42,16 @@
                                             <td>
                                                 {{$assignment->created_at}}
                                              </td>
+                                            {{-- @endif
+                                            @endforeach --}}
+                                            @endforeach
+                                            @else
+                                                <p>No submissions yet</p>
                                             @endif
-                                            @endforeach
-                                            @endforeach
+                                        </tr>
                                     </tbody>
                                 </table>
-                                @else
-                                    <p>No submissions yet</p>
-                                @endif
+                                
                             </div>
                         </div>
                     </div>

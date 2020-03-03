@@ -8,6 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($mycourses) > 0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -28,9 +29,6 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
-                                        
-                                        {{-- @foreach($courses as $course)
-                                        @if($mycourse->course_id == $course->id) --}}
                                         @foreach($mycourses as $mycourse)
                                         <tr>
                                             <td>
@@ -58,14 +56,13 @@
                                             @endforeach
                                             @endforeach
                                             @endforeach
-                                            <td class="text">
-                                                {{-- <a href="{{route('course.show', $course->id)}}" class="btn btn-warning">VIEW COURSE</a> --}}
-                                            </td>
-                                        </tr>
-                                        {{-- @endif
-                                        @endforeach --}}
-                                        @endforeach
+                                            @endforeach
+                                            @else
+                                                <p> You have not registered for a course yet </p>
+                                            @endif
+                                        </tr>   
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>

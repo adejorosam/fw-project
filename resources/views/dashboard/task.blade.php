@@ -7,6 +7,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($tasks) > 0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -21,7 +22,6 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
-                                        @if(count($tasks) > 0)
                                         @foreach($tasks as $task)
                                         @foreach($usercourse as $course)
                                         @if($task->course_name == $course->name)
@@ -38,11 +38,12 @@
                                             @endif
                                             @endforeach
                                             @endforeach
+                                            @else
+                                                <p>No assignments yet</p>
+                                            @endif
                                     </tbody>
                                 </table>
-                                @else
-                                    <p>No assignments yet</p>
-                                @endif
+                                
                             </div>
                         </div>
                     </div>

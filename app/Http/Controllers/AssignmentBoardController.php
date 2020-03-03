@@ -24,8 +24,13 @@ class AssignmentBoardController extends Controller
     {
   
         // $assignments = Assignment::get()->paginate(10);
-        $assignments = DB::table('assignments')->paginate(15);
-        $tutorcourse = Auth::user()->courses()->get();
+        
+        $tutorcourse = Auth::user()->courses()->first();
+        // dd($tutorcourse['name']);
+
+        $assignments = Assignment::where('course_name', $tutorcourse['name'])->get();
+        // dd($assignments);
+        
         return view('assignment.index')->with('assignments', $assignments)->with('tutorcourse', $tutorcourse);
     }
 

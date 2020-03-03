@@ -7,8 +7,11 @@
                         <h5 class="card-title">Students</h5>
                     </div>
                     <div class="card-body">
+                        
                         <div class="table-responsive">
+                            @if(count($students) > 0)
                                 <table class="table">
+                                    
                                     <thead class=" text-primary">
                                         <th>
                                             ID
@@ -45,12 +48,14 @@
                                             <td>
                                                 {{$course->name}} 
                                             </td>
-                                           
-                                        </tr>
                                         @endif
                                         @endforeach
                                         @endforeach
                                         @endforeach
+                                        @else
+                                            <p> No students available </p>
+                                        @endif
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

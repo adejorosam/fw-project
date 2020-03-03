@@ -33,15 +33,14 @@ class CentralDashboardController extends Controller
         $privilege = auth()->user()->privilege_id;
 
         if($privilege == 1){
-         
             $registered_courses = Auth::user()->courses()->get();
             $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
-            $usercourse = Auth::user()->courses()->get();
             $currently_enrolled = end($registered_courses);
-            foreach($currently_enrolled as $enrolled)
-                $name = $enrolled->name;
-            $tasks2 = Task::where('course_name',$name)->get();
-            $recent_task = end($tasks2);
+            $course_name = '';
+            foreach($currently_enrolled as $latest)
+                $course_name = $latest->name;
+            $course_tasks = Task::where('course_name',$course_name)->get();
+            $recent_task = end($course_tasks);
             
             return view('dashboard.dashboard')->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
        
@@ -74,7 +73,7 @@ class CentralDashboardController extends Controller
             $data  = array('assignments' => Auth::user()->assignments()->get(),
         );
             
-            return view('assignment.performance')->with($data);
+            return view('dashboard.performance')->with($data);
         }
 
         public function students(){

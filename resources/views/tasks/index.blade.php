@@ -7,6 +7,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                        @if(count($tasks) > 0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -24,10 +25,9 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
-                                        @if(count($tasks) > 0)
                                         @foreach($tasks as $task)
-                                        @foreach($usercourse as $course)
-                                        @if($task->course_name == $course->name)
+                                        {{-- @foreach($usercourse as $course)
+                                        @if($task->course_name == $course->name) --}}
                                         <tr>
                                             <td>
                                                 {{$task->title}}
@@ -41,14 +41,14 @@
                                             <td>
                                                 {{$task->created_at}} 
                                             </td>
-                                            @endif
+                                            {{-- @endif
+                                            @endforeach --}}
                                             @endforeach
-                                            @endforeach
+                                            @else
+                                            <p>You have not created any assignments yet</p>
+                                        @endif
                                     </tbody>
                                 </table>
-                                @else
-                                    <p>No submissions yet</p>
-                                @endif
                             </div>
                         </div>
                     </div>

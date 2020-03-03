@@ -8,17 +8,12 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($assignments) > 0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
                                             Name
                                         </th>
-                                        {{-- <th>
-                                            Duration(Months)
-                                        </th> --}}
-                                        {{-- <th>
-                                            Price
-                                        </th> --}}
                                         <th>
                                             Remarks
                                         </th>
@@ -28,9 +23,6 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
-                                        
-                                        {{-- @foreach($courses as $course)
-                                        @if($mycourse->course_id == $course->id) --}}
                                         @foreach($assignments as $assignment)
                                         <tr>
                                             <td>
@@ -42,34 +34,15 @@
                                             <td>
                                                 {{$assignment->course_name}} 
                                             </td>
-                                            {{-- @foreach($assignment->courses as $course) --}}
-                                            {{-- <td>
-                                                {{$course->name}}
-                                            </td> --}}
-                                            {{-- @endforeach --}}
-                                             <td>
-                                                {{-- {{$mycourse->progress}}% --}}
-                                            </td>
-                                            {{-- @foreach($mycourses as $mycourse) 
-                                                @foreach($tutors as $tutor)
-                                                @foreach($tutor->courses as $teacher)
-                                            <td> 
-                                                
-                                                @if($teacher->id == $mycourse['id'])
-                                                    {{$tutor->name}}
-                                                @endif
-                                                
-                                            </td> 
-                                            @endforeach
-                                            @endforeach
-                                            @endforeach --}}
+                                            
                                             <td class="text">
                                                 {{-- <a href="{{route('course.show', $course->id)}}" class="btn btn-warning">VIEW COURSE</a> --}}
                                             </td>
                                         </tr>
-                                        {{-- @endif
-                                        @endforeach --}}
                                         @endforeach
+                                        @else
+                                        <p> You haven't registered for a course and so you don't have any assignments tailored towards you </p>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

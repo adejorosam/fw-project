@@ -67,6 +67,7 @@
                     <h5 class="card-title">Courses Registered</h5>
                     <p class="card-category">List of registered courses</p>
                     <ul>
+                    @if(count($registered_courses)>0)
                     @foreach($registered_courses as $registered_course)
                     {{-- @foreach($courses as $course) --}}
                     {{-- @if($registered_course->course_id == $course->id) --}}
@@ -77,6 +78,9 @@
                     @endforeach --}}
                     @endforeach
                     </ul>
+                    @else
+                    <p> You haven't enrolled for a course yet </p>
+                    @endif
                 </div>
                 {{-- <div class="card-body">
                     <canvas id="chartEmail"></canvas>

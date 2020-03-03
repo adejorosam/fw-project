@@ -45,6 +45,7 @@
                                         <th class="text"></th>
                                     </thead>
                                     <tbody>
+                                        @if(count($programs) > 0)
                                         @foreach($programs as $program)
                                         <tr>
                                             <td>
@@ -63,6 +64,9 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                        @else
+                                            <p> No programs found </p>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
