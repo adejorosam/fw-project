@@ -57,11 +57,11 @@ class AssignmentBoardController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'file' => 'required|max:2048',
-            
-            
+           
         ]);
 
         $assignment = new Assignment;
+        // $user = new 
         // dd($request['assignment']);
         if($request->hasFile('file')){
             $file = $request['file'];
@@ -74,8 +74,10 @@ class AssignmentBoardController extends Controller
         $assignment->remarks = "Yet to be graded";
         $assignment->save();
         $user = Auth::user();
+        $progress = Auth::user()->courses()->first()->pivot->progress;
         $course_id =  Auth::user()->courses()->first();
         $assignment->users()->attach($user, ['course_id'=>$course_id['id']]);
+        $user->courses()->updateExistingPivot($course_id['id'],['progress'=>$progress + 6]);
         return redirect('/performance')->with('success','Assignment submitted');
        
     }

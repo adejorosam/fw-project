@@ -24,6 +24,11 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // public function apply($name){
+
+    //     return view('');
+    // }
     public function index()
     {
         //

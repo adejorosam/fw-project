@@ -41,8 +41,10 @@ class CentralDashboardController extends Controller
                 $course_name = $latest->name;
             $course_tasks = Task::where('course_name',$course_name)->get();
             $recent_task = end($course_tasks);
+            $user = Auth::user()->courses();
+            $progress = Auth::user()->courses()->first()->pivot->progress;
             
-            return view('dashboard.dashboard')->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
+            return view('dashboard.dashboard')->with('progress',$progress)->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
        
         }
         elseif($privilege == 2){
@@ -50,6 +52,7 @@ class CentralDashboardController extends Controller
             $tutorcourse = Auth::user()->courses()->first();
             $num_students = count($tutorcourse->users()->get()) - 1;
             $tasks = DB::table('tasks')->paginate(15);
+           
             
             return view('tutor.dashboard')->with('registered_courses', $registered_courses)->with('tasks', $tasks)->with('num_students', $num_students);     
         }
@@ -63,7 +66,7 @@ class CentralDashboardController extends Controller
         }
 
         public function mycourses(){
-            $data = array('mycourses' => Auth::user()->courses()->get(),
+            $data = array('mycourses' => Auth::user()->courses()->get(), 'progress'=>Auth::user()->courses()->first()->pivot->progress,
             'tutors' => User::where('privilege_id', '2')->get());
             return view("dashboard.mycourses")->with($data); 
              
@@ -80,5 +83,6 @@ class CentralDashboardController extends Controller
             $students = User::where('privilege_id', '1')->paginate(10);
             $tutor = Auth::user()->courses()->get();
             return view('dashboard.students')->with('students', $students)->with('tutor',$tutor);
+            
         }
 }

@@ -16,7 +16,6 @@ class PrivilegesController extends Controller
     {
         //
         $privileges = privilege::all();
-        dd($privileges);
         return view('privileges.index')->with('privileges', $privileges);
     }
 

@@ -29,20 +29,23 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
+                                        {{-- @foreach($progress as $movement) --}}
                                         @foreach($mycourses as $mycourse)
+                                        
                                         <tr>
                                             <td>
                                                 {{$mycourse->name}}
                                             </td>
                                             <td>
-                                                3 Months
+                                                {{$mycourse->duration}}
                                             </td>
                                             <td>
-                                                {{$mycourse->price}}
+                                                #{{$mycourse->price}}
                                             </td>
-                                             <td>
-                                                {{-- {{$mycourse->progress}}% --}}
+                                            <td>
+                                                {{$progress}}%
                                             </td>
+                                             
                                             @foreach($mycourses as $mycourse) 
                                                 @foreach($tutors as $tutor)
                                                 @foreach($tutor->courses as $teacher)
@@ -53,6 +56,10 @@
                                                 @endif
                                                 
                                             </td> 
+                                            {{-- <td>
+                                                {{$progress}}%
+                                            </td> --}}
+                                            {{-- @endforeach --}}
                                             @endforeach
                                             @endforeach
                                             @endforeach

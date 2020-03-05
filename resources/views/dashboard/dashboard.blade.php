@@ -16,14 +16,12 @@
                         </div>
                         <div class="col-7 col-md-8">
                             <div class="numbers">
-
-                                <p class="card-category">Currently enrolled in: <br>{{$latest->name}}</p>
-                                <p class="card-title">Progress: 15%</p>
-                            </div>
+                                <p class="card-category"><b>Currently enrolled in: <br>{{$latest->name}}</b></p>
+                                <p class="card-title">Progress: <b>{{$progress}}%</b></p>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer ">
+                <div class="card-footer">
 
                 </div>
             </div>
@@ -40,7 +38,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header ">
-                    <h5 class="card-title">Assignment for the week</h5>
+                    <h5 class="card-title"><b>Assignment for the week</b></h5>
                     <p class="card-category">Keep track of assignments given by your tutors and make sure to turn them in as early as possible</p>
                 </div>
                 
@@ -64,7 +62,7 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title">Courses Registered</h5>
+                    <h5 class="card-title"><b>Courses Registered</b></h5>
                     <p class="card-category">List of registered courses</p>
                     <ul>
                     @if(count($registered_courses)>0)
@@ -92,4 +90,3 @@
 
     </div>
     @endsection
-    
