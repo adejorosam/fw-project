@@ -39,9 +39,9 @@
                                         <th>
                                             Name
                                         </th>
-                                        <th>
+                                        {{-- <th>
                                             Duration
-                                        </th>
+                                        </th> --}}
                                         <th class="text"></th>
                                     </thead>
                                     <tbody>
@@ -54,9 +54,9 @@
                                             <td>
                                                 {{$program->name}} 
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 {{$program->duration}} 
-                                            </td>
+                                            </td> --}}
                                            
                                             <td class="text">
                                                 <a href="{{url('/program')}}/{{$program->id}}" class="btn btn-warning">VIEW PROGRAM</a>

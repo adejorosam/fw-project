@@ -16,17 +16,16 @@ class checkRole
      */
     public function handle($request, Closure $next)
     {
-        
+        $privilege = auth()->user()->privilege_id;
         if (Auth()->check() == false) {
             abort(404);
         }
 
         
-        if(auth()->user()->privilege_id == 3){
+        if($privilege == 3){
             return $next($request);
         }
 
-        
         else{
             abort(404);
         }

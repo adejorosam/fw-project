@@ -16,8 +16,8 @@
     {{Form::text('price',$courses->price, ['class' =>'form-control', 'placeholder' => "Course Price"])}}
 </div>
 <div class="form-group">
-    {{Form::label('content',  'Course Content')}}
-    {{Form::textarea('content', $courses->content, ['class' =>'form-control', 'placeholder' => "Course Content"])}}
+    {{Form::label('duration',  'Course Content')}}
+    {{Form::text('duration', $courses->content, ['class' =>'form-control', 'placeholder' => "Course Content"])}}
 </div>
 <div class="form-group">
 <label for="program_id">Pick a Program</label>

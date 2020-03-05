@@ -7,10 +7,10 @@
     {{Form::label('name',  'Course Name')}}
     {{Form::text('name','', ['class' =>'form-control', 'placeholder' => "Course Name"])}}
 </div>
-<div class="form-group">
+{{-- <div class="form-group">
     <label for="">File Select</label>
     <input required type="file" class="form-control" name="image">
-</div>
+</div> --}}
 <div class="form-group">
     {{Form::label('description',  'Course Description')}}
     {{Form::textarea('description','', ['class' =>'form-control', 'placeholder' => "Course Description"])}}
@@ -20,8 +20,8 @@
     {{Form::text('price','', ['class' =>'form-control', 'placeholder' => "Course Price"])}}
 </div>
 <div class="form-group">
-    {{Form::label('content',  'Course Content')}}
-    {{Form::textarea('content','', ['class' =>'form-control', 'placeholder' => "Course Content"])}}
+    {{Form::label('duration',  'Duration')}}
+    {{Form::text('duration','', ['class' =>'form-control', 'placeholder' => "Duration"])}}
 </div>
 <div class="form-group">
     <label for="program">Pick a Program</label>

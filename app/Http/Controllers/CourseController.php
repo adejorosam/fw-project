@@ -57,9 +57,9 @@ class CourseController extends Controller
         $this->validate($request,[
             'description' => 'required',
             'name' => 'required',
-            'content' => 'required',
+            'duration' => 'required',
             'program_id'=>'required',
-            'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            
         ]);
 
         //Create new post
@@ -67,21 +67,9 @@ class CourseController extends Controller
             $courses = new course;
             $courses->description = $request->input('description');
             $courses->name =  $request->input('name');
-            $courses->content = $request->input('content');
+            $courses->duration = $request->input('duration');
             $courses->program_id = $request->input('program_id');
             $courses->price= $request->input('price');
-            if($request->hasFile('image')){
-                $image = $request->image;
-                $ext = $image->getClientOriginalExtension();
-                $filename = uniqid().'.'.$ext;
-                $image->storeAs('public/pics',$filename);
-                // Storage::delete("public/pics/{$courses->image}");
-                $courses->image = $filename;
-                    
-            }else{
-                return redirect('/course')->with('error', 'Issues!');
-
-            }
             $courses->save();
             return redirect('/course')->with('success','Courses created');
             
@@ -131,7 +119,7 @@ class CourseController extends Controller
             'name' => 'required',
             'description' => 'required',
             'program_id' =>'required',
-            'content'=>'required',
+            'duration'=>'required',
             'price'=>'required'
 
         ]);
@@ -142,7 +130,7 @@ class CourseController extends Controller
             $courses = course::find($id);
             $courses->name = $request->input('name');
             $courses->description = $request->input('description');
-            $courses->content = $request->input('content');
+            $courses->duration = $request->input('duration');
             $courses->price = $request->input('price');
             $courses->program_id = $request->input('program_id');
             $courses->save();
