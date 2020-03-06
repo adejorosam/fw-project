@@ -12,11 +12,16 @@
             {{Form::label('email',  'Users Email')}}
             {{Form::text('email', $users->email, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
         </div>
-        <div class="form-group">
-            {{Form::label('suspend',  'Suspend')}}
-            {{Form::text('suspend', $users->suspend, ['class' =>'form-control', 'placeholder' => "Users Email"])}}
-        </div>
         
+        
+        <div class="form-group">
+            <label for="suspend">Status</label>
+            <select  name="suspend" id="suspend" class="form-control">
+                {{-- <option value="" disabled> Select </option> --}}
+                <option value="0" {{$users->suspend == '0' ? 'selected' : ''}}>Active</option>
+                <option value="1" {{$users->suspend == '1' ? 'selected' : ''}}>Inactive</option>
+            </select>
+        </div>
 
         <div class="form-group">
             <label for="privilege">Pick a privilege</label>
@@ -27,9 +32,6 @@
             </select>
         </div>
 
-       
-
-        
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}

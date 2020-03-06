@@ -45,7 +45,6 @@ class CentralDashboardController extends Controller
             $progress = Auth::user()->courses()->first()->pivot->progress;
             $assignments = count(Auth::user()->assignments()->get());
             
-            
             return view('dashboard.dashboard')->with('assignments',$assignments)->with('progress',$progress)->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
        
         }

@@ -59,10 +59,7 @@
             {{Form::label('name',  'Your Name')}}
             {{Form::text('name', Auth::user()->name, ['class' =>'form-control', 'placeholder' => "Your Name"])}}
         </div>
-        {{-- <div class="form-group">
-            <label for="">Upload an image</label>
-            <input required type="file" class="form-control"  name="image" Auth::user()->image>
-        </div> --}}
+       
         <div class="form-group">
             {{Form::label('email',  'E-mail Address')}}
             {{Form::text('email', Auth::user()->email, ['class' =>'form-control', 'placeholder' => "E-mail Address"])}}

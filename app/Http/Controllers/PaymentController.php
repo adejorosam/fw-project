@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\payment;
 use App\payment_status;
 use App\User;
+use App\course;
 use Paystack;
 
 class PaymentController extends Controller
@@ -64,6 +65,7 @@ class PaymentController extends Controller
     public function create()
     {
         //
+        $payment_statuses = PaymentStatus::all();
     }
 
     /**
@@ -120,5 +122,11 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function apply($id){
+        $course = course::find($id);
+        return view("apply")->with('course', $course);
+        
     }
 }

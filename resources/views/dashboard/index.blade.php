@@ -31,7 +31,7 @@
                     @else
                     <img src="/storage/pics/noimage.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     @endif
-                    <h3 class="media-heading">{{Auth::user()->name}} {{Auth::user()->last_name}}</h3>
+                    <h3 class="media-heading">{{Auth::user()->name}} </h3>
                     <ul class="list-group">
                         <li class="list-group-item">name: {{Auth::user()->name}}</li>
                         <li class="list-group-item">Email: {{Auth::user()->email}}</li>
