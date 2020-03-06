@@ -69,3 +69,5 @@ Route::patch('admin/{id}/edit', 'AdminController@update');
 Route::get('/dashboard', 'CentralDashboardController@index');
 Route::get('/userprofile', 'DashboardController@index');
 Route::get('/tutorprofile', 'TutorController@profile');
+Route::get('apply/{id}', 'PaymentController@apply');
+

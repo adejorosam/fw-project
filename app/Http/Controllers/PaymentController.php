@@ -126,7 +126,7 @@ class PaymentController extends Controller
 
     public function apply($id){
         $course = course::find($id);
-        return view("apply")->with('course', $course);
+        return view("pages.apply")->with('course', $course);
         
     }
 }
