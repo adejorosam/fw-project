@@ -70,4 +70,6 @@ Route::get('/dashboard', 'CentralDashboardController@index');
 Route::get('/userprofile', 'DashboardController@index');
 Route::get('/tutorprofile', 'TutorController@profile');
 Route::get('apply/{id}', 'PaymentController@apply');
+Route::get('submission', 'AdminController@submissions');
+Route::get('assignments', 'AdminController@tasks');
 

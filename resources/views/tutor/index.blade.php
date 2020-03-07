@@ -30,6 +30,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($tutors)>0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -66,6 +67,9 @@
                                         </tr>
                                         @endforeach
                                         @endforeach
+                                        @else
+                                                <p> No tutor </p>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

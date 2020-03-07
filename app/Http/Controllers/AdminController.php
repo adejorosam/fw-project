@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Assignment;
+use App\Task;
 
 
 class AdminController extends Controller
@@ -17,6 +19,16 @@ class AdminController extends Controller
     public function index(){
         
         return view('admin.profile');
+    }
+
+    public function submissions(){
+        $assignments = Assignment::all();
+        return view('admin.assignment')->with('assignments',$assignments);
+    }
+
+    public function tasks(){
+        $tasks = Task::all();
+        return view('admin.task')->with('tasks', $tasks);
     }
 
     public function dashboard(){

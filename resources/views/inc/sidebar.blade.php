@@ -64,6 +64,16 @@
                 <i class="fa fa-book mr-3"></i> Create Course
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{url('assignments')}}" class="nav-link font-italic py-3 mb-1 ">
+                <i class="fa fa-users mr-3 fa-fw"></i> View Assignments
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{url('submission')}}" class="nav-link font-italic py-3 mb-1 ">
+                <i class="fa fa-users mr-3 fa-fw"></i> View Submissions
+            </a>
+        </li>
 
         <li class="nav-item">
             <a href="#" class="nav-link font-italic py-3 mb-1 ">
