@@ -1,5 +1,3 @@
-
-
 @extends('layouts.admin-dashboard')
 @section('title', 'Available users | Findworka')
 @section('content')

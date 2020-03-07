@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('google_id')->nullable();
+            $table->string('google_id')->nullable();  
             $table->string('image')->nullable();
             $table->boolean('suspend')->default(false);
             $table->integer('privilege_id')->unsigned()->default(1);
