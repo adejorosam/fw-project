@@ -52,9 +52,10 @@ class TutorController extends Controller
             $tutor->password = \Hash::make($request['password']);
             $tutor->privilege_id = 2;
             $tutor->save();
+            $progress = 0;
             $course = $request->get('course');
-            $tutor->courses()->attach($course);
-            return redirect('/tutor')->with('success','User created');
+            $tutor->courses()->attach($course, ['progress'=> $progress]);
+            return redirect('/tutor')->with('success','Tutor created');
     }
 
     public function show($id)
