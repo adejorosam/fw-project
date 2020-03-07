@@ -43,7 +43,7 @@
                                                 #{{$mycourse->price}}
                                             </td>
                                             <td>
-                                                {{$progress}}%
+                                                {{Auth::user()->courses()->first()->pivot->progress}}%
                                             </td>
                                              
                                             @foreach($mycourses as $mycourse) 

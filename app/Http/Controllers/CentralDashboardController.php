@@ -42,10 +42,9 @@ class CentralDashboardController extends Controller
             $course_tasks = Task::where('course_name',$course_name)->get();
             $recent_task = end($course_tasks);
             $user = Auth::user()->courses();
-            $progress = Auth::user()->courses()->first()->pivot->progress;
             $assignments = count(Auth::user()->assignments()->get());
             
-            return view('dashboard.dashboard')->with('assignments',$assignments)->with('progress',$progress)->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
+            return view('dashboard.dashboard')->with('assignments',$assignments)->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);
        
         }
         elseif($privilege == 2){
@@ -67,7 +66,7 @@ class CentralDashboardController extends Controller
         }
 
         public function mycourses(){
-            $data = array('mycourses' => Auth::user()->courses()->get(), 'progress'=>Auth::user()->courses()->first()->pivot->progress,
+            $data = array('mycourses' => Auth::user()->courses()->get(),
             'tutors' => User::where('privilege_id', '2')->get());
             return view("dashboard.mycourses")->with($data); 
              

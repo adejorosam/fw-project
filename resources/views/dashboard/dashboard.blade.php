@@ -17,7 +17,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category"><b>Currently enrolled in: <br>{{$latest->name}}</b></p>
-                                <p class="card-title">Progress: <b>{{$progress}}%</b></p>
+                                <p class="card-title">Progress: <b>{{Auth::user()->courses()->first()->pivot->progress}}%</b></p>
                                 <p class="card-title">Total number of assignments turned in: <b>{{$assignments}}</b></p>
 
                         </div>
