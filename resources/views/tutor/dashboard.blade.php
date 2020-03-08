@@ -16,7 +16,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">{{$registered_course->name}}</p>
-                            <h3 class="card-title"> Total students : {{$num_students}}</h3>
+                            <h3 class="card-title"> Total students : {{count($tutorcourse->users()->get()) - 1}}</h3>
                             </div>
                         </div>
                     </div>

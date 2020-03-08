@@ -50,11 +50,9 @@ class CentralDashboardController extends Controller
         elseif($privilege == 2){
             $registered_courses = Auth::user()->courses()->get();
             $tutorcourse = Auth::user()->courses()->first();
-            $num_students = count($tutorcourse->users()->get()) - 1;
             $tasks = DB::table('tasks')->paginate(15);
            
-            
-            return view('tutor.dashboard')->with('registered_courses', $registered_courses)->with('tasks', $tasks)->with('num_students', $num_students);     
+            return view('tutor.dashboard')->with('tutorcourse', $tutorcourse)->with('registered_courses', $registered_courses)->with('tasks', $tasks);     
         }
         elseif ($privilege == 3) {
            

@@ -18,7 +18,8 @@
         "laravelcollective/html": "5.8.*",
         "santigarcor/laratrust": "5.2.*",
         "stripe/stripe-php": "^7.27",
-        "unicodeveloper/laravel-paystack": "^1.0"
+        "unicodeveloper/laravel-paystack": "^1.0",
+        "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

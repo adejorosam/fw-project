@@ -2,7 +2,6 @@
 @section('title')
     Post Assignment | Findworka
 @endsection
-
 @section('content')
 <div class="container">
     <h1>Create Assignment</h1>
@@ -21,12 +20,23 @@
             {{Form::text('title','', ['class' =>'form-control', 'placeholder' => "Title"])}}
         </div>
 
+        
         <div class="form-group">
-            {{Form::label('Content',  'Content')}}
-            {{Form::textarea('content','', ['class' =>'form-control', 'placeholder' => "Content"])}}
+            <label> Content </label>
+            <textarea style="height:250px;" class="form-control" id="article-ckeditor" name="content"></textarea>
         </div>
 
         {{Form::submit('Create', ['class'=>'btn btn-primary'])}}
-    {!! Form::close() !!}
+        {!! Form::close() !!}
     </div>
 @endsection
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector:'textarea',
+        width: 900,
+        height: 300
+    });
+</script>
+
+
