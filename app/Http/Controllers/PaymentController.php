@@ -25,11 +25,11 @@ class PaymentController extends Controller
     public function apply($id){
         $course = course::find($id);
         $payment_statuses = payment_status::all();
-        $courser = array('course_id' => $course->id, 'course_name'=>$course->name );
+        $course_info = array('course_id' => $course->id, 'course_name'=>$course->name );
        
-        $course_paid = json_encode($courser);
+        $course_paid = json_encode($course_info);
        
-        return view("pages.apply")->with('course_info',$course_info)->with('course', $course)->with('payment_statuses', $payment_statuses);
+        return view("pages.apply")->with('course_paid',$course_paid)->with('course', $course)->with('payment_statuses', $payment_statuses);
         
     }
 
