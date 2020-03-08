@@ -76,7 +76,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link font-italic py-3 mb-1 ">
+            <a href="payments" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-currency mr-3 fa-fw"></i> View Payments
             </a>
         </li>

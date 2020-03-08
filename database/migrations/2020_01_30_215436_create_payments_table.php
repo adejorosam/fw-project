@@ -15,8 +15,9 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            // $table->integer('payment_status_id')->unsigned()
-            // $table->foreign('payment_status_id')->references('id')->on('payments')->onDelete('cascade');
+            $table->string('transaction_id');
+            $table->integer('amount_paid');
+            $table->string('payment_purpose');
             $table->timestamps();
         });
     }

@@ -1,8 +1,8 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav" id="sidebar" style="background-color: black;">
     <div class="py-4 px-3 mb-4">
-        <a href="#">
-            <img alt="" class="img-fluid" src="images/logo.jpg">
+        <a href="/">
+            <img alt="/" class="img-fluid" src="images/logo.jpg">
         </a> 
     </div>
 
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{url('dashboard')}}" class="nav-link font-italic py-3 mb-1 ">
+                <a href="{{url('paymenthistory')}}" class="nav-link font-italic py-3 mb-1 ">
                     <i class="fa fa-address-card mr-3 fa-fw"></i> View Payment History
                 </a>
             </li> 
