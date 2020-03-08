@@ -8,6 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($payments)>0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -25,21 +26,25 @@
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
+                                        @foreach($payments as $payment)
                                         
                                         <tr>
                                             <td>
-                                                {{$payments->transaction_id}}
+                                                {{$payment->transaction_id}}
                                             </td>
                                             <td>
-                                                #{{$payments->amount_paid}}
+                                                #{{$payment->amount_paid}}
                                             </td>
                                             <td>
-                                                {{$payments->payment_purpose}}
+                                                {{$payment->payment_purpose}}
                                             </td>
                                             <td>
-                                                {{$payments->created_at}}
+                                                {{$payment->created_at}}
                                             </td>
-                                            
+                                            @endforeach
+                                            @else
+                                            <p>You have no payment history</p>
+                                        @endif
                                            
                                         </tr>   
                                     </tbody>

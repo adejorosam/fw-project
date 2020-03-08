@@ -34,9 +34,8 @@ class PaymentController extends Controller
     }
 
     public function payment_history(){
-        $userPayment = Auth::user()->courses()->first()->pivot->payment_id;
-        $payments = payment::find($userPayment);
-        
+        $userPayment = Auth::user()->id;
+        $payments = payment::where('user_id',$userPayment)->get();
         return view('payment.history')->with('payments', $payments);
     }
 
@@ -60,6 +59,7 @@ class PaymentController extends Controller
 
             $payment = new payment;
             $payment->transaction_id = $paymentDetails['data']['id'];
+            $payment->user_id = $user->id;
             $payment->amount_paid = $paymentDetails['data']['amount'];
             $payment->payment_purpose = $paymentDetails['data']['metadata']['course_name'];
             $payment->save();
