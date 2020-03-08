@@ -18,7 +18,7 @@
                                             Duration(Months)
                                         </th>
                                         <th>
-                                            Price
+                                            Price(Naira)
                                         </th>
                                         <th>
                                             Progress
@@ -40,7 +40,7 @@
                                                 {{$mycourse->duration}}
                                             </td>
                                             <td>
-                                                #{{$mycourse->price}}
+                                                {{$mycourse->price}}
                                             </td>
                                             <td>
                                                 {{Auth::user()->courses()->first()->pivot->progress}}%

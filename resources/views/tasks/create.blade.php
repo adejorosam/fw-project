@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Edit</h1>
+    <h1>Create Assignment</h1>
     {!! Form::open(['action'=>'TaskController@store', 'method' => 'POST','enctype'=>"multipart/form-data"]) !!}
         <div class="form-group">
             <label for="course">Course Name</label>
@@ -26,7 +26,7 @@
             {{Form::textarea('content','', ['class' =>'form-control', 'placeholder' => "Content"])}}
         </div>
 
-        {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
+        {{Form::submit('Create', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
     </div>
 @endsection
