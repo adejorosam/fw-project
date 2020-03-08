@@ -31,7 +31,7 @@
                                         @if($assignment->course_name == $course->name) --}}
                                         <tr>
                                             <td>
-                                            <a href="{{url('download')}}/{{$assignment->id}}">{{$assignment->name}}</a>
+                                            <a href="{{url('downloads')}}/{{$assignment->id}}">{{$assignment->name}}</a>
                                             </td>
                                             <td>
                                                 {{$assignment->course_name}} 
