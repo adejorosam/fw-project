@@ -35,7 +35,7 @@
         @foreach($tasks as $task)
         @foreach($registered_courses as $course)
         @if($task->course_name == $course->name)
-            <div class="card">
+            <div class="card" style="margin-left:15px;">
                 <div class="card-header ">
                     <h5 class="card-title">Assignments</h5>
                     <p class="card-category">Keep track of assignments you give to your students</p>
@@ -60,19 +60,19 @@
     @endforeach
 </div>
 @else
-        <div class="card" style="margin-left:15px;">
-            <div class="card-header">
-                <h5 class="card-title"><b>Assignment for the week</b></h5>
-                <p class="card-category"><p class="card-category">Keep track of assignments you give to your students</p></p>
-                <div class="card-body ">
-                    <p> You have not given an assignments yet. </p>
-                </div>
-                
+    <div class="card" style="margin-left:15px;">
+        <div class="card-header">
+            <h5 class="card-title"><b>Assignment for the week</b></h5>
+            <p class="card-category"><p class="card-category">Keep track of assignments you give to your students</p></p>
+            <div class="card-body ">
+                <p> You have not given an assignments yet. </p>
             </div>
-        @endif
-       
+            
     </div>
+@endif
+
+</div>
    
     
-    @endsection
+@endsection
     

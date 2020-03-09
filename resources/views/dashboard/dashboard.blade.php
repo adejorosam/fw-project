@@ -81,7 +81,7 @@
             @foreach($recent_task as $task)
             @foreach($currently_enrolled as $enrolled)
             @if($task->course_name == $enrolled->name)
-            <div class="card" style="margin-left:01px;">
+            <div class="card" style="margin-left:15px;">
                 <div class="card-header ">
                     <h5 class="card-title"><b>Assignment for the week</b></h5>
                     <p class="card-category">Keep track of assignments given by your tutors and make sure to turn them in as early as possible</p>
@@ -102,7 +102,7 @@
         @endforeach
         </div>
         @else
-        <div class="card" style="margin-left:01px;">
+        <div class="card" style="margin-left:15px;">
             <div class="card-header">
                 <h5 class="card-title"><b>Assignment for the week</b></h5>
                 <p class="card-category">Keep track of assignments given by your tutors and make sure to turn them in as early as possible</p>
