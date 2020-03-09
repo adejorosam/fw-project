@@ -16,14 +16,14 @@
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
     </div>
 </div>
-<div class="form-group">
-    <label for="course">Pick a course</label>
-    <select type="number" name="course" class="form-control" >
-        @foreach ($courses as $course)
-            <option value="{{$course->id}}">{{$course->name}}</option>
-        @endforeach
-    </select>
-</div>
+<div class="form-check form-check-inline"  >
+    @foreach($courses as $course)
+    
+        <input class="form-check-input" type="checkbox" name="courses[]" value="{{$course->id}}">
+        <label class="form-check-label" for="inlineCheckbox1">{{$course->name}}</label>
+    
+    @endforeach
+  </div>
 {{-- <div class="form-group">
     <label for="privilege">Pick a privilege</label>
     <select type="number" name="privilege_id" class="form-control" >
@@ -32,6 +32,7 @@
         @endforeach
     </select>
 </div> --}}
+<div style="margin-top:15px;">
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 </div>

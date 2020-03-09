@@ -19,10 +19,8 @@
                             <h3 class="card-title"> Total students : {{count($tutorcourse->users()->get()) - 1}}</h3>
                             </div>
                         </div>
+                        
                     </div>
-                </div>
-                <div class="card-footer ">
-
                 </div>
             </div>
         </div>
@@ -30,12 +28,13 @@
         @endforeach
 
     </div>
+    
     <div class="row">
-        {{-- @if(count($tasks) > 0) --}}
+        @if(count($tasks) > 0)
+        <div class="col-md-12">
         @foreach($tasks as $task)
         @foreach($registered_courses as $course)
         @if($task->course_name == $course->name)
-        <div class="col-md-12">
             <div class="card">
                 <div class="card-header ">
                     <h5 class="card-title">Assignments</h5>
@@ -55,10 +54,24 @@
                 </div>
             </div>
         </div>
-    </div>
+   
     @endif
     @endforeach
     @endforeach
+</div>
+@else
+        <div class="card" style="margin-left:15px;">
+            <div class="card-header">
+                <h5 class="card-title"><b>Assignment for the week</b></h5>
+                <p class="card-category"><p class="card-category">Keep track of assignments you give to your students</p></p>
+                <div class="card-body ">
+                    <p> You have not given an assignments yet. </p>
+                </div>
+                
+            </div>
+        @endif
+       
+    </div>
    
     
     @endsection

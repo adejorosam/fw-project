@@ -100,8 +100,6 @@
         @endif
         @endforeach
         @endforeach
-        {{-- @endif --}}
-        
         </div>
         @else
         <div class="card" style="margin-left:01px;">

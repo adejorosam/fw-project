@@ -52,8 +52,12 @@ class TutorController extends Controller
             $tutor->password = \Hash::make($request['password']);
             $tutor->privilege_id = 2;
             $tutor->save();
-            $course = $request->get('course');
-            $tutor->courses()->attach($course);
+            $courses = $request->get('courses');
+            // dd($courses);
+            foreach($courses as $course) {
+                $tutor->courses()->attach($course);
+            }
+            
             return redirect('/tutor')->with('success','Tutor created');
     }
 
