@@ -152,13 +152,7 @@ class AssignmentBoardController extends Controller
         //
     }
 
-    public function download($id){
-        $assignment = Assignment::find($id);
-        $file_name = $assignment->file;
-        $pathToFile = public_path('storage/assignments/'.$file_name);
-        return response()->download($pathToFile);
-       
-    }
+    
 
     
 }

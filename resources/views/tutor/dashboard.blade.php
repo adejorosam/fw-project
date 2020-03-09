@@ -16,7 +16,9 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">{{$registered_course->name}}</p>
-                            <h3 class="card-title"> Total students : {{count($tutorcourse->users()->get()) - 1}}</h3>
+                                <h3 class="card-title"> Total students : {{count($tutorcourse->users()->get()) - 1}}</h3>
+                                <a href={{url('students')}}> View Students </a>
+
                             </div>
                         </div>
                         
@@ -37,6 +39,7 @@
                             <div class="numbers">
                                 <p class="card-category"> Total Submissions </p>
                             <h3 class="card-title"> {{count($num_submissions)}}</h3>
+                            <a href={{url('assignment')}}> View Submissions </a>
                             </div>
                         </div>
                         
@@ -55,7 +58,7 @@
         @foreach($tasks as $task)
         @foreach($registered_courses as $course)
         @if($task->course_name == $course->name)
-            <div class="card" style="margin-left:15px;">
+            <div class="card" style="margin-left:0px;">
                 <div class="card-header ">
                     <h5 class="card-title">Assignments</h5>
                     <p class="card-category">Keep track of assignments you give to your students</p>
