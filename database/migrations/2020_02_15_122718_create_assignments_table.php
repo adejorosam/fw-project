@@ -17,6 +17,8 @@ class CreateAssignmentsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('course_name');
+            $table->integer('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade')->onUpdate('cascade');
             $table->string('file');
             $table->string('remarks')->nullable();
             $table->timestamps();

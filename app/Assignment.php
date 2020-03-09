@@ -11,6 +11,10 @@ class Assignment extends Model
         return $this->belongsToMany(User::class)->withPivot('course_id');
     }
 
+    public function task(){
+        return belongsTo("App\Task");
+    }
+
     // public function courses(){
     //     return $this->belongsToMany(course::class);
     // }

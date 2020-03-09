@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\course;
 use App\Task;
+use App\Assignment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -50,9 +51,14 @@ class CentralDashboardController extends Controller
         elseif($privilege == 2){
             $registered_courses = Auth::user()->courses()->get();
             $tutorcourse = Auth::user()->courses()->first();
-            $tasks = DB::table('tasks')->paginate(15);
-           
-            return view('tutor.dashboard')->with('tutorcourse', $tutorcourse)->with('registered_courses', $registered_courses)->with('tasks', $tasks);     
+            $tasks = Task::where('course_name', $tutorcourse['name'])->get();
+            $recent_task = end($tasks);
+            $task_id = '';
+            foreach($recent_task as $task)
+                $task_id = $task->id;
+            $num_submissions = Assignment::where('task_id', $task_id)->get();
+            
+            return view('tutor.dashboard')->with('num_submissions', $num_submissions)->with('tutorcourse', $tutorcourse)->with('registered_courses', $registered_courses)->with('tasks', $tasks);     
         }
         elseif ($privilege == 3) {
            

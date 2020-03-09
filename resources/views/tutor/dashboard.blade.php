@@ -24,6 +24,26 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 mt-n5">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-2 col-md-1">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="fa fa-code text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-0 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category"> Total Submissions </p>
+                            <h3 class="card-title"> {{count($num_submissions)}}</h3>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
        
         @endforeach
 

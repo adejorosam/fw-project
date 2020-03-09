@@ -26,7 +26,7 @@ class TaskController extends Controller
 
     public function store(Request $request){
         $this->validate($request,[
-            'title' => 'required',
+            'title' => 'required|unique:task',
             'content' => 'required',   
         ]);
         $task = new Task;

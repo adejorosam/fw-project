@@ -18,20 +18,11 @@
 </div>
 <div class="form-check form-check-inline"  >
     @foreach($courses as $course)
-    
         <input class="form-check-input" type="checkbox" name="courses[]" value="{{$course->id}}">
         <label class="form-check-label" for="inlineCheckbox1">{{$course->name}}</label>
-    
     @endforeach
-  </div>
-{{-- <div class="form-group">
-    <label for="privilege">Pick a privilege</label>
-    <select type="number" name="privilege_id" class="form-control" >
-        @foreach ($privileges as $privilege)
-            <option value="{{$privilege->id}}">{{$privilege->name}}</option>
-        @endforeach
-    </select>
-</div> --}}
+</div>
+
 <div style="margin-top:15px;">
 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}

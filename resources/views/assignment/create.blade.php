@@ -4,13 +4,8 @@
 @endsection
 @section('content')
 <div class="container">
-    {!! Form::open(['action'=>'AssignmentBoardController@store', 'method' => 'POST','enctype'=>"multipart/form-data"]) !!}
-    {{-- @foreach($courses as $course)
-    <div class="form-group">
-        {{Form::label('Course Name',  'Course Name')}}
-        {{Form::text('course_name',$course->name, ['class' =>'form-control', 'placeholder' => "Name"])}}
-        @endforeach  
-    </div> --}}
+{!! Form::open(['action'=>'AssignmentBoardController@store', 'method' => 'POST','enctype'=>"multipart/form-data"]) !!}
+    
     <div class="form-group">
         <label for="course">Course Name</label>
         <select type="number" name="course_name" class="form-control" >
@@ -24,6 +19,21 @@
         {{Form::label('name',  'Name')}}
         {{Form::text('name','', ['class' =>'form-control', 'placeholder' => "Fill in this way: example: Samson's week 1 assignment"])}}
     </div>
+
+    
+    <div class="form-group">
+        <label for="task_id">Task Name</label>
+        <select type="number" name="task_id" class="form-control">
+            @foreach($tasks as $task)
+            @foreach($recent_course as $course)
+            @if($task->course_name == $course->name)
+                <option value="{{$task->id}}">{{$task->title}}</option>
+            @endif
+            @endforeach
+            @endforeach
+        </select>  
+    </div>
+        
 
     <div class="form-group">
         <label for="file">Upload your assignment</label>

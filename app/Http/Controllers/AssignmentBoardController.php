@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\course;
 use App\Assignment;
+use App\Task;
 use Illuminate\Support\Facades\DB;
 
 class AssignmentBoardController extends Controller
@@ -43,7 +44,13 @@ class AssignmentBoardController extends Controller
     {
         
         $courses = Auth::user()->courses()->get();
-        return view("assignment.create")->with('courses', $courses);
+        $recent_course = end($courses);
+        $course_name = '';
+        foreach ($recent_course as $course) 
+            $course_name = $course->name;
+        $recent_task = Task::where('course_name',$course_name)->get();
+        $tasks = $recent_task;
+        return view("assignment.create")->with('courses', $courses)->with('tasks', $tasks)->with('recent_course', $recent_course);
     }
 
     /**
@@ -57,6 +64,7 @@ class AssignmentBoardController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'file' => 'required|max:2048',
+            'task_id' => 'required'
            
         ]);
 
@@ -72,6 +80,7 @@ class AssignmentBoardController extends Controller
         $assignment->name = $request->input('name');
         $assignment->course_name = $request->input('course_name');
         $assignment->remarks = "Yet to be graded";
+        $assignment->task_id = $request->input('task_id');
         $assignment->save();
         $user = Auth::user();
         $progress = Auth::user()->courses()->first()->pivot->progress;
