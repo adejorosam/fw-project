@@ -65,4 +65,12 @@ class TaskController extends Controller
             $task->save();
             return redirect('/task')->with('success','Successfully updated');
     }
+
+    public function destroy($id)
+    {
+        //
+        $task = Task::find($id);
+        $task->delete();
+        return redirect('/task')->with('success', 'Task successfully deleted');
+    }
 }
