@@ -98,4 +98,14 @@ class TutorController extends Controller
             $tutor->courses()->sync($course);
             return redirect('/tutor')->with('success','Successfully updated');
     }
+
+    public function disable($id)
+    {
+        $tutor = User::find($id);
+        $tutor->suspend = ($tutor->suspend == 0) ? 1 : 0;
+        $action = ($tutor->suspend == 1) ? "disabled" : "enabled";
+        $tutor->save();
+        return back()->with("success", "$tutor->name has been $action successfully");
+   
+    }
 }

@@ -70,4 +70,8 @@ Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
 Route::get('paymenthistory', 'PaymentController@payment_history');
 Route::get('payments', 'PaymentController@payments')->middleware('verifyRole');
+Route::get('/disable/user/{id}', 'UserController@disable')->name('users.disable');
+
+
+
 

@@ -61,9 +61,22 @@
                                             </td>
                                            
                                             <td class="text">
-                                                <a href="{{url('/tutor')}}/{{$tutor->id}}" class="btn btn-warning">VIEW TUTOR</a>
+                                                <a href="{{url('/tutor')}}/{{$tutor->id}}" class="btn btn-warning">View Tutor</a>
                                                 {{-- <a href="{{url('/admin')}}/{{$tutor->id}}/edit" class="btn btn-warning">EDIT tutor</a> --}}
                                             </td>
+                                            <td>
+                                                {{-- <div style="margin-right:70px;"> --}}
+                                                    @if($tutor->suspend == 0)
+                                                        {{-- <div> --}}
+                                                            <a style="margin-right:100px;" class=" btn btn-danger" href="{{route('users.disable', $tutor->id)}}" >Disable</a>
+                                                        {{-- </div> --}}
+                                                    @else
+                                                        {{-- <div> --}}
+                                                            <a class=" btn btn-primary" href="{{route('users.disable', $tutor->id)}}" >Enable</a>
+                                                        {{-- </div> --}}
+                                                    @endif
+                                                
+                                                </td>
                                         </tr>
                                         @endforeach
                                         @endforeach

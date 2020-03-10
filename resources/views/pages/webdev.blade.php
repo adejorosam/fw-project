@@ -5,25 +5,14 @@
         {{-- <div class="row">
             <h1 class="web-dev-intro justify-content-center">Web Development</h1>
         </div> --}}
-        <h1 class="web-dev-intro text-white font-weight-bold">Web Development</h1>
+        <h1 class="web-dev-intro text-black font-weight-bold">Web Development</h1>
     </header>
 
     <div class="container what-do-you-want-to-offer">
         <div class="row justify-content-center">
             <h3>What course do you want to offer?</h3>
         </div>
-        {{-- <div class="row justify-content-center">
-            <div class="dropdown mt-3">
-                <button class="btn btn-outline dropdown-toggle dropdown-form" type="button" data-toggle="dropdown">
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Select</a></li>
-                  <li><a class="dropdown-item" href="#">Front-end Development</a></li>
-                  <li><a class="dropdown-item" href="#">Back-end Development</a></li>
-                  <li><a class="dropdown-item" href="#">Full-stack Development</a></li>
-                </ul>
-              </div>
-        </div> --}}
+        
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
@@ -206,6 +195,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="card mt-3 card-shadow-web">
                         <p class="text-center lead p-3 font-weight-bold">Class</p>
@@ -239,7 +229,8 @@
                             <div class="col-md-6"><p class="lead text-center">300,000</p></div>
                         </div>
                     </div>
-                    <button class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</button>
+                    <a href="{{url('download/1')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
+                <a href="{{url('apply/5')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
                 </div>
             </div>
         </div>
@@ -342,7 +333,8 @@
                             <div class="col-md-6"><p class="lead text-center">300,000</p></div>
                         </div>
                     </div>
-                    <button class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</button>
+                    <a href="{{url('download/1')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
+                    <a href="{{url('apply/6')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
                 </div>
             </div>
         </div>

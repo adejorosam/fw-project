@@ -47,9 +47,22 @@
                                             </td>
                                            
                                             <td class="text">
-                                                <a href="{{url('/user')}}/{{$user->id}}" class="btn btn-warning">VIEW USER</a>
+                                                <a href="{{url('/user')}}/{{$user->id}}" class="btn btn-warning">View User</a>
                                                 {{-- <a href="{{url('/admin')}}/{{$user->id}}/edit" class="btn btn-warning">EDIT user</a> --}}
                                             </td>
+                                            <td>
+                                                {{-- <div style="margin-right:70px;"> --}}
+                                                    @if($user->suspend == 0)
+                                                        {{-- <div> --}}
+                                                            <a style="margin-right:100px;" class=" btn btn-danger" href="{{route('users.disable', $user->id)}}" >Disable</a>
+                                                        {{-- </div> --}}
+                                                    @else
+                                                        {{-- <div> --}}
+                                                            <a class=" btn btn-primary" href="{{route('users.disable', $user->id)}}" >Enable</a>
+                                                        {{-- </div> --}}
+                                                    @endif
+                                                
+                                                </td>
                                         </tr>
                                         @endforeach
                                         @endforeach

@@ -42,7 +42,8 @@ class CentralDashboardController extends Controller
                 $course_name = $latest->name;
             $course_tasks = Task::where('course_name',$course_name)->get();
             $recent_task = end($course_tasks);
-            $user = Auth::user()->courses();
+           
+            
             $assignments = count(Auth::user()->assignments()->get());
             
             return view('dashboard.dashboard')->with('assignments',$assignments)->with('currently_enrolled', $currently_enrolled)->with('recent_task',$recent_task)->with('registered_courses', $registered_courses)->with('tasks', $tasks);

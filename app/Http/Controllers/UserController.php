@@ -166,4 +166,14 @@ class UserController extends Controller
         return redirect('/user')->with('success', 'User successfully deleted');
 
     }
+
+    public function disable($id)
+    {
+        $user = User::find($id);
+        $user->suspend = ($user->suspend == 0) ? 1 : 0;
+        $action = ($user->suspend == 1) ? "disabled" : "enabled";
+        $user->save();
+        return back()->with("success", "$user->name has been $action successfully");
+   
+    }
 }

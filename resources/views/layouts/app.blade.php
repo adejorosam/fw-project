@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
     
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css-/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +27,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  
     
 </head>
 <style>
