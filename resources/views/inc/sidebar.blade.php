@@ -9,8 +9,13 @@
 
     <ul class="nav flex-column mb-0">
         <li class="nav-item">
-            <a href="/profile" class="nav-link font-italic py-3 mb-1 ">
+            <a href="/dashboard" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-th-large mr-3 fa-fw"></i> Dashboard
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/profile" class="nav-link font-italic py-3 mb-1 ">
+                <i class="fa fa-th-large mr-3 fa-fw"></i> My Profile
             </a>
         </li>
         <li class="nav-item">
@@ -69,15 +74,15 @@
                 <i class="fa fa-users mr-3 fa-fw"></i> View Assignments
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="{{url('submission')}}" class="nav-link font-italic py-3 mb-1 ">
                 <i class="fa fa-users mr-3 fa-fw"></i> View Submissions
             </a>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a href="payments" class="nav-link font-italic py-3 mb-1 ">
-                <i class="fa fa-currency mr-3 fa-fw"></i> View Payments
+                <i class="fa fa-credit-card mr-3 fa-fw"></i> View Payments
             </a>
         </li>
         

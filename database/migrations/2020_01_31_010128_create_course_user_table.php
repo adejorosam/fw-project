@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegisteredCoursesTable extends Migration
+class CreateCourseUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateRegisteredCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('registered_courses', function (Blueprint $table) {
+        Schema::create('course_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('course_id')->unsigned();
-            $table->integer('progress')->unsigned();
+            $table->integer('progress')->unsigned()->default(0);
             $table->integer('payment_id')->unsigned()->nullable();
-            $table->integer('payment_status_id')->unsigned()->nullable();
+            $table->string('payment_status')->nullable();
+            $table->integer('remaining_balance')->nullable();
+            $table->dateTime('repayment_date')->nullable();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('payment_status_id')->references('id')->on('payment_statuses')->onDelete('cascade')->onUpdate('cascade');
+           
             
             
             $table->timestamps();
@@ -36,6 +38,6 @@ class CreateRegisteredCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registered_courses');
+        Schema::dropIfExists('course_user');
     }
 }

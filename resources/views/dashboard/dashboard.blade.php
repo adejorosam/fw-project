@@ -1,119 +1,94 @@
 @extends('layouts.user-dashboard')
 @section('content')
-<div class="container-fluid mt-5">
-    <div class="row">
-        @if(count($registered_courses) > 0)
-        @foreach($currently_enrolled as $latest)
-       
-       
-        <div class="col-lg-5 col-md-5 col-sm-5 mt-n5">
-            <div class="card card-stats">
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-5 col-md-4">
-                            <div class="icon-big text-center icon-warning">
-                                <i class="fa fa-code text-success"></i>
-                            </div>
-                        </div>
-                        <div class="col-7 col-md-8">
-                            <div class="numbers">
-                                <p class="card-category"><b>Currently enrolled in: <br>{{$latest->name}}</b></p>
-                                <p class="card-title">Progress: <b>{{Auth::user()->courses()->first()->pivot->progress}}%</b></p>
-                                <p class="card-title">Total number of assignments turned in: <b>{{$assignments}}</b></p>
+<style>
+    .heightened{
+        height: 290px;
+        /* border-width: 500px; */
+    }
+    .margin-stuff{
+        margin-top: 25px;
+        
+    }    
+</style>
 
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        @endforeach
-        @else
-        <div class="col-lg-5 col-md-5 col-sm-5 mt-n5">
-            <div class="card card-stats">
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-5 col-md-4">
-                            <div class="icon-big text-center icon-warning">
-                                <i class="fa fa-code text-success"></i>
-                            </div>
-                        </div>
-                        <div class="col-7 col-md-8">
-                            <div class="numbers">
-                                <p> You are yet to register for a course </p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+
+
+<div class="row justify-content-center dash-row margin-stuff">
+@if(count($registered_courses)>0)
+@foreach($currently_enrolled as $latest)
+<div class="col-md-3 bg-white shadown-lg mr-5 my-2  border rounded-custom heightened"> 
+    <i class="fa fa-graduation-cap mr-3 fa-fw"></i>
+    <h3> Course Management</h3>
+    <p>Course Name: <b>{{$latest->name}}</b></p>
+    @foreach($mycourses as $mycourse) 
+    @foreach($tutors as $tutor)
+    @foreach($tutor->courses as $teacher)
+    <td> 
+        @if($teacher->id == $mycourse['id'])
+        <p class="card-title">Tutor: <b>{{$tutor->name}}</b></p>
         @endif
-
-    </div>
-    {{-- <div class="row">
-        <div class="col-md-12">
-            <div class="card ">
-                <div class="card-header ">
-                    <h5 class="card-title"><b>Courses Registered</b></h5>
-                    <p class="card-category">List of registered courses</p>
-                    <ul>
-                    @if(count($registered_courses)>0)
-                    @foreach($registered_courses as $registered_course)
-                    
-                        <li>
-                            {{$registered_course->name}}
-                        </li>
-                   
-                    @endforeach
-                    </ul>
-                    @else
-                    <p> You haven't enrolled for a course yet </p>
-                    @endif
-                </div>
-            </div>
-        </div> --}}
+        
+    </td> 
+    @endforeach
+    @endforeach
+    @endforeach
+    <p class="card-title">Progress: <b>{{Auth::user()->courses()->first()->pivot->progress}}%</b></p>
+    <p><a href="{{url('/mycourses')}}"> View All Courses </a></p>
+</div>
+@endforeach
+@else
+<div class="col-md-3 bg-white shadown-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-graduation-cap mr-3 fa-fw"></i>
+    <h3> Course Management</h3><br>
+    <p> You are yet to enrol for a course</p>
+<p> <b>Enrol for a course and start your journey</b> <a href="{{url('/')}}">here</a> </p>
+</div>
+@endif
 
 
-    </div>
-    <div class="row">
-        @if(count($recent_task) > 0)
-        <div class="col-md-12" >
-            @foreach($recent_task as $task)
-            @foreach($currently_enrolled as $enrolled)
-            @if($task->course_name == $enrolled->name)
-            <div class="card" style="margin-left:15px;">
-                <div class="card-header ">
-                    <h5 class="card-title"><b>Assignment for the week</b></h5>
-                    <p class="card-category">Keep track of assignments given by your tutors and make sure to turn them in as early as possible</p>
-                </div>
-                
-                <div class="card-body ">
-                    <h4><a href="{{url('tasks')}}/{{$task->id}}"> {{$task->title}} </a></h4>
-                </div>
-                <div class="card-footer ">
-                    <hr>
-                    <div class="stats">
-                        <i class="fa fa-history"></i> Updated 3 minutes ago
-                    </div>
-                </div>
-            </div>
-        @endif
-        @endforeach
-        @endforeach
-        </div>
-        @else
-        <div class="card" style="margin-left:15px;">
-            <div class="card-header">
-                <h5 class="card-title"><b>Assignment for the week</b></h5>
-                <p class="card-category">Keep track of assignments given by your tutors and make sure to turn them in as early as possible</p>
-                <div class="card-body ">
-                    <p> No assignments yet. </p>
-                </div>
-                
-            </div>
-        @endif
-       
-    </div>
+@if(count($payments) > 0)
+<div class="col-md-3 bg-white shadown-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-credit-card mr-3 fa-fw"></i>
+    <h3> Payment Management</h3>
+    @if(Auth::user()->courses()->first()->pivot->payment_status == 'fully-paid')
+    <p> You have no outstanding balance to pay</p>
+    @else
+    <p>Next Payment Date :<br><b>{{ \Carbon\Carbon::parse(Auth::user()->courses()->first()->pivot->repayment_date)->format('d/m/Y')}}</b></p>
+    <p> Remaining Balance(Naira) : <b> {{Auth::user()->courses()->first()->pivot->remaining_balance}}</b></p>
+    <p> <a href="{{url("/repay")}}">Pay your outstanding fees </a></p>
     
-    
-    @endsection
+    @endif
+    <p><a href="{{url('paymenthistory')}}"> View your payment history </a></p>
+</div>
+@else
+<div class="col-md-3 bg-white shadown-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-credit-card mr-3 fa-fw"></i>
+    <h3> Payment Management</h3><br>
+    <p> You are yet to make any payment</p>
+</div>
+@endif
+
+
+@if(count($recent_task) > 0)
+<div class="col-md-3 bg-white shadown-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-tasks mr-3 fa-fw"></i>
+    <h3> Assignment Management</h3>
+    <p> Latest Assignment :<br><a href="{{url('tasks')}}/{{end($recent_task)->id}}"><b>{{end($recent_task)->title}}</b></a></p>
+    <p> Deadline :<br> <b>{{ \Carbon\Carbon::parse((end($recent_task))->deadline)->format('d/m/Y')}}</b></p>
+    <p><a href="{{url('tasks')}}"> View All Assignments </a></p>
+</div>
+@else
+<div class="col-md-3 bg-white shadown-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-tasks mr-3 fa-fw"></i>
+    <h3> Assignment Management</h3><br>
+    <p>None for now</p>
+</div>
+@endif
+
+
+
+</div>
+</div>
+ 
+@endsection
+

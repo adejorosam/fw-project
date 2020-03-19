@@ -15,7 +15,7 @@
                                             Name
                                         </th>
                                         <th>
-                                            Remarks
+                                            Grade
                                         </th>
                                         <th>
                                             Course

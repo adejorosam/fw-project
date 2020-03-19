@@ -39,7 +39,7 @@
                                                 <a href="{{url('task')}}/{{$task->id}}">View</a>
                                             </td> --}}
                                             <td>
-                                                {{$task->created_at}} 
+                                                {{ \Carbon\Carbon::parse($task->created_at)->format('d/m/Y')}}
                                             </td>
                                             {{-- @endif
                                             @endforeach --}}

@@ -9,7 +9,7 @@ class course extends Model
     //
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot(['progress','payment_id','payment_status_id']);
+        return $this->belongsToMany(User::class)->withPivot(['progress','payment_id','payment_status','remaining_balance', 'repayment_date']);
     }
 
     public function program()

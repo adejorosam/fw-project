@@ -22,6 +22,12 @@
                                         <th>
                                             Date Posted 
                                         </th>
+                                        <th>
+                                            Deadline
+                                        </th>
+                                        <th>
+                                            Submissions
+                                        </th>
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
@@ -39,7 +45,14 @@
                                                 <a href="{{url('task')}}/{{$task->id}}">View</a>
                                             </td>
                                             <td>
-                                                {{$task->created_at}} 
+
+                                                {{ \Carbon\Carbon::parse($task->created_at)->format('d/m/Y')}}
+                                            </td>
+                                            <td>
+                                                {{ \Carbon\Carbon::parse($task->deadline)->format('d/m/Y')}}
+                                            </td>
+                                            <td>
+                                                {{count($task->assignments)}} 
                                             </td>
                                             {{-- @endif
                                             @endforeach --}}

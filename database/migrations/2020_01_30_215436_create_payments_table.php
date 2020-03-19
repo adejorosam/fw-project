@@ -19,6 +19,8 @@ class CreatePaymentsTable extends Migration
             $table->integer('user_id');
             $table->integer('amount_paid');
             $table->string('payment_purpose');
+            $table->integer('payment_status_id')->unsigned();
+            $table->foreign('payment_status_id')->references('id')->on('payment_statuses')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,6 +17,10 @@ class TutorController extends Controller
 
 
      */
+     public function __construct()
+    {
+        $this->middleware(['auth', 'suspend']);
+    }
 
     public function profile(){
         return view('tutor.profile');
@@ -24,7 +28,8 @@ class TutorController extends Controller
     public function index()
     {
         //
-        $tutors = User::where('privilege_id', '2')->paginate(10);
+        $tutors = User::where('privilege_id', '2')->get();
+        // dd($tutors);
         $courses = course::all();
         
         return view('tutor.index')->with('tutors', $tutors)->with('courses', $courses);

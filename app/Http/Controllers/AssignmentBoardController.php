@@ -8,6 +8,7 @@ use App\course;
 use App\Assignment;
 use App\Task;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AssignmentBoardController extends Controller
 {
@@ -16,23 +17,20 @@ class AssignmentBoardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'suspend', 'defaultPayment']);
     }
 
     public function index()
     {
-  
-        // $assignments = Assignment::get()->paginate(10);
-        
         $tutorcourse = Auth::user()->courses()->first();
-        // dd($tutorcourse['name']);
-
         $assignments = Assignment::where('course_name', $tutorcourse['name'])->get();
-        // dd($assignments);
-        
         return view('assignment.index')->with('assignments', $assignments)->with('tutorcourse', $tutorcourse);
+    }
+
+    public function latesubmission(){
+        return view('assignment.latesubmission');
     }
 
     /**
@@ -49,7 +47,12 @@ class AssignmentBoardController extends Controller
         foreach ($recent_course as $course) 
             $course_name = $course->name;
         $recent_task = Task::where('course_name',$course_name)->get();
-        $tasks = $recent_task;
+        $tasks = end($recent_task);
+        $time = Carbon::now();
+        foreach($tasks as $task)
+            if($task->deadline < $time)
+                return redirect('/latesubmission');
+           
         return view("assignment.create")->with('courses', $courses)->with('tasks', $tasks)->with('recent_course', $recent_course);
     }
 
@@ -69,8 +72,6 @@ class AssignmentBoardController extends Controller
         ]);
 
         $assignment = new Assignment;
-        // $user = new 
-        // dd($request['assignment']);
         if($request->hasFile('file')){
             $file = $request['file'];
             $filename = $file->getClientOriginalName();

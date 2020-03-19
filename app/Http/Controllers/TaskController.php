@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Task;
+use Carbon\Carbon;
 
 
 class TaskController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'suspend']);
+    }
     public function index(){
-        // $tasks = DB::table('tasks')->orderBy('created_at', 'desc')->get();
         $usercourse = Auth::user()->courses()->first();
         $tasks = Task::where('course_name', $usercourse['name'])->get();
         
@@ -20,21 +24,27 @@ class TaskController extends Controller
     }
 
     public function create(){
-        $courses = (Auth::user()->courses()->get());
+        $courses = Auth::user()->courses()->get();
+        // dd($courses);
         return view('tasks.create')->with('courses', $courses);
     }
 
     public function store(Request $request){
         $this->validate($request,[
-            'title' => 'required|unique:task',
-            'content' => 'required',   
+            'title' => 'required|unique:tasks',
+            'content' => 'required',
+            'course_name' => 'required',
+            'deadline' => 'required'  
         ]);
         $task = new Task;
         $task->title = $request->input('title');
         $task->content = $request->input('content');
         $task->course_name = $request->input('course_name');
+        $currentDate = Carbon::now();
+        $task->deadline = $currentDate->addDays($request->input('deadline'));
+        // $task->deadline = $deadline;
         $task->save();
-        return redirect('task')->with('success', 'Assignment successfuly posted!');
+        return redirect('task/create')->with('success', 'Assignment successfuly posted!');
         
 
     }
@@ -55,6 +65,7 @@ class TaskController extends Controller
             'title' => 'required',
             'course_name' => 'required',
             'content' => 'required',
+            'deadline' => 'required'
             
 
         ]);
@@ -62,6 +73,7 @@ class TaskController extends Controller
             $task->title = $request->input('title');
             $task->course_name = $request->input('course_name');
             $task->content = $request->input('content');
+            $task->deadline = $request->input('deadline');
             $task->save();
             return redirect('/task')->with('success','Successfully updated');
     }

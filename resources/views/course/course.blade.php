@@ -18,7 +18,7 @@
                                             Name
                                         </th>
                                         <th>
-                                            Amount
+                                            Amount(#)
                                         </th>
                                         <th class="text"></th>
                                     </thead>

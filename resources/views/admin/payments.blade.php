@@ -14,7 +14,7 @@
                                             Transaction ID
                                         </th>
                                         <th>
-                                            Amount Paid
+                                            Amount Paid(#)
                                         </th>
                                         <th>
                                             Payment Purpose
@@ -39,7 +39,7 @@
                                                 {{$payment->payment_purpose}} 
                                             </td>
                                             <td>
-                                                {{$payment->created_at}} 
+                                                {{ \Carbon\Carbon::parse($payment->created_at)->format('d/m/Y')}}
                                             </td>
                                             
                                             @endforeach

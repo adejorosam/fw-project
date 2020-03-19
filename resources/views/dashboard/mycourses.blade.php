@@ -18,18 +18,32 @@
                                             Duration(Months)
                                         </th>
                                         <th>
-                                            Price(Naira)
+                                            Price(#)
                                         </th>
                                         <th>
                                             Progress
                                         </th>
                                         <th>
-                                            Tutor
+                                            Remaining Balance(#)
                                         </th>
+                                        <th>
+                                            Payment Plan
+                                        </th>
+                                        <th>
+                                            Next Payment Date
+                                        </th>
+                                           
+                                        <th>
+                                            Action
+                                        </th>
+
+                                        {{-- <th>
+                                            Tutor
+                                        </th> --}}
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach($progress as $movement) --}}
+                                       
                                         @foreach($mycourses as $mycourse)
                                         
                                         <tr>
@@ -45,8 +59,32 @@
                                             <td>
                                                 {{Auth::user()->courses()->first()->pivot->progress}}%
                                             </td>
+                                            @if(Auth::user()->courses()->first()->pivot->remaining_balance)
+                                            <td>
+                                                {{Auth::user()->courses()->first()->pivot->remaining_balance}}
+                                            </td>
+                                            @else
+                                            <td>
+                                                <p>Fully paid</p>
+                                            </td>
+                                            @endif
+                                            <td>
+                                                {{Auth::user()->courses()->first()->pivot->payment_status}}
+                                            </td>
+                                            @if(Auth::user()->courses()->first()->pivot->repayment_date)
+                                            <td>
+                                                {{ \Carbon\Carbon::parse(Auth::user()->courses()->first()->pivot->repayment_date)->format('d/m/Y')}}
+                                            </td>
+                                            @else
+                                            <td>
+                                                <p>Fully paid</p>
+                                            </td>
+                                            @endif
+                                            <td> 
+                                                <a href="{{url('/repay')}}"> Pay your remaining balance </a>
+                                            </td>
                                              
-                                            @foreach($mycourses as $mycourse) 
+                                            {{-- @foreach($mycourses as $mycourse) 
                                                 @foreach($tutors as $tutor)
                                                 @foreach($tutor->courses as $teacher)
                                             <td> 
@@ -56,13 +94,9 @@
                                                 @endif
                                                 
                                             </td> 
-                                            {{-- <td>
-                                                {{$progress}}%
-                                            </td> --}}
-                                            {{-- @endforeach --}}
                                             @endforeach
                                             @endforeach
-                                            @endforeach
+                                            @endforeach --}}
                                             @endforeach
                                             @else
                                                 <p> You have not registered for a course yet </p>

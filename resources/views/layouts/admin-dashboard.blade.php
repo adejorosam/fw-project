@@ -12,10 +12,10 @@
     <title>Admin Dashboard</title>
 </head>
 
-<body>
+<body class='dash-container'>
     
     @include('inc.sidebar')
-    
+
 
     <!-- Page content holder -->
     <div class="page-content" id="content">
@@ -49,8 +49,8 @@
             </div>
         </div>
         
-        <div class="container-fluid banner">
-            <h1 class="text-white" style="font-weight: 300;">Hello, {{ Auth::user()->name }}</h1>
+        <div style="background-color: #DCDCDC;" class="container-fluid banner">
+            {{-- <h1 class="text-white" style="font-weight: 300;">Hello, {{ Auth::user()->name }}</h1> --}}
             {{-- <p class="text-white" style="font-weight: 300;">This is your dashboard</p> --}}
         </div>
 

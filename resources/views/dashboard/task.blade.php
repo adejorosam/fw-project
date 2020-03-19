@@ -19,6 +19,9 @@
                                         <th>
                                             Action 
                                         </th>
+                                        <th>
+                                            Deadline 
+                                        </th>
                                         <th class="text"> </th>
                                     </thead>
                                     <tbody>
@@ -34,6 +37,9 @@
                                             </td>
                                             <td>
                                                 <a href="{{url('tasks')}}/{{$task->id}}">View</a>
+                                            </td>
+                                            <td>
+                                                {{$task->deadline}} 
                                             </td>
                                             {{-- @endif
                                             @endforeach --}}

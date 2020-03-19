@@ -10,6 +10,22 @@
     background-color: #3A0842;
 }
 
+/* Styles for dashboard */
+.dash-row {
+    height: 120px;
+    width: 100%;
+}
+
+.rounded-custom {
+    border-radius: 15px;
+}
+
+.dash-container{
+    background-color: #DCDCDC;
+    height: 100%;
+    margin-top: 10px;
+}
+
 .page-content {
     width: calc(100% - 17rem);
     margin-left: 17rem;

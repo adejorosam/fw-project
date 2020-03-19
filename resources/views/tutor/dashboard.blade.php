@@ -1,5 +1,72 @@
 @extends('layouts.tutor-dashboard')
 @section('content')
+<style>
+    .heightened{
+        height: 250px;
+    }
+    .margin-stuff{
+        margin-top: 25px;
+    }
+</style>
+<div class="row justify-content-center dash-row margin-stuff">
+@foreach($registered_courses as $registered_course)
+<div class="col-md-3 bg-white shadow-lg mr-5 my-2  border rounded-custom heightened"> 
+    <i class="fa fa-graduation-cap mr-3 fa-fw"></i>
+    
+    {{-- <h1> Total number of student(s): {{count($students)}}</h1> --}}
+    <h3> Student Management</h3>
+    <p> Course Name : <br><b>{{$registered_course->name}}</b></p>
+    <p> Total students : <b>{{count($tutorcourse->users()->get()) - 1}}</b></p>
+    {{-- <i class="fa fa-user mr-3 fa-fw"></i> --}}
+    <p><a href="{{url('students')}}"> View All Students </a></p>
+</div>
+@endforeach
+
+@if(count($recent_tasks) > 0)
+<div class="col-md-3 bg-white shadow-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-tasks mr-3 fa-fw"></i>
+    <h3> Submission Management</h3>
+    <p> Recent Assignment :<br> <b>{{end($recent_tasks)->title}}</b></p>
+    <p> Total submissions : <b> {{count($num_submissions)}}</b></p>
+    <p><a href="{{url('assignment')}}"> View All Submissions </a></p>
+</div>
+@else
+<div class="col-md-3 bg-white shadow-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-tasks mr-3 fa-fw"></i>
+    <h3> Submission Management</h3>
+    <p> Recent submission(s) :<br> <b> Yet to give assignment</b></p>
+    <p> Total submissions : <b> {{count($num_submissions)}}</b></p>
+    <p><a href="{{url('assignment')}}"> View All Submissions </a></p>
+</div>
+@endif
+
+
+@if(count($recent_tasks) > 0)
+<div class="col-md-3 bg-white shadow-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-tasks mr-3 fa-fw"></i>
+    <h3> Assignment Management</h3>
+    <p> Recent submission(s) :<br> <b>{{end($recent_tasks)->title}}</b></p>
+    <p> Total assignments : <b> {{count($tasks)}}</b></p>
+    <p><a href="{{url('task')}}"> View All Assignments </a></p>
+</div>
+@else
+<div class="col-md-3 bg-white shadow-lg mr-5  my-2  border rounded-custom heightened">
+    <i class="fa fa-tasks mr-3 fa-fw"></i>
+    <h3> Assignment Management</h3>
+    <p> Recent Assignment :<br> <b>Yet to give assignment</b></p>
+    <p> Total assignments : <b> {{count($tasks)}}</b></p>
+    <p><a href="{{url('task')}}"> View All Assignments </a></p>
+</div>
+@endif
+
+
+
+</div>
+</div>
+ 
+@endsection
+{{--
+@section('content')
 <div class="container-fluid mt-5">
     <div class="row">
         @foreach($registered_courses as $registered_course)
@@ -53,11 +120,8 @@
     </div>
     
     <div class="row">
-        @if(count($tasks) > 0)
+        @if(count($recent_tasks) > 0)
         <div class="col-md-12">
-        @foreach($tasks as $task)
-        @foreach($registered_courses as $course)
-        @if($task->course_name == $course->name)
             <div class="card" style="margin-left:0px;">
                 <div class="card-header ">
                     <h5 class="card-title">Assignments</h5>
@@ -66,7 +130,7 @@
                 
                 <div class="card-body ">
                     <ul>
-                        <li>{{$task->title}}</li>
+                    <li>{{end($recent_tasks)->title}}</li>
                     </ul>
                 </div>
                 <div class="card-footer ">
@@ -78,9 +142,6 @@
             </div>
         </div>
    
-    @endif
-    @endforeach
-    @endforeach
 </div>
 @else
     <div class="card" style="margin-left:15px;">
@@ -98,4 +159,4 @@
    
     
 @endsection
-    
+     --}}

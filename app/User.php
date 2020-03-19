@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     public function courses(){
-        return $this->belongsToMany(course::class)->withPivot(['progress','payment_id','payment_status_id']);
+        return $this->belongsToMany(course::class)->withPivot(['progress','payment_id','payment_status','remaining_balance', 'repayment_date']);
     }
 
     public function payment_statuses(){

@@ -22,12 +22,28 @@
         </div>
         
         <div class="form-group">
-            {{Form::label('Content',  'Content')}}
-            {{Form::textarea('content',$task->content, ['class' =>'form-control', 'placeholder' => "Content"])}}
+            <label> Content </label>
+            <textarea style="height:250px;" name="content" class="form-control" >{{!!$task->content!!}} </textarea>
         </div>
+
+        <div class="form-group">
+            <label for="deadline"> Deadline </label>
+            <input style="width:200px; border-color:black;" type="date" id="deadline" name="deadline" value="{{date('Y-m-d', strtotime($task->deadline))}}" class="form-control">
+        </div>
+       
         
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Update', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
     </div>
 @endsection
+
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector:'textarea',
+        width: 900,
+        height: 300
+    });
+</script>
+

@@ -23,7 +23,12 @@
         
         <div class="form-group">
             <label> Content </label>
-            <textarea style="height:250px;" class="form-control" id="article-ckeditor" name="content"></textarea>
+            <textarea style="height:250px;" class="form-control" name="content"></textarea>
+        </div>
+
+        <div class="form-group">
+            {{Form::label('deadline',  'Deadline')}}
+            {!! Form::number('deadline','', ['class' => 'form-control', 'placeholder'=>'Example input: 7 which means 7 working days']) !!}
         </div>
 
         {{Form::submit('Create', ['class'=>'btn btn-primary'])}}

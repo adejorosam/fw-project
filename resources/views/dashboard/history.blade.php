@@ -15,13 +15,13 @@
                                             Transaction ID
                                         </th>
                                         <th>
-                                            Amount Paid
+                                            Amount Paid(Naira)
                                         </th>
                                         <th>
                                             Purpose of payment
                                         </th>
                                         <th>
-                                            Date & Time of payment
+                                            Payment date
                                         </th>
                                         <th class="text"> </th>
                                     </thead>
@@ -33,13 +33,13 @@
                                                 {{$payment->transaction_id}}
                                             </td>
                                             <td>
-                                                #{{$payment->amount_paid}}
+                                                {{$payment->amount_paid}}
                                             </td>
                                             <td>
                                                 {{$payment->payment_purpose}}
                                             </td>
                                             <td>
-                                                {{$payment->created_at}}
+                                                {{ \Carbon\Carbon::parse($payment->created_at)->format('d/m/Y')}}
                                             </td>
                                             @endforeach
                                             @else

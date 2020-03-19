@@ -24,13 +24,7 @@
     <div class="form-group">
         <label for="task_id">Task Name</label>
         <select type="number" name="task_id" class="form-control">
-            @foreach($tasks as $task)
-            @foreach($recent_course as $course)
-            @if($task->course_name == $course->name)
-                <option value="{{$task->id}}">{{$task->title}}</option>
-            @endif
-            @endforeach
-            @endforeach
+                <option value="{{end($tasks)->id}}">{{end($tasks)->title}}</option>
         </select>  
     </div>
         

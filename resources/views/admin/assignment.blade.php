@@ -38,7 +38,7 @@
                                                 <a href="{{url('assignment')}}/{{$assignment->id}}/edit">Grade</a>
                                             </td> --}}
                                             <td>
-                                                {{$assignment->created_at}}
+                                                {{ \Carbon\Carbon::parse($assignment->created_at)->format('d/m/Y')}}
                                              </td>
                                             {{-- @endif
                                             @endforeach --}}

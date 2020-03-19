@@ -68,9 +68,12 @@ Route::get('submission', 'AdminController@submissions');
 Route::get('assignments', 'AdminController@tasks');
 Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
+Route::get('/repay', 'PaymentController@repayment');
 Route::get('paymenthistory', 'PaymentController@payment_history');
 Route::get('payments', 'PaymentController@payments')->middleware('verifyRole');
 Route::get('/disable/user/{id}', 'UserController@disable')->name('users.disable');
+Route::get('latesubmission', 'AssignmentBoardController@latesubmission');
+Route::get('defaultpayment', 'PaymentController@defaultPayment');
 
 
 

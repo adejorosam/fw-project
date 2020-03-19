@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('course_name');
+            $table->dateTime('deadline');
             $table->timestamps();
         });
     }

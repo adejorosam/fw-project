@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verifyRole' => \App\Http\Middleware\checkRole::class,
         'suspend' => \App\Http\Middleware\isSuspended::class,
+        'defaultPayment'=> \App\Http\Middleware\paymentExpiration::class,
         
     ];
 
