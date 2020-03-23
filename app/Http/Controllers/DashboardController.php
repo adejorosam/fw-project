@@ -107,9 +107,6 @@ class DashboardController extends Controller
         $request->user()->fill([
             'password' => Hash::make($request->input('password'))
         ]);
-        // $request->user()->fill([
-        // 'password' => Hash::make($request->input('password'))];
-        // $user->password = $request->input('password');
         if($request->hasFile('image')){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
@@ -119,6 +116,7 @@ class DashboardController extends Controller
             $user->image = $filename;   
               
         }
+        
         $user->save();
         return redirect('/dashboard')->with('success', 'Profile successfully updated');
     }

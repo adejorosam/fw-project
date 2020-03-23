@@ -6,7 +6,7 @@
     <p><b>Title</b>:{{$task->title}}</p>
     <p><b>Course</b>:{{$task->course_name}}</p>
     <p><b>Content</b>:{!!$task->content!!}</p>
-    <p><b> Deadline</b>:{{$task->deadline}}</p>
+    <p><b> Deadline</b>:{{\Carbon\Carbon::parse($task->deadline)->format('d/m/Y')}}</p>
     
     <a class="btn btn-primary mb-3" href="{{url('assignment/create')}}" class="btn btn-default">Submit Assignment</a>
 {!!Form::close()!!}

@@ -74,7 +74,7 @@ Route::get('payments', 'PaymentController@payments')->middleware('verifyRole');
 Route::get('/disable/user/{id}', 'UserController@disable')->name('users.disable');
 Route::get('latesubmission', 'AssignmentBoardController@latesubmission');
 Route::get('defaultpayment', 'PaymentController@defaultPayment');
-
+Route::get('accessdenied', 'PagesController@access');
 
 
 

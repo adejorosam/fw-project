@@ -67,7 +67,7 @@ class PaymentController extends Controller
         // dd($paymentDetails);
         
         
-        if($paymentDetails['data']['status'] == 'success'){
+        if($paymentDetails['data']['status'] === 'success'){
             // dd($paymentDetails);
             //Handles repayment
             if($countCourse >= 1){

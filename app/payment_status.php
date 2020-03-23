@@ -12,7 +12,7 @@ class payment_status extends Model
     }
 
     public function payments(){
-        return $this->belongsToMany(payment::class);
+        return $this->hasMany(payment::class);
     }
 
 }

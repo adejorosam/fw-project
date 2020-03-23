@@ -19,6 +19,10 @@ class PagesController extends Controller
         return view("pages.about");
     }
 
+    public function access(){
+        return view("pages.access");
+    }
+
     public function contact(){
         return view("pages.contact");
     }

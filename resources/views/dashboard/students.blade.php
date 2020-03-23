@@ -7,7 +7,6 @@
                         <h5 class="card-title">Students</h5>
                     </div>
                     <div class="card-body">
-                        
                         <div class="table-responsive">
                             @if(count($students) > 0)
                                 <table class="table">
@@ -22,6 +21,9 @@
                                         </th>
                                         <th>
                                             E-mail
+                                        </th>
+                                        <th>
+                                            Progress(%)
                                         </th>
                                         <th>
                                             Course
@@ -45,6 +47,12 @@
                                             <td>
                                                 {{$student->email}} 
                                             </td>
+
+                                            <td>
+                                                <progress style="width:70px;" max="100" value="{{($student->courses->first()->pivot->progress)}}">
+                                                
+                                            </td>
+
                                             <td>
                                                 {{$course->name}} 
                                             </td>

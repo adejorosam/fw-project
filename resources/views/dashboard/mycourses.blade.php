@@ -57,7 +57,8 @@
                                                 {{$mycourse->price}}
                                             </td>
                                             <td>
-                                                {{Auth::user()->courses()->first()->pivot->progress}}%
+                                                <progress style="width:70px;" max="100" value="{{Auth::user()->courses()->first()->pivot->progress}}">
+                    
                                             </td>
                                             @if(Auth::user()->courses()->first()->pivot->remaining_balance)
                                             <td>

@@ -24,3 +24,11 @@
 {!! Form::close() !!}
 </div>
 @endsection
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector:'textarea',
+        width: 900,
+        height: 300
+    });
+</script>

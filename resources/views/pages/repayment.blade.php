@@ -6,10 +6,10 @@
       
         <p>
             <div>
-                <h3>Course Name :{{Auth::user()->courses()->first()['name']}}</h4>
+                <h3><b>Course Name</b> :{{Auth::user()->courses()->first()['name']}}</h4>
             </div>
             <div>
-              <p>Remaining Balance :{{Auth::user()->courses()->first()->pivot->remaining_balance}}</p>
+              <p><b>Remaining Balance</b> :{{Auth::user()->courses()->first()->pivot->remaining_balance}}</p>
             </div>
         </p>
   
@@ -26,6 +26,10 @@
     </div>
     @else
     <div>
+      <label for="amount">Enter the amount below:</label><br>
+      <input style="width:150px; border-color:black;" placeholder="Amount" type="number" id="customAmount"  name="amount">
+    </div><br>
+    <div>
       <input type="radio" id="amount" name="amount" value="{{Auth::user()->courses()->first()->pivot->remaining_balance}}00">
       <label for="amount"><b>Pay all</b> : <b>{{Auth::user()->courses()->first()->pivot->remaining_balance}}</b></label>
     </div>
@@ -33,13 +37,9 @@
       <input type="radio" id="amount" name="amount" value="{{Auth::user()->courses()->first()->pivot->remaining_balance/2}}00">
       <label for="amount"><b>Pay</b> : <b>{{Auth::user()->courses()->first()->pivot->remaining_balance/2}}</b></label>
     </div>
-    <div>
-      <label for="amount">More or less than the option? Enter below:</label><br>
-      <input style="width:150px; border-color:black;" placeholder="Amount" type="number" id="customAmount" value="" name="amount" min="10000">
-    </div>
     @endif
     <br>
-    <button class="btn btn-success btn-lg btn-block" type="submit" value="Pay Now!" onclick="getInputValue();">
+    <button class="btn btn-success btn-lg btn-block" type="submit" value="Pay Now!"  onclick="getInputValue()">
       <i class="fa fa-plus-circle "></i> Pay Now!
     </button>
 
@@ -53,10 +53,9 @@
       // Selecting the input element and get its value 
       var s = document.getElementById("customAmount");
       s.value = s.value * 100;
+      // console.log(s.value);
   }
 </script>
-
-
 
 
 

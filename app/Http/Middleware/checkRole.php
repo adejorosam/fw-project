@@ -18,7 +18,8 @@ class checkRole
     {
         $privilege = auth()->user()->privilege_id;
         if (Auth()->check() == false) {
-            abort(404);
+            // abort(403);
+            return redirect('accessdenied');
         }
 
         
@@ -27,7 +28,8 @@ class checkRole
         }
 
         else{
-            abort(404);
+            // abort(403);
+            return redirect('accessdenied');
         }
  }
     

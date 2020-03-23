@@ -20,6 +20,9 @@
                                             Payment Purpose
                                         </th>
                                         <th>
+                                            Payment mode
+                                        </th>
+                                        <th>
                                             Date and time of payment 
                                         </th>
                                         <th class="text"> </th>
@@ -37,6 +40,9 @@
                                             
                                             <td>
                                                 {{$payment->payment_purpose}} 
+                                            </td>
+                                            <td>
+                                                {{$payment->payment_status->name}} 
                                             </td>
                                             <td>
                                                 {{ \Carbon\Carbon::parse($payment->created_at)->format('d/m/Y')}}
