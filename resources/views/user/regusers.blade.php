@@ -8,6 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if(count($users) > 0)
                                 <table class="table">
                                     <thead class=" text-primary">
                                         <th>
@@ -66,6 +67,9 @@
                                         </tr>
                                         @endforeach
                                         @endforeach
+                                        @else
+                                            <p>No payments </p>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

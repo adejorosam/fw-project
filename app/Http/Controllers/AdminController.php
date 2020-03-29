@@ -7,10 +7,18 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Assignment;
 use App\Task;
+use DB;
 
 
 class AdminController extends Controller
+
+
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verifyRole'])->except('creates');
+    }
+
     public function admins(){
         $admins = User::where('privilege_id', 3)->paginate(10);
         return view('admin.admins')->with('admins', $admins);
@@ -42,6 +50,10 @@ class AdminController extends Controller
         return view('admin.create');
     }
 
+    public function creates(){
+        return view('admin.creates');
+    }
+
     public function store(Request $request)
     {
         //
@@ -56,8 +68,11 @@ class AdminController extends Controller
             $admin->email = $request->input('email');
             $admin->password = \Hash::make($request['password']);
             $admin->privilege_id = 3;
+            // dd($admin);
             $admin->save();
-            return redirect('/admin')->with('success','Admin created');
+            // return redirect('/creat')->with('success','Admin created');
+            return back()->with("success", "Admin has been successfully created");
+            // return back()->with("success", "$user->name has been $action successfully");
     }
 
     public function edit($id){
@@ -96,4 +111,19 @@ class AdminController extends Controller
         $admin->save();
         return redirect('/profile')->with('success', 'Profile successfully updated');
     }
+
+    public function searchpayments(Request $request){
+        // $user = Auth::user()->id;
+        $transaction_id = $request->get('transaction_id');
+        $course = $request->get('course');
+        $payments = DB::table('payments')->where('transaction_id', 'LIKE', '%'.$transaction_id.'%')->where('payment_purpose', 'LIKE','%'.$course.'%')->get();
+        if($payments){
+            return view('admin.payments')->with('payments', $payments);
+        }else{
+            return view('admin.payments')->with('success', 'No file found!');
+        }
+       
+
+    }
+    
 }

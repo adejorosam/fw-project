@@ -28,15 +28,13 @@ Route::get('/datascience', 'PagesController@datascience');
 Route::get('/webdev', 'PagesController@webdev');
 Route::get('/uiux', 'PagesController@uiux');
 // Route::get('/dashboard', 'AdminDashBoard@dashboard')->middleware('verifyRole');
-Route::resource('program','ProgramsController')->middleware('verifyRole');
+Route::resource('program','ProgramsController');
 Route::resource('payment_status', 'PaymentStatusController')->middleware('verifyRole');
-Route::resource('privilege', 'PrivilegesController')->middleware('verifyRole');
+Route::resource('privilege', 'PrivilegesController');
 Route::resource('course', 'CourseController')->middleware('verifyRole');
 Route::get('courses', 'CourseController@courses');
 Route::resource('/user', 'UserController')->middleware('verifyRole');
 Route::resource('/dashboards', 'DashboardController');
-Route::resource('role', 'RoleController')->middleware('verifyRole');
-Route::resource('permission', 'PermissionController')->middleware('verifyRole');
 Route::resource('assignment', 'AssignmentBoardController');
 Route::get('/redirect', 'SocialAuthGoogleController@redirect');
 Route::get('/callback', 'SocialAuthGoogleController@callback');
@@ -52,7 +50,9 @@ Route::get('/students', 'CentralDashboardController@students');
 Route::get('/regusers', 'UserController@regusers')->middleware('verifyRole');
 Route::get('downloads/{id}', 'DownloadsController@assignmentdownload');
 Route::get('/profile', 'AdminController@index')->middleware('verifyRole');
-Route::resource('/profile', 'AdminController')->middleware('verifyRole');
+Route::resource('/profile', 'AdminController');
+Route::get('admin/create', 'AdminController@creates');
+// Route::post('admin/create', 'AdminController@creates');
 Route::get('admin', 'AdminController@admins')->middleware('verifyRole');
 Route::resource('task', 'TaskController');
 Route::get('/tasks', 'DashboardController@tasks');
@@ -75,6 +75,8 @@ Route::get('/disable/user/{id}', 'UserController@disable')->name('users.disable'
 Route::get('latesubmission', 'AssignmentBoardController@latesubmission');
 Route::get('defaultpayment', 'PaymentController@defaultPayment');
 Route::get('accessdenied', 'PagesController@access');
+Route::get('/searchpayments', 'AdminController@searchpayments');
+
 
 
 

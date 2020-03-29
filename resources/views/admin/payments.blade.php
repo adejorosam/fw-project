@@ -1,6 +1,18 @@
 @extends('layouts.admin-dashboard')
 @section('content')
 <div class="container-fluid mt-5">
+    <div class="wrap">
+        <form action="/searchpayments" method="GET">
+        <h5> Filter Result</h5>
+        <div class="search form-group" >
+           <input type="text" name="transaction_id" class="searchTerm" placeholder="Transaction ID">
+           <input type="text" name="course" class="searchTerm" placeholder="Course">
+           <button type="submit" class="searchButton">
+             <i class="fa fa-search"></i>
+          </button>
+        </div>
+        </form>
+     </div>
     <div class="card card-register">
                     <div class="card-header">
                         <h5 class="card-title">PAYMENT HISTORY</h5>
@@ -50,7 +62,7 @@
                                             
                                             @endforeach
                                             @else
-                                            <p>No payments has been created yet</p>
+                                            <p>No payments </p>
                                         @endif
                                     </tbody>
                                 </table>
