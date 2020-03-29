@@ -15,7 +15,7 @@
 
     
   <!-- Bootstrap core CSS -->
-  <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ secure_asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link  href="https://use.fontawesome.com/50282e070b.js" rel="stylesheet">
