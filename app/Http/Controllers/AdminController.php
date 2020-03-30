@@ -65,8 +65,9 @@ class AdminController extends Controller
             $admin->name = $request->input('name');
             $admin->email = $request->input('email');
             $admin->password = \Hash::make($request['password']);
-            $admin->privilege_id = 3;
+            $privilege_id = 3;
             // dd($admin);
+            $admin->privilege_id = $privilege_id;
             $admin->save();
             // return redirect('/creat')->with('success','Admin created');
             return back()->with("success", "Admin has been successfully created");
