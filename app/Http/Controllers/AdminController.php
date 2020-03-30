@@ -14,10 +14,10 @@ class AdminController extends Controller
 
 
 {
-    public function __construct()
-    {
-        $this->middleware(['auth','verifyRole'])->except('creates');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth','verifyRole'])->except('creates');
+    // }
 
     public function admins(){
         $admins = User::where('privilege_id', 3)->paginate(10);
@@ -50,9 +50,7 @@ class AdminController extends Controller
         return view('admin.create');
     }
 
-    public function creates(){
-        return view('admin.creates');
-    }
+    
 
     public function store(Request $request)
     {
