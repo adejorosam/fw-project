@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Str;
 
-    // $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    // $host = $url["host"];
-    // $username = $url["user"];
-    // $password = $url["pass"];
-    // $database = substr($url["path"], 1);
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
 
 return [
 
@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -49,76 +49,51 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => [
-            'driver' => 'mysql',
-            'host' => env('DB_HOST', 'db4free.net'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'findworkademy'),
-            'username' => env('DB_USERNAME', 'fwacademy'),
-            'password' => env('DB_PASSWORD', 'babatunde1234'),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-            'strict' => true,
-            'engine' => null,
-        ],
-
         // 'mysql' => [
         //     'driver' => 'mysql',
-        //     'url' => env('DATABASE_URL'),
-        //     'host' => $host,
+        //     'host' => env('DB_HOST', 'db4free.net'),
         //     'port' => env('DB_PORT', '3306'),
-        //     'database' => $database,
-        //     'username' => $username,
-        //     'password' => $password,
+        //     'database' => env('DB_DATABASE', 'findworkademy'),
+        //     'username' => env('DB_USERNAME', 'fwacademy'),
+        //     'password' => env('DB_PASSWORD', 'babatunde1234'),
         //     'unix_socket' => env('DB_SOCKET', ''),
         //     'charset' => 'utf8',
         //     'collation' => 'utf8_unicode_ci',
         //     'prefix' => '',
-        //     'prefix_indexes' => true,
         //     'strict' => true,
-        //    'engine' => null,
-        //     'options' => extension_loaded('pdo_mysql') ? array_filter([
-        //         PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-        //     ]) : [],
-        // ],
-        // 'mysql' => [
-        //     'driver' => 'mysql',
-        //     'host' => 'db4free.net',
-        //     'port' => '3306',
-        //     'database' => fwacademy,
-        //     'username' => samosky,
-        //     'password' =>babatunde1234,
-        //     'charset' => 'utf8mb4',
-        //     'collation' => 'utf8mb4_unicode_ci',
-        //     'prefix' => '',
-        //     'strict' => false,
         //     'engine' => null,
-        //     'modes'=>[
-        //     'ONLY_FULL_GROUP_BY',
-        //     'STRICT_TRANS_TABLES',
-        //     'NO_ZERO_IN_DATE',
-        //     'NO_ZERO_DATE',
-        //     'ERROR_FOR_DIVISION_BY_ZERO',
-        //     'NO_ENGINE_SUBSTITUTION',
-        //     ],
         // ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
+        'mysql' => [
+            'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => $host,
+            'port' => env('DB_PORT', '3306'),
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
+            'strict' => true,
+           'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
+       
+        'pgsql' => array(
+        'driver'   => 'pgsql',
+        'host'     => $host,
+        'database' => $database,
+        'username' => $username,
+        'password' => $password,
+        'charset'  => 'utf8',
+        'prefix'   => '',
+        'schema'   => 'public',
+    ),
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
