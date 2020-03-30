@@ -61,14 +61,13 @@ class AdminController extends Controller
             'password' => 'required',
 
         ]);
+            $privilege = privilege::find(3);
             $admin = new User;
             $admin->name = $request->input('name');
             $admin->email = $request->input('email');
             $admin->password = \Hash::make($request['password']);
-            $privilege_id = 3;
-            // dd($admin);
-            $admin->privilege_id = $privilege_id;
-            $admin->save();
+            $privilege->users()->save($admin);
+            // $admin->save();
             // return redirect('/creat')->with('success','Admin created');
             return back()->with("success", "Admin has been successfully created");
             // return back()->with("success", "$user->name has been $action successfully");
