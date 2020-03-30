@@ -58,7 +58,7 @@ class CentralDashboardController extends Controller
             $tasks = Task::where('course_name', $tutorcourse['name'])->get();
             $recent_tasks = end($tasks);
             
-            $task_id = '';
+            $task_id = 0;
             foreach($recent_tasks as $task)
                 if(count($recent_tasks) > 0){
                     $task_id = $task->id;
