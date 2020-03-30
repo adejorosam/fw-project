@@ -17,10 +17,9 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->text('content');
             $table->integer('program_id')->unsigned();
-            $table->text('image')->nullable();
-            $table->text('price');
+            $table->integer('price');
+            $table->string('duration');
             $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
