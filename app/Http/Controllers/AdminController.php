@@ -15,10 +15,10 @@ class AdminController extends Controller
 
 
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth','verifyRole'])->except('creates');
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth','verifyRole'])->except('creates');
+    }
 
     public function admins(){
         $admins = User::where('privilege_id', 3)->paginate(10);
@@ -67,12 +67,10 @@ class AdminController extends Controller
             $admin->name = $request->input('name');
             $admin->email = $request->input('email');
             $admin->password = \Hash::make($request['password']);
-            
-            // $privilege->users()->save($admin);
-            // $admin->save();
-            // return redirect('/creat')->with('success','Admin created');
+            $admin->privilege_id = 3;
+            $admin->save();
             return back()->with("success", "Admin has been successfully created");
-            // return back()->with("success", "$user->name has been $action successfully");
+           
     }
 
     public function edit($id){
