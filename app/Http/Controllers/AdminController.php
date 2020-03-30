@@ -8,6 +8,7 @@ use App\User;
 use App\Assignment;
 use App\Task;
 use DB;
+use App\privilege;
 
 
 class AdminController extends Controller
