@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'privilege_id' => 1,
 
         ]);
         event(new NewCustomerHasRegisteredEvent($user));
