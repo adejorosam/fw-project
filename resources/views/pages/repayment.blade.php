@@ -19,7 +19,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}"> {{-- employ this in place of csrf_field only in laravel 5.0 --}}
     <input type="hidden" name="metadata" value="{{ json_encode($array = ['course_id' =>Auth::user()->courses()->first()['id'], 'course_name'=>Auth::user()->courses()->first()['name'], 'course_amount'=>Auth::user()->courses()->first()['price']]) }}">
     <p> Choose your preffered mode of payment(Remember you can only pay <b>thrice</b>) </p>
-    @if(count($payments) > 2)
+    @if(count($payments) >= 2)
     <div>
       <input type="radio" id="amount" name="amount" value="{{Auth::user()->courses()->first()->pivot->remaining_balance}}00">
       <label for="amount"><b>Pay all</b> : <b>{{Auth::user()->courses()->first()->pivot->remaining_balance}}</b></label>
