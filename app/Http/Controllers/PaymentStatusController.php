@@ -52,7 +52,7 @@ class PaymentStatusController extends Controller
             $payment_statuses->name = $request->input('name');
             $payment_statuses->save();
 
-            return redirect('/payment_statuses')->with('success','payment_statuses created');
+            return redirect('/payment_status')->with('success','payment_statuses created');
     }
 
     /**
@@ -102,7 +102,7 @@ class PaymentStatusController extends Controller
             $payment_statuses->name = $request->input('name');
            
 
-            return redirect('/payment_statuses')->with('success', ' Payment status successfully updated');
+            return redirect('/payment_status')->with('success', ' Payment status successfully updated');
 
 
     }
@@ -118,6 +118,6 @@ class PaymentStatusController extends Controller
         //
         $payment_statuses = payment_status::find($id);
         $payment_statuses->delete();
-        return redirect('/payment_statuses')->with('success', 'Payment status successfully deleted');
+        return redirect('/payment_status')->with('success', 'Payment status successfully deleted');
     }
 }
