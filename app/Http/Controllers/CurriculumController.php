@@ -50,7 +50,8 @@ class CurriculumController extends Controller
         $curriculum = new Curriculum;
         if($request->hasFile('file')){
             $file = $request->file;
-            $filename = $file->getClientOriginalName();
+            $ext = $file->getClientOriginalName();
+            $filename = uniqid().'.'.$ext;
             $file->storeAs('public/files',$filename);
             $curriculum->file = $filename;      
         }
