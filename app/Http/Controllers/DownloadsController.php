@@ -19,6 +19,7 @@ class DownloadsController extends Controller
       $file = Curriculum::find($id);
       $file_name = $file->file;
       $pathToFile = public_path('storage/files/'.$file_name);
+      dd($pathToFile);
       return response()->download($pathToFile);
   }
 
@@ -27,7 +28,7 @@ class DownloadsController extends Controller
         $file_name = $assignment->file;
         $pathToFile = public_path('storage/assignments/'.$file_name);
         return response()->download($pathToFile);
-      
+
     }
   
 
