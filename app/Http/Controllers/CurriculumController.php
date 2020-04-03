@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -52,7 +51,10 @@ class CurriculumController extends Controller
             $file = $request->file;
             $ext = $file->getClientOriginalName();
             $filename = uniqid().'.'.$ext;
-            $file->storeAs('public/files',$filename);
+            $filePath = 'files/' . $filename;
+            Storage::disk('s3')->put($filePath, file_get_contents($file));
+            // $file->storeAs('public/files',$filename);
+
             $curriculum->file = $filename;      
         }
         $curriculum->save();

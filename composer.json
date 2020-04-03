@@ -16,6 +16,7 @@
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "5.8.*",
+        "league/flysystem-aws-s3-v3": "^1.0",
         "unicodeveloper/laravel-paystack": "^1.0",
         "unisharp/laravel-ckeditor": "^4.7"
     },
