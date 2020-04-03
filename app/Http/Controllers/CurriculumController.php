@@ -50,7 +50,7 @@ class CurriculumController extends Controller
         $curriculum = new Curriculum;
         if($request->hasFile('file')){
             $file = $request->file;
-            $ext = $file->getClientOriginalName();
+            $ext = $file->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
             $filePath = 'files/' . $filename;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
