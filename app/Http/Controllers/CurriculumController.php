@@ -52,7 +52,7 @@ class CurriculumController extends Controller
             $file = $request->file;
             $ext = $file->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
-            $filePath = 'https://findwokademy.s3.us-east-2.amazonaws.com/files/5e871d8ac1e4a.pdf';
+            $filePath = 'files/' . $filename;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
             // $file->storeAs('public/files',$filename);
 
