@@ -87,7 +87,7 @@ class AssignmentBoardController extends Controller
         $progress = Auth::user()->courses()->first()->pivot->progress;
         $course_id =  Auth::user()->courses()->first();
         $assignment->users()->attach($user, ['course_id'=>$course_id['id']]);
-        $user->courses()->updateExistingPivot($course_id['id'],['progress'=>$progress + 8.33]);
+        $user->courses()->updateExistingPivot($course_id['id'],['progress'=>$progress + 8]);
         return redirect('/performance')->with('success','Assignment submitted');
        
     }
