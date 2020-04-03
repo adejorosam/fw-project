@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Curriculum;
 use App\Assignment;
+use Illuminate\Support\Facades\Storage;
 
 class DownloadsController extends Controller
 
