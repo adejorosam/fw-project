@@ -28,7 +28,7 @@ class DownloadsController extends Controller
         $file = Curriculum::find($id);
         $filename = $file->file;
         $pathToFile = Storage::disk('s3')->url($filename);
-        return response()->download($pathToFile);
+        return Storage::download()
     }
 
     // public function assignmentdownload($id){
@@ -38,7 +38,8 @@ class DownloadsController extends Controller
     //     return response()->download($pathToFile);
 
     // }
-  
+
+   
 
  
 }
