@@ -27,7 +27,7 @@ class DownloadsController extends Controller
     public function curriculumdownload($id){
         $file = Curriculum::find($id);
         $filename = $file->file;
-        $pathToFile = Storage::disk('s3')->path($filename);
+        $pathToFile = Storage::disk('s3')->url($filename);
         return response()->download($pathToFile);
     }
 
