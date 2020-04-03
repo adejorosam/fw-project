@@ -81,9 +81,11 @@
                                                 <p>Fully paid</p>
                                             </td>
                                             @endif
+                                            @if(Auth::user()->courses()->first()->remaining_balance != 0)
                                             <td> 
                                                 <a href="{{url('/repay')}}"> Pay your remaining balance </a>
                                             </td>
+                                            @endif
                                              
                                             {{-- @foreach($mycourses as $mycourse) 
                                                 @foreach($tutors as $tutor)
