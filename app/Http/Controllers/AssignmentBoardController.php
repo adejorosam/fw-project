@@ -9,6 +9,7 @@ use App\Assignment;
 use App\Task;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class AssignmentBoardController extends Controller
 {
