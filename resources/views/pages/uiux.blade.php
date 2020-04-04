@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{url('product')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
+                <a href="{{url('download/5')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
                 <a href="{{url('apply/3')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
             </div>
         </div>

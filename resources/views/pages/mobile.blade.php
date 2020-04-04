@@ -103,7 +103,7 @@
                             <div class="col-md-6"><p class="lead text-center">200,000</p></div>
                         </div>
                     </div>
-                    <a href="{{url('download/1')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
+                    <a href="{{url('download/5')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
                     <a href="{{url('apply/4')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
                 </div>
 

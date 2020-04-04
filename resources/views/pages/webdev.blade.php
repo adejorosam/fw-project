@@ -124,7 +124,7 @@
                             <div class="col-md-6"><p class="lead text-center">300,000</p></div>
                         </div>
                     </div>
-                    <a href="{{url('download/1')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
+                    <a href="{{url('download/5')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
                 <a href="{{url('apply/1')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
                 </div>
             </div>
@@ -229,7 +229,7 @@
                             <div class="col-md-6"><p class="lead text-center">300,000</p></div>
                         </div>
                     </div>
-                    <a href="{{url('download/1')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
+                    <a href="{{url('download/5')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:black">Download Syllabus!</a>
                 <a href="{{url('apply/5')}}" class="btn text-white btn-block mt-3 font-weight-bold" style="background-color:purple">Apply Now!</a>
                 </div>
             </div>
