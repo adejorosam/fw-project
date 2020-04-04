@@ -37,7 +37,7 @@ class DownloadsController extends Controller
         $file_name = $assignment->file;
         $pathToFile = public_path('storage/assignments/'.$file_name);
         // dd($pathToFile);
-        return Storage::download($pathToFile, $file_name, ['Content-Type' => 'application/pdf');
+        return Storage::download($pathToFile, $file_name, ['Content-Type' => 'application/pdf']);
 
     }
 
