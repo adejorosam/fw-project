@@ -35,7 +35,8 @@ class DownloadsController extends Controller
     public function assignmentdownload($id){
         $assignment = Assignment::find($id);
         $file_name = $assignment->file;
-        $pathToFile = public_path('storage/assignments/'.$file_name);
+        $pathToFile = asset('storage/assignments/'.$file_name);
+        dd($pathToFile);
         return Storage::download($pathToFile, $file_name);
 
     }
