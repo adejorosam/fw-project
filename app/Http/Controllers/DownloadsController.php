@@ -33,7 +33,7 @@ class DownloadsController extends Controller
     public function assignmentdownload($id){
         $assignment = Assignment::find($id);
         $file_name = $assignment->file;
-        return Storage::disk('s3')->download('assignments/' . $filename);
+        return Storage::disk('s3')->download('assignments/' . $file_name);
     }
 
    
