@@ -30,7 +30,8 @@ class DownloadsController extends Controller
         $pathToFile = Storage::disk('s3')->url($filename);
 
         // $pathToFile = 'https://findwokademy.s3.us-east-2.amazonaws.com/hello.txt';
-        return Storage::download($pathToFile, $filename);
+        // return Storage::download($pathToFile, $filename);
+        return Storage::disk('s3')->response('files/' . $filename);
     }
 
     public function assignmentdownload($id){

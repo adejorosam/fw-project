@@ -54,7 +54,7 @@ class CurriculumController extends Controller
             $filename = uniqid().'.'.$ext;
             $filePath = 'files/' . $filename;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
-            dd(Storage::disk('s3')->files());
+            // dd(Storage::disk('s3')->files());
             // $file->storeAs('public/files',$filename);
 
             $curriculum->file = $filename;      
