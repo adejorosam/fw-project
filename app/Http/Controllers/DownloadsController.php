@@ -27,17 +27,13 @@ class DownloadsController extends Controller
     public function curriculumdownload($id){
         $file = Curriculum::find($id);
         $filename = $file->file;
-        $pathToFile = Storage::disk('s3')->url($filename);
         return Storage::disk('s3')->download('files/' . $filename);
     }
 
     public function assignmentdownload($id){
         $assignment = Assignment::find($id);
         $file_name = $assignment->file;
-        $pathToFile = public_path('storage/assignments/'.$file_name);
-        // dd($pathToFile);
-        return Storage::download($pathToFile, $file_name, ['Content-Type' => 'application/pdf']);
-
+        return Storage::disk('s3')->download('assignments/' . $filename);
     }
 
    

@@ -78,13 +78,13 @@ class AssignmentBoardController extends Controller
             $filename = uniqid().'.'.$ext;
             $filePath = 'assignments/' . $filename;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
+            $assignment->file = $filename; 
                  
         }
         $assignment->name = $request->input('name');
         $assignment->course_name = $request->input('course_name');
         $assignment->remarks = "Yet to be graded";
         $assignment->task_id = $request->input('task_id');
-        $assignment->file = $filename; 
         $assignment->save();
         $user = Auth::user();
         $progress = Auth::user()->courses()->first()->pivot->progress;
