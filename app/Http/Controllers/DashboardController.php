@@ -111,8 +111,8 @@ class DashboardController extends Controller
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
-            $image->storeAs('public/uploads',$filename);
-            // Storage::delete("public/pics/{$courses->image}");
+            $filePath = 'images/'. $filename;
+            Storage::disk('s3')->put($filePath, file_get_contents($image));
             $user->image = $filename;   
               
         }
