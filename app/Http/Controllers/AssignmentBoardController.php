@@ -74,8 +74,12 @@ class AssignmentBoardController extends Controller
         $assignment = new Assignment;
         if($request->hasFile('file')){
             $file = $request['file'];
-            $filename = $file->getClientOriginalName();
-            $file->storeAs('public/assignments',$filename);
+            // $filename = $file->getClientOriginalName();
+            // $file->storeAs('public/assignments',$filename);
+            $ext = $file->getClientOriginalExtension();
+            $filename = uniqid().'.'.$ext;
+            $filePath = '/'.'assignments/' . $filename;
+            Storage::disk('s3')->put($filePath, file_get_contents($file));
             $assignment->file = $filename;      
         }
         $assignment->name = $request->input('name');
