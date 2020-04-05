@@ -27,7 +27,7 @@
     @else
     <div>
       <label for="amount">Enter the amount below:</label><br>
-      <input style="width:150px; border-color:black;" placeholder="Amount" type="number" id="customAmount"  name="amount" min="10000">
+      <input style="width:150px; border-color:black;" placeholder="Amount" type="number" id="customAmount"  name="amount">
     </div><br>
     <div>
       <input type="radio" id="amount" name="amount" value="{{Auth::user()->courses()->first()->pivot->remaining_balance}}00">

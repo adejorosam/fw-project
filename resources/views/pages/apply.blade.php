@@ -7,9 +7,10 @@
             <div>
                 <h3>Course Name :{{$course->name}}</h4>
             </div>
-            {{-- <div>
+            <div>
               <p>Course Price :{{$course->price}}</p>
-            </div> --}}
+            </div>
+
         </p>
       
         
