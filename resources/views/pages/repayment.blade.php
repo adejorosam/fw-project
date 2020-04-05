@@ -52,7 +52,13 @@
   function getInputValue(){
       // Selecting the input element and get its value 
       var s = document.getElementById("customAmount");
-      s.value = s.value * 100;
+      if(s < 10000){
+        s.value = s.value * 100;
+      }
+      else{
+        alert('You can only make a payment above #10,000');
+      }
+      
       // console.log(s.value);
   }
 </script>
