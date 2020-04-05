@@ -5,10 +5,10 @@
     <div class="span3 well">
         <center>
         <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
-        @if(Auth::user()->image)
-        <img src="images/{{Auth::user()->image}}"  name="aboutme" width="140" height="140" class="img-circle">
+        @if(Auth::user()->image != null)
+            <img src="https://findwokademy.s3.us-east-2.amazonaws.com/images/{{Auth::user()->image}}"  name="aboutme" width="140" height="140" class="img-circle">
         @else
-        <img src="/storage/uploads/noimage.jpg"  name="aboutme" width="140" height="140" class="img-circle">
+            <img src="/storage/uploads/noimage.jpg"  name="aboutme" width="140" height="140" class="img-circle">
         @endif
         </a>
         <h3>{{Auth::user()->name}} </h3>
