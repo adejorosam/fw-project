@@ -27,7 +27,7 @@
     @else
     <div>
       <label for="amount">Enter the amount below:</label><br>
-      <input style="width:150px; border-color:black;" placeholder="Amount" type="number" id="customAmount"  name="amount">
+      <input style="width:150px; border-color:black;" placeholder="Amount" type="number" id="customAmount"  name="amount" >
     </div><br>
     <div>
       <input type="radio" id="amount" name="amount" value="{{Auth::user()->courses()->first()->pivot->remaining_balance}}00">
@@ -52,13 +52,7 @@
   function getInputValue(){
       // Selecting the input element and get its value 
       var s = document.getElementById("customAmount");
-      if(s < 10000){
-        s.value = s.value * 100;
-      }
-      else{
-        alert('You can only make a payment above #10,000');
-      }
-      
+      s.value = s.value * 100;
       // console.log(s.value);
   }
 </script>
