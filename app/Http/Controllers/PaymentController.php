@@ -137,6 +137,7 @@ class PaymentController extends Controller
     
             // Handles first time full payment
             else{
+                // if($user != )
                 $user = Auth::user();
                 $payment = new payment;
                 $payment->transaction_id = $paymentDetails['data']['id'];
