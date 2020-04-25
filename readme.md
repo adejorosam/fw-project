@@ -11,7 +11,7 @@ A student management web app built as a capstone project at Findworka Academy.
 5. Helpful resources up for download by students.
 6. Tutor can set deadline for the assignment given and if student doesn't submit before the deadline, the opportunity for submission is closed
 
-### Installation
+## Installation
 ```
 git clone https://github.com/samson1998/fw-project.git
 
