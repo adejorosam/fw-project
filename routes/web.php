@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-#Auth::routes(['verify' => true]);
-Auth::routes();
+Auth::routes(['verify' => true]);
+// Auth::routes();
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
@@ -60,7 +60,7 @@ Route::get('tasks/{id}', 'DashboardController@task');
 Route::get('admin/{id}', 'AdminController@show');
 Route::get('admin/{id}/edit', 'AdminController@edit');
 Route::patch('admin/{id}/edit', 'AdminController@update');
-Route::get('/dashboard', 'CentralDashboardController@index');
+Route::get('/dashboard', 'CentralDashboardController@index')->middleware('verified');;
 Route::get('/userprofile', 'DashboardController@index');
 Route::get('/tutorprofile', 'TutorController@profile');
 Route::get('apply/{id}', 'PaymentController@apply');
