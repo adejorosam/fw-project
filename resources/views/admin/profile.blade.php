@@ -5,7 +5,7 @@
     <div class="span3 well">
         <center>
         <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
-        @if(Auth::user()->image != null)
+        @if(Auth::user()->image)
             <img src="{{Auth::user()->image}}"  name="aboutme" width="140" height="140" class="img-circle">
         @else
             <img src="/storage/uploads/noimage.jpg"  name="aboutme" width="140" height="140" class="img-circle">

@@ -60,7 +60,7 @@ Route::get('tasks/{id}', 'DashboardController@task');
 Route::get('admin/{id}', 'AdminController@show');
 Route::get('admin/{id}/edit', 'AdminController@edit');
 Route::patch('admin/{id}/edit', 'AdminController@update');
-Route::get('/dashboard', 'CentralDashboardController@index')->middleware('verified');;
+Route::get('/dashboard', 'CentralDashboardController@index')->middleware('verified');
 Route::get('/userprofile', 'DashboardController@index');
 Route::get('/tutorprofile', 'TutorController@profile');
 Route::get('apply/{id}', 'PaymentController@apply');

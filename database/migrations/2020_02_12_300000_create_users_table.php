@@ -26,11 +26,12 @@ class CreateUsersTable extends Migration
             $table->string('google_id')->nullable();  
             $table->string('image')->nullable();
             $table->boolean('suspend')->default(false);
-            $table->integer('privilege_id')->unsigned()->default(1);
-            $table->foreign('privilege_id')->references('id')->on('privileges')->onDelete('cascade');
+           
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
+            $table->integer('privilege_id')->unsigned()->default(1);
+            $table->foreign('privilege_id')->references('id')->on('privileges')->onDelete('cascade');
         });
     }
 
