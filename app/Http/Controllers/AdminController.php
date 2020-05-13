@@ -100,8 +100,7 @@ class AdminController extends Controller
         
         if($request->hasFile('image')){
             $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $filename = uniqid().'.'.$ext;
+            Cloudder::upload($image);
             $upload = Cloudder::getResult();
             $image = $upload['url'];
             $admin->image = $image;

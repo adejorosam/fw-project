@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use JD\Cloudder\Facades\Cloudder;
 
 
 class DashboardController extends Controller
@@ -110,9 +111,7 @@ class DashboardController extends Controller
         ]);
         if($request->hasFile('image')){
             $image = $request->file('image');
-            $ext = $image->getClientOriginalExtension();
-            $filename = uniqid().'.'.$ext;
-            $filePath = 'images/'. $filename;
+            Cloudder::upload($image);
             $upload = Cloudder::getResult();
             $image = $upload['url'];
             $user->image = $image;   

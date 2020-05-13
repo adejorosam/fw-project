@@ -27,7 +27,7 @@
                 <div class="modal-body">
                     <center>
                     @if(Auth::user()->image)
-                    <img src="/storage/uploads/{{Auth::user()->image}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <img src="{{Auth::user()->image}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     @else
                     <img src="/storage/pics/noimage.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     @endif
