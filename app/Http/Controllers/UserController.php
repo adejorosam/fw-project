@@ -7,7 +7,7 @@ use App\course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
-// use JD\Cloudder\Facades\Cloudder;
+use JD\Cloudder\Facades\Cloudder;
 
 
 class UserController extends Controller
