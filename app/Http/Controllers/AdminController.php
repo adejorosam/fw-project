@@ -105,7 +105,7 @@ class AdminController extends Controller
             $upload = Cloudder::getResult();
             $image = $upload['url'];
             $admin->image = $image;
-            $admin->image = $filename;   
+            // $admin->image = $filename;   
               
         }
         $admin->save();
