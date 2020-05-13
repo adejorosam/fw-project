@@ -9,7 +9,7 @@ use App\Assignment;
 use App\Task;
 use DB;
 use App\privilege;
-use JD\Cloudder\Facades\Cloudder;
+// use JD\Cloudder\Facades\Cloudder;
 
 
 class AdminController extends Controller
@@ -102,7 +102,7 @@ class AdminController extends Controller
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
-            $upload = Cloudder::getResult();
+            // $upload = Cloudder::getResult();
             $image = $upload['url'];
             $admin->image = $image;
             // $admin->image = $filename;   

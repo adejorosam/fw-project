@@ -113,7 +113,7 @@ class DashboardController extends Controller
             $ext = $image->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
             $filePath = 'images/'. $filename;
-            $upload = Cloudder::getResult();
+            // $upload = Cloudder::getResult();
             $image = $upload['url'];
             $user->image = $image;   
               
