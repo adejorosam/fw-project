@@ -101,9 +101,10 @@ class AdminController extends Controller
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $filename = uniqid().'.'.$ext;
-            $image->storeAs('public/uploads',$filename);
-            // Storage::delete("public/pics/{$courses->image}");
-            $admin->image = $filename;   
+            $upload = Cloudder::getResult();
+            $image = $upload['url'];
+            $admin->image = $image;
+            // $admin->image = $filename;   
               
         }
         $admin->save();
