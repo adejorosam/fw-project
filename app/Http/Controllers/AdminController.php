@@ -9,6 +9,7 @@ use App\Assignment;
 use App\Task;
 use DB;
 use App\privilege;
+use JD\Cloudder\Facades\Cloudder;
 
 
 class AdminController extends Controller
